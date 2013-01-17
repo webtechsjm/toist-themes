@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: Glossies
- * Plugin URI: 
+ * Plugin URI: http://torontoist.com
  * Description: Creates a custom, formatted feed for Flipboard (and eventually other magazine-style feed readers)
  * Version: 0.1
  * Author: Senning Luk
