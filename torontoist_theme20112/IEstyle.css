@@ -1,0 +1,12 @@
+/*   
+Theme Name: torontoist 2011
+Description: Torontoist IE-Specific Styles, 2011
+*/
+
+#sidebar section#picks li {height:350px;}
+
+
+#feature-story h3, #feature-story #feature-overlay {background:#000!important;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; 
+filter: alpha(opacity=70); 
+}
