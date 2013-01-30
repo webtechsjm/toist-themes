@@ -28,7 +28,7 @@ get_header(); ?>
 				<!---- Page header, display category title-->
 				<header class="page-header">
 					<h2 class="page-title"><?php
-						printf( __( 'Upcoming in %s', 'eventorganiser' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+						printf( __( 'Events: %s', 'eventorganiser' ), '<span class="tax-name">' . single_cat_title( '', false ) . '</span>' );
 					?></h2>
 
 				<!---- If the category has a description display it-->
@@ -95,11 +95,17 @@ get_header(); ?>
 										eo_get_venue_link()
 										);
 								?>
-								<?php if(eo_is_all_day()):?>
-									<!-- Event is an all day event -->
-									<li class="dates"><?php _e('All day','eventorganiser'); ?></li>
-								<?php else: ?>
-									<!-- Event is not an all day event - display time -->
+								<?php if($next = eo_get_next_occurrence('l, F j, Y; g:ia')):
+									if(eo_is_all_day()):?>
+									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_next_occurrence('l, F j, Y');?></li>
+									<?php else: ?>
+									<li class="dates"><?php echo $next; ?></li>
+									<?php endif;
+								elseif(eo_is_all_day()):
+									//All day event in the past
+									?>
+									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_schedule_last('l, F j, Y');?></li>
+								<?php else: //Brief past event?>
 									<li class="dates"><?php eo_the_start('l, F j, Y; g:ia'); ?></li>
 								<?php endif; ?>
 							</ul><!-- .entry-details -->

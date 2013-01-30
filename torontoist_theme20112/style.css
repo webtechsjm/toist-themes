@@ -402,17 +402,28 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article.type-event ul.entry-details li.price{margin: 1.625em 0 0; }
 #content .side-nav{border-top:1px dotted #ccc; border-bottom: 1px dotted #ccc; margin: .8125em 0;}
 #content .side-nav h4{color: #777; text-transform: uppercase; font-weight: 600;}
-#content .side-nav a{margin: 0 20px 0 0; font-weight:bold; text-transform:uppercase; font-size: 1.625em;}
+#content .side-nav a{margin: 0 2% 0 0; font-weight:bold; text-transform:uppercase; width: 23%; display:block; float:left;}
+#content .side-nav.street-site a.venue{display:none;}
+#content article.category-events-category .side-nav a{width: 29%; margin: 0 2%; text-align:center; font-size: 1.625em;}
 #content article.type-event ul.recur{font-weight:bold; margin:0;}
 body.post-type-archive-event #content h2.page-title,
 body.tax-event-venue #content h2.page-title,
 body.tax-event-category #content h2.page-title,
 body.tax-event-tag #content h2.page-title
 {
-	background: #faedec;
-	font-size: 3.25em;
+	background: #fb584f;
+	font-size: 3em;
+	line-height: 1.1;
 	margin: 0 0 0.5em;
+	padding: 10px 15px 15px;
+	text-align:left;
+	font-weight: 600;
+	border-bottom: 1px dotted #b2b2b2;
 }
+body.tax-event-category.term-sponsored-event #content h2.page-title{
+	background: #fcf090;
+}
+h2.page-title span.tax-name{display:block; font-family: 'Sanchez'; font-weight:normal; text-transform:none;}
 body.post-type-archive-event #content article.type-event ul.entry-details,
 body.tax-event-venue #content article.type-event ul.entry-details,
 body.tax-event-category #content article.type-event ul.entry-details,
@@ -549,7 +560,7 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 #sidebar section#facebook-widgets {width:300px; margin:0px auto;}
 
 #sidebar #wp-calendar{width: 100%; margin: 0 0 0.5em;}
-#sidebar #wp-calendar caption{font-weight:bold; text-transform: uppercase; font-size: 1.5em;}
+#sidebar #wp-calendar caption{font-weight:bold; font-family:"Sanchez"; font-size: 2em; line-height: 1; margin: 0 0 10px;}
 #sidebar #wp-calendar thead,
 #sidebar #wp-calendar tbody a,
 #sidebar #wp-calendar tfoot{color: #939393;}

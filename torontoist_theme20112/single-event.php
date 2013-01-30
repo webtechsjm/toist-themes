@@ -41,11 +41,12 @@ get_header(); ?>
 */
 							$categories = get_the_terms(get_the_ID(),'event-category');
 							$the_category = array_shift($categories);
-							$the_category = sprintf('<a href="%s">%s</a>',
+							
+							$category_link = sprintf('<a href="%s">%s</a>',
 								site_url()."/events/category/".$the_category->slug,
 								$the_category->name
 							);
-							printf("<h3>%s</h3>",$the_category);
+							printf("<h3>%s</h3>",$category_link);
 							
 						?>
 						<h2 class="entry-title"><?php the_title(); ?></h2>
@@ -57,7 +58,8 @@ get_header(); ?>
 									$venue_address = eo_get_venue_address();
 									$venue_addr = $venue_address['address'] ? $venue_address['address'] : '';
 									$venue_url = eo_get_venue_link();
-									if($venue_name && $venue_addr){$venue_text = '<li class="venue">%1$s (%2$s)</li>';
+									if($venue_name && $venue_addr && $venue_name != $venue_addr){
+										$venue_text = '<li class="venue">%1$s (%2$s)</li>';
 									}elseif($venue_name){$venue_text = '<li class="venue">%1$s</li>';
 									}elseif($venue_addr){$venue_text = '<li class="venue">%2$s</li>';
 									}else{$venue_text = false;}
@@ -169,7 +171,18 @@ get_header(); ?>
 											echo "</ul></li>";
 										//a regular recurrence
 										elseif($schedule['all_day']):
-											//
+											$first_occ = explode(' ',$first_start);
+											$sched_day = $first_occ[0];
+											$sched_time = "all day";
+											if($schedule_name):
+												printf('<li class="dates">%s, %s</li>',
+													$schedule_name,
+													$sched_time);
+											else:
+												printf('<li class="dates">%s, %s</li>',
+													$sched_day,
+													$sched_time);	
+											endif;
 										else:
 											//create our time block
 											$first_occ = explode(' ',$first_start);
@@ -313,20 +326,33 @@ get_header(); ?>
 					<div class="entry-content">
 						<!-- The content or the description of the event-->
 						<?php the_content(); ?>
-						<section class="side-nav">
+						<?php if(isset($venue_addr) && $venue_addr) echo eo_get_venue_map(); ?>
+						
+						<?php 
+							/* check whether the address is exactly the same as venue name */ 
+							if(isset($venue_name) && isset($venue_addr) && $venue_name == $venue_addr):
+								$workaround = "street-site";
+							endif;
+						?>
+						<section class="side-nav clearfix <?php echo $workaround; ?>">
 							<h4>What's happening:</h4>
-							<a href="<?php echo get_site_url().'/events/event/?ondate='.date('Y-m-d'); ?>">Today</a>
+							<a class="today" href="<?php echo get_site_url().'/events/event/?ondate='.date('Y-m-d'); ?>">Today</a>
 							<?php if(eo_get_next_occurrence()): ?>
-								<a href="<?php echo get_site_url().'/events/event/?ondate='.eo_get_next_occurrence('Y-m-d'); ?>">On <?php echo eo_get_next_occurrence('l, F j'); ?></a>
+								<a class="next-occurence" href="<?php echo get_site_url().'/events/event/?ondate='.eo_get_next_occurrence('Y-m-d'); ?>">On <?php echo eo_get_next_occurrence('l, F j'); ?></a>
 							<?php endif; ?>
-							<?php if(isset($the_category) && "" != $the_category){echo $the_category;}	?>
+							<?php if(isset($the_category) && "" != $the_category){
+								printf('<a class="category" href="%s">In %s</a>',
+									site_url()."/events/category/".$the_category->slug,
+									$the_category->name
+									);
+								
+								}	?>
 							<?php 
 								if(isset($venue_url) && isset($venue_name) 
 								&& is_string($venue_url) && is_string($venue_name)): ?>
-								<a href="<?php echo $venue_url; ?>"><?php echo "at ".$venue_name; ?></a>
+								<a class="venue" href="<?php echo $venue_url; ?>"><?php echo "at ".$venue_name; ?></a>
 							<?php endif; ?>
 						</section>
-						<?php if(isset($venue_addr) && $venue_addr) echo eo_get_venue_map(); ?>
 					</div><!-- .entry-content -->
 
 					<footer class="entry-meta">

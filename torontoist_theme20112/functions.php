@@ -220,4 +220,18 @@ function TOist_comment($comment, $args, $depth) {
 
          <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'])));
 }
+
+
+add_action('wp_enqueue_scripts','toist_add_styles');
+
+function toist_add_styles(){
+		wp_register_style('webfont-sanchez','http://fonts.googleapis.com/css?family=Sanchez:400,400italic');
+		wp_enqueue_style('webfont-sanchez');
+}
+
+add_filter('coauthors_search_authors_get_terms_args',function($args){
+	$args['number'] = 1000;
+	return $args;
+	});
+
 ?>

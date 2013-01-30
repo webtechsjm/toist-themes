@@ -32,7 +32,7 @@ get_header(); ?>
 					<h2 class="page-title"><?php
 					$ondate = $_GET['ondate'];
 					if(!preg_match('/[^0-9|-]/',$ondate)){
-						printf('Events on %s',
+						printf('Events: <span class="tax-name">%s</span>',
 							eo_format_date($ondate,'l, F j, Y')
 							);
 					}else{

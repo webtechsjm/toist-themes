@@ -28,7 +28,7 @@ get_header(); ?>
 				<!---- Page header, display venue title-->
 				<header class="page-header">	
 				<h2 class="page-title"><?php
-					printf( __( 'Upcoming events at %s', 'eventorganiser' ), '<span>' .eo_get_venue_name(). '</span>' );
+					printf( __( 'Events: %s', 'eventorganiser' ), '<span class="tax-name">' .eo_get_venue_name(). '</span>' );
 				?></h2>
 
 				<!-- Display the venue map. If you specify a class, ensure that class has height/width dimensions-->
@@ -85,13 +85,24 @@ get_header(); ?>
 
 							<ul class="entry-details">
 								<!-- If the event has a venue saved, display this-->
-								<?php if(eo_is_all_day()):?>
-									<!-- Event is an all day event -->
-									<li class="dates"><?php _e('All day','eventorganiser'); ?></li>
-								<?php else: ?>
-									<!-- Event is not an all day event - display time -->
+								<?php 
+								
+								if($next = eo_get_next_occurrence('l, F j, Y; g:ia')):
+									if(eo_is_all_day()):?>
+									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_next_occurrence('l, F j, Y');?></li>
+									<?php else: ?>
+									<li class="dates"><?php echo $next; ?></li>
+									<?php endif;
+								elseif(eo_is_all_day()):
+									//All day event in the past
+									?>
+									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_schedule_last('l, F j, Y');?></li>
+								<?php else: //Brief past event?>
 									<li class="dates"><?php eo_the_start('l, F j, Y; g:ia'); ?></li>
-								<?php endif; ?>
+								<?php endif;
+								
+								
+								?>
 							</ul><!-- .entry-details -->
 
 						</header><!-- .entry-header -->
