@@ -138,7 +138,6 @@
 		</div>
         </div>
 
-	<h5>Events</h5>
 	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
 	
  	<?php endif; ?>
