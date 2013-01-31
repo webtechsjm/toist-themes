@@ -27,7 +27,7 @@ function toist_quicktags( $args, $post_id )
 		
 		this.tagStart = '[eo_events ondate="'+ymd+'"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, email all of its details—as well as images, if you\'ve got any—to <a href="mailto:events@torontoist.com">events@torontoist.com</a>.</em>'
-			+'\n\n<section class="side-nav"><h4>Happening soon:</h4> <a href="'+events_url+ymdTomorrow+'">Tomorrow</a> <a href="'+events_url+ymdTwoDays+'">'+strTwoDays+'</a> <a href="'+events_url+ymdThreeDays+'">'+strThreeDays+'</a></section>';
+			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+ymdTomorrow+'">Tomorrow</a> <a href="'+events_url+ymdTwoDays+'">'+strTwoDays+'</a> <a href="'+events_url+ymdThreeDays+'">'+strThreeDays+'</a></div></section>';
 		
 		QTags.TagButton.prototype.callback.call(this,e,c,ed);
 	}
@@ -48,7 +48,7 @@ function toist_quicktags( $args, $post_id )
 		
 		this.tagStart = '[eo_events event_start_after="'+ymd+'" event_start_before="'+ymdTomorrow+'"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, email all of its details—as well as images, if you\'ve got any—to <a href="mailto:events@torontoist.com">events@torontoist.com</a>.</em>'
-			+'\n\n<section class="side-nav"><h4>Happening soon:</h4> <a href="'+events_url+ymdTwoDays+'">'+strTwoDays+'</a> <a href="'+events_url+ymdThreeDays+'">'+strThreeDays+'</a> <a href="'+events_url+ymdFourDays+'">'+strFourDays+'</a></section>';
+			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+ymdTwoDays+'">'+strTwoDays+'</a> <a href="'+events_url+ymdThreeDays+'">'+strThreeDays+'</a> <a href="'+events_url+ymdFourDays+'">'+strFourDays+'</a></div></section>';
 		
 		QTags.TagButton.prototype.callback.call(this,e,c,ed);
 	}	
