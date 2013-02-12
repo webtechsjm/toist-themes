@@ -539,18 +539,13 @@ function eo_delete_event_occurrences($post_id){
 						//get the start date from this pair
 						$count = count($end_days);
 						$end_days[] = $start_days[$count-1];
-						var_dump($count);
-						var_dump($start_days[$count-1]);
-						var_dump($end_days);
-						
-						exit;
 					endif;//end check on endDateTime
 				else://no end time set for this occurrence
 					$count = count($end_days);
 					$end_days[] = $start_days[$count];
 				endif;
 				
-				$workaround = 'irregular';//Not strictly a workaround.
+				$workaround = 'irregular';
 				break;
 		endswitch; //End $schedule switch
 		

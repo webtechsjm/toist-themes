@@ -157,6 +157,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
         switch ($("#HWSEventInput_Req").val()) {
         case "once":
         case "custom":
+            $("#irregularrepeat").siblings().show();
             $("#HWSEvent_freq").val("1");
             $(".reocurrence_row").hide();
             $("#dayofweekrepeat").show();
@@ -164,6 +165,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
             $(".reocurrence_row").attr("disabled", true);
             break;
         case "weekly":
+            $("#irregularrepeat").siblings().show();
             $(".reocurrence_row :input").attr("disabled", false);
             if ($("#HWSEvent_freq").val() > 1) {
                 $("#recpan").text(locale.weeks)
@@ -178,6 +180,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
             $("#irregularrepeat").hide();
             break;
         case "monthly":
+            $("#irregularrepeat").siblings().show();
             $(".reocurrence_row :input").attr("disabled", false);
             if ($("#HWSEvent_freq").val() > 1) {
                 $("#recpan").text(locale.months)
@@ -192,6 +195,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
             $("#irregularrepeat").hide();
             break;
         case "daily":
+            $("#irregularrepeat").siblings().show();
             $(".reocurrence_row :input").attr("disabled", false);
             $(".reocurrence_row").fadeIn(speed);
             if ($("#HWSEvent_freq").val() > 1) {
@@ -206,6 +210,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
             $("#irregularrepeat").hide();
             break;
         case "yearly":
+            $("#irregularrepeat").siblings().show();
             $(".reocurrence_row :input").attr("disabled", false);
             $(".reocurrence_row").fadeIn(speed);
             if ($("#HWSEvent_freq").val() > 1) {
@@ -222,6 +227,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
         case "irregular":
         	$(".reocurrence_row :input").attr("disabled", false);
             $(".reocurrence_row").fadeIn(speed);
+            $("#irregularrepeat").show();
             $("#irregularrepeat").siblings().hide();
         	break;
         }
@@ -635,6 +641,7 @@ $('.eo-add-new-venue-cancel').click(function(e){
 		repeat.children("td").children("input").removeClass("ui-state-disabled");
 		repeat.children("td").children("input").removeClass("ui-state-disabled");
 		repeat.removeAttr("id");
+		repeat.find("input").removeAttr("disabled");
 
 		irrep.on("click","a",function(){return false;});
 		irrep.on("click","#addIrregularEvent",function (event){
