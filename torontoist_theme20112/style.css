@@ -402,7 +402,8 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article.type-event ul.entry-details li.price{margin: 1.625em 0 0; }
 #content .side-nav{border-top:1px dotted #ccc; border-bottom: 1px dotted #ccc; margin: .8125em 0;}
 #content .side-nav h4{color: #777; text-transform: uppercase; font-weight: 600;}
-#content .side-nav a{margin: 0 2% 0 0; font-weight:bold; text-transform:uppercase; width: 23%; display:block; float:left;}
+#content .side-nav a{margin: 0 3% 0 0; font-weight:bold; text-transform:uppercase; width: 30%; display:block; float:left; font-size: 1.5em; text-align:center; line-height: 1.1;}
+#content .side-nav.street-site a{width: 47%; font-size: 1.625em;}
 #content .side-nav.street-site a.venue{display:none;}
 #content article.category-events-category .side-nav a{width: 29%; margin: 0 2%; text-align:center; font-size: 1.625em;}
 #content article.type-event ul.recur{font-weight:bold; margin:0;}

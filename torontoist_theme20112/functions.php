@@ -62,8 +62,8 @@ add_filter('pre_get_posts','myFilter');
     		'description'   => 'These are widgets for the sidebar.',
     		'before_widget' => '<div id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</div>',
-    		'before_title'  => '<h2>',
-    		'after_title'   => '</h2>'
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
     	));
     }
     

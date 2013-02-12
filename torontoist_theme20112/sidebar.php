@@ -128,7 +128,10 @@
 
         </section>
 
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
 
+	 		<?php endif; ?>
+	 	
       <div class="big-box">
 		<!-- TST_BB_Lower -->
 		<div id='div-gpt-ad-1343667556242-2' >
@@ -137,10 +140,6 @@
 		</script>
 		</div>
         </div>
-
-	<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
-	
- 	<?php endif; ?>
 	
             <h5>Social Media</h5>
 <!-- Reddit Widget

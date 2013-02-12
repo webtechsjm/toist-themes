@@ -25,7 +25,7 @@ get_header(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
-				<!---- Page header, display venue title-->
+				<!-- Page header, display venue title-->
 				<header class="page-header">	
 				<h2 class="page-title"><?php
 					printf( __( 'Events: %s', 'eventorganiser' ), '<span class="tax-name">' .eo_get_venue_name(). '</span>' );
@@ -35,8 +35,8 @@ get_header(); ?>
 				<?php echo eo_get_venue_map( eo_get_venue(), array('width'=>"100%") ); ?>
 			</header><!-- end header -->
 
-				<!---- Navigate between pages-->
-				<!---- In TwentyEleven theme this is done by twentyeleven_content_nav-->
+				<!-- Navigate between pages-->
+				<!-- In TwentyEleven theme this is done by twentyeleven_content_nav-->
 				<?php 
 				if ( $wp_query->max_num_pages > 1 ) : ?>
 					<nav id="nav-above">
@@ -51,7 +51,7 @@ get_header(); ?>
 						$venue_description =eo_get_venue_description();
 
 						if(!empty($venue_description)){?>
-							<!---- If the venue has a description display it-->
+							<!-- If the venue has a description display it-->
 							<div class="venue-archive-meta">
 								<strong><?php $addr = eo_get_venue_address(); echo $addr['address']; ?></strong> <?php echo $venue_description; ?>
 							</div>
@@ -112,9 +112,9 @@ get_header(); ?>
 
 					</article><!-- #post-<?php the_ID(); ?> -->
 
-    				<?php endwhile; ?><!----The Loop ends-->
+    				<?php endwhile; ?><!-- The Loop ends-->
 
-				<!---- Navigate between pages-->
+				<!-- Navigate between pages-->
 				<?php 
 				global $wp_query;
 				if ( $wp_query->max_num_pages > 1 ) : ?>
@@ -125,7 +125,7 @@ get_header(); ?>
 				<?php endif; ?>
 
 			<?php else : ?>
-				<!---- If there are no events -->
+				<!-- If there are no events -->
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
 						<h1 class="entry-title"><?php _e( 'Nothing Found', 'eventorganiser' ); ?></h1>

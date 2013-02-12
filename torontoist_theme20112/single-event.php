@@ -333,13 +333,11 @@ get_header(); ?>
 							if(isset($venue_name) && isset($venue_addr) && $venue_name == $venue_addr):
 								$workaround = "street-site";
 							endif;
+								
 						?>
 						<section class="side-nav clearfix <?php echo $workaround; ?>">
 							<h4>What's happening:</h4>
 							<a class="today" href="<?php echo get_site_url().'/events/event/?ondate='.date('Y-m-d'); ?>">Today</a>
-							<?php if(eo_get_next_occurrence()): ?>
-								<a class="next-occurence" href="<?php echo get_site_url().'/events/event/?ondate='.eo_get_next_occurrence('Y-m-d'); ?>">On <?php echo eo_get_next_occurrence('l, F j'); ?></a>
-							<?php endif; ?>
 							<?php if(isset($the_category) && "" != $the_category){
 								printf('<a class="category" href="%s">In %s</a>',
 									site_url()."/events/category/".$the_category->slug,
