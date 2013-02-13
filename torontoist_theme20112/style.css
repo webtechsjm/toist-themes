@@ -118,68 +118,7 @@ button {width: auto; overflow: visible;}
  }
 
 
-/* =START PRINT & MEDIA QUERY STYLES */
 
-@media print {
-  #content {width:100%; clear:left; float:left; padding-right:10px; font-size:12pt; border:none; } 
- }
-
-/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
-@media screen and (max-device-width: 480px) { 
-}
-
-@media all and (orientation: portrait) { }
-
-@media all and (orientation: landscape) { }
-
-@media screen and (max-width: 1040px) {
-  .slidedeck_frame {display:none;}
-  #feature-story {border-bottom:0px none !important;}
-}
-
-@media screen and (max-width: 960px) {
-  .weather {display:none;}
-  .global nav ul li.info2 {display:none;}
-  #sjm-network-footer {display:none !important;}
-  #content {width:60% !important;}
-  #sidebar {width:37% !important;}
-}
-
-@media screen and (max-width: 855px) {
-  #content {width:58% !important;}
-  #sidebar {width:39% !important;}
-  .global nav ul li.info {display:none;}
-}
-
-@media screen and (max-width: 750px) {
-  .logo h1 {display:none;}
-  #leaderboard {display:none;}
-  #sidebar {display:none;}
-  h1.print {display:inline !important; margin: 7px 0 7px !important;}
-  header.global h1 {width: 300px !important;}
-  header.global h1.print a {display:inline;}
-  #content {width:100% !important; border-right:0px !important;}
-  .tools {margin-top:30px !important;}
-  .longview {display:none;}
-  .mobileonly {display:inline !important;}
-  .mobile-ad {display:block !important;}
-  .mobilehide {display:none;}
-}
-
-@media only screen and (max-width: 585px) {
-  .tools {display:none;}
-  h1.print {display:block !important; float:none !important;}
-  header.global h1 {margin: 0px auto !important;} 
-  .global nav {margin: 0px 0 !important;}
-  h2 {font-size:16px !important;}
-  #content article .dek {font-size:14px !important;}
-  #content article p {font-size:12px}
-  .hub-sidebar {display:none;}
-  .hub-main {width:100% !important;}
-  .mobile-smallest {display:inline !important;}
-  .quote {font-size:24px !important; line-height:26px !important;}
-}
-/* =END PRINT & MEDIA QUERY STYLES */
 
 
 /* =START BASE STYLES*/
@@ -224,10 +163,10 @@ blockquote {font-size:14px; margin-top: 10px; margin-bottom: 10px; margin-left: 
 /* =START SITE HEADER */
 
  
-header.global h1 {float:left; margin:0 0 0px 0; width:610px;}
-header.global h1 a {display:block; width:540px; height:100px; text-indent:-9999em;}
-header.global h1.print {display:none;}
-header.global h1.wordmark {display:none;}
+header.global h3 {float:left; margin:0 0 0px 0; width:610px;}
+header.global h3 a {display:block; width:540px; height:100px; text-indent:-9999em;}
+header.global h3.print {display:none;}
+header.global h3.wordmark {display:none;}
 
 header.global .weather {max-width:170px; width:16.83%; float:left; font-size:10px; margin-top:21px; margin-right:65px;} 
 header.global .weather td, #header .weather th {padding:0 1px; text-transform:uppercase;}
@@ -269,15 +208,24 @@ section#breaking-news .skin-default dl.slidedeck {margin-bottom:10px;}
 /* =START FOOTER */
 footer.global {clear:both; text-align:center;}
 footer.global nav {border-bottom:1px solid #B2B2B2; border-top:3px double #B2B2B2;}
+#sjm-network-footer {clear:both; margin:20px 0px; display:table;}                            
+#sjm-network-footer ul {margin:0; padding:10px; /*width:980px;*/}
+#sjm-network-footer ul li:hover {opacity:1;}
+#sjm-network-footer ul li {list-style:inside none; float:left; padding-left: 30px; padding-top: 10px; opacity:0.6; min-height: 215px;}
+#sjm-network-footer ul li.last-item {margin:0;}            
+#sjm-network-footer ul li p {width: 200px;}
+#sjm-network-footer ul li p a {font-size:16px; line-height:1.4;font-family: 'Open Sans',Helvetica,Arial,sans-serif;font-weight: bold;color: #252525; text-decoration: none;}    
+#sjm-network-footer img.heading{width: 100%;}
+#sjm-network-footer img.small.heading{display:none;}
 
 
 /* =START ARTICLE & PAGE HEADERS */
-#content article h2 {font-size:30px; font-weight:bold; margin:15px 0; line-height:1.1;}
+#content article h2, #content article h1 {font-size:30px; font-weight:bold; margin:15px 0; line-height:1.1;}
 
 #content article h3 { color:#FFF; display:inline; font-size:10px; font-weight:bold; margin-bottom:8px; padding:2px 4px; text-transform:uppercase; letter-spacing:1px;}
 
-#content article h2 a:hover {color:#9E0B0F; text-decoration:none;}
-#content article h2 a {color:#252525;}
+#content article h2 a:hover, #content article h1 a:hover {color:#9E0B0F; text-decoration:none;}
+#content article h2 a, #content article h1 a {color:#252525;}
 #content article h3 a {color:#FFF;}
 
 #content article.category-news-category h3 {background:#1B7A31 !important;}
@@ -291,7 +239,7 @@ footer.global nav {border-bottom:1px solid #B2B2B2; border-top:3px double #B2B2B
 
 /* Torontoist Styles */
 
-.subhead {font-size:20px; font-weight:bold;}
+.subhead, h5 {font-size:20px; font-weight:bold;}
 hr.dottedgrey {display: block; height: 1px; border: 0; border-top: 1px dotted #CCCCCC; margin-top:5px; margin-bottom:5px; padding: 0;}
 hr.solidgrey {display: block; height: 1px; border: 0; border-top: 2px solid #CCCCCC; margin-top:5px; margin-bottom:5px; padding: 0;}
 hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #000000; margin-top:5px; margin-bottom:5px; padding: 0;}
@@ -375,7 +323,7 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 
 /* =START ARTICLE LIST STYLES (INDEX.PHP) */
 #content article.shortview header {float:right; max-width:425px; width:66.4%;}
-#content article.shortview header h2 {font-size:20px; margin:0 0 5px 0;}
+#content article.shortview header h2, #content article.shortview header h1 {font-size:20px; margin:0 0 5px 0;}
 #content article.shortview p {float:right; max-width:425px; width:64.4%; margin:5px 0 0 0;}
 #content article.shortview a.comments-link {margin:0 5; padding:0; border:none; font-size:10px;}
 #content article.shortview img {display:block;}
@@ -583,7 +531,7 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 
 /* =SEARCH RESULTS PAGE */
 .search-results #content article {border-bottom:1px dotted #777; font-size:14px; padding-bottom:24px;}
-.search-results #content article h2 {font-size:24px;}
+.search-results #content article h2, .search-results #content article h1 {font-size:24px;}
 .search-results #content article p {margin:10px 0 14px 0;}
 .search-results #content article footer {color:#777; overflow:hidden; line-height:1.2;}
 .search-results #content article footer a {color:#777;}
@@ -614,3 +562,68 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 #content ul.display-posts-listing li a.title:hover {color:#9E0B0F;text-decoration:none;}
 #content ul.display-posts-listing li .excerpt-dash {display:none;}
 #content ul.display-posts-listing li .date {color: #777777; display: block; float: right; font-size: 10px; text-transform: uppercase;margin-top:-20px;}
+
+/* =START PRINT & MEDIA QUERY STYLES */
+
+@media print {
+  #content {width:100%; clear:left; float:left; padding-right:10px; font-size:12pt; border:none; } 
+ }
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) { 
+}
+
+@media all and (orientation: portrait) { }
+
+@media all and (orientation: landscape) { }
+
+@media screen and (max-width: 1040px) {
+  .slidedeck_frame {display:none;}
+  #feature-story {border-bottom:0px none !important;}
+}
+
+@media screen and (max-width: 960px) {
+  .weather {display:none;}
+  .global nav ul li.info2 {display:none;}
+
+  #content {width:60% !important;}
+  #sidebar {width:37% !important;}
+}
+
+@media screen and (max-width: 855px) {
+  #content {width:58% !important;}
+  #sidebar {width:39% !important;}
+  .global nav ul li.info {display:none;}
+}
+
+@media screen and (max-width: 750px) {
+  .logo h3 {display:none;}
+  #leaderboard {display:none;}
+  #sidebar {display:none;}
+  h3.print {display:inline !important; margin: 7px 0 7px !important;}
+  header.global h3 {width: 300px !important;}
+  header.global h3.print a {display:inline;}
+  #content {width:100% !important; border-right:0px !important;}
+  .tools {margin-top:30px !important;}
+  .longview {display:none;}
+  .mobileonly {display:inline !important;}
+  .mobile-ad {display:block !important;}
+  .mobilehide {display:none;}
+}
+
+@media only screen and (max-width: 585px) {
+  .tools {display:none;}
+  h3.print {display:block !important; float:none !important;}
+  header.global h3 {margin: 0px auto !important;} 
+  .global nav {margin: 0px 0 !important;}
+  h2 {font-size:16px !important;}
+  #content article .dek {font-size:14px !important;}
+  #content article p {font-size:12px}
+  .hub-sidebar {display:none;}
+  .hub-main {width:100% !important;}
+  .mobile-smallest {display:inline !important;}
+  .quote {font-size:24px !important; line-height:26px !important;}
+  #sjm-network-footer img.small.heading{display:block;}
+  #sjm-network-footer img.heading {display:none;}
+}
+/* =END PRINT & MEDIA QUERY STYLES */

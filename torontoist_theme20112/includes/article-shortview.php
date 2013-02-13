@@ -4,7 +4,7 @@
 
          <?php comments_popup_link('', '1 Comment', '% Comments', 'comments-link', ''); ?>
        
-        <h2><a href="<?php the_permalink(); ?>">
+        <h1><a href="<?php the_permalink(); ?>">
             <?php if ($post_alt_title = get_post_meta($post->ID, 'alt_title', true)) {
                   echo $post_alt_title;
                   } 
@@ -12,7 +12,7 @@
                   the_title();
                   } 
             ?>
-        </a></h2>
+        </a></h1>
 
 
                             

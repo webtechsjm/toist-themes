@@ -20,9 +20,9 @@
                 }?>
             </h3>
             
-            <h2><a href="<?php the_permalink(); ?>">
+            <h1><a href="<?php the_permalink(); ?>">
                 <?php the_title(); ?>
-            </a></h2>
+            </a></h1>
         </header>    
     
         <p class="dek"><a href="<?php the_permalink(); ?>"><?php get_custom_field('dek', TRUE); ?></a></p>
@@ -40,6 +40,7 @@
         <?php global $more; $more = 0; ?>
 	<a href="<?php the_permalink(); ?>"><?php if ($post_alt_image = get_post_meta($post->ID, 'alt_image', true)) {
             echo $post_alt_image; } ?></a>
-        <?php the_content('<span class="morelink">Read More...</span>'); ?>
+        <?php //the_content('<span class="morelink">Read More...</span>'); ?>
+		<?php the_content('<span class="morelink">Keep reading: </span>' . get_the_title('', '', false)); ?>
 
 </article>

@@ -4,7 +4,7 @@
 	
 	<meta name="google-site-verification" content="">
 	<meta name="author" content="Torontoist">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 	<meta name="Copyright" content="Copyright Torontoist, Ink Truck Media, St. Joseph Media, 2011. All Rights Reserved.">
 <!--
     <meta name="viewport" content="width = 1040" />	
@@ -230,25 +230,7 @@ function juicemobilev2_ad()
 }
 
 ?>
- <!-- bg start-->
-<?php 
-if(is_page( 'put-name-here' )) { ?>
-	<style type="text/css">
-	body { background:#e9e8dd;}
-	
-	#add_left { position: absolute; margin-left:-250px; top:0px; width:235px; height:3000px; z-index:22; display:block; cursor:pointer; background: url(http://media.torontolife.com/img/0torontoist_wp/left.jpg) no-repeat; position:fixed}
-	#add_right{ position: absolute; margin-left:995px; top:0px; width:235px; height:3000px; z-index:22; display:block; cursor:pointer; background: url(http://media.torontolife.com/img/0torontoist_wp/right.jpg) no-repeat; position:fixed}
-
-	</style>
-    
-    <?php } else { ?>
-	<style type="text/css">
-	body { background-color: transparent;}
-	#add_left { visibility:hidden; position: absolute; left: -200%;}
-	#add_right{ visibility:hidden; position: absolute; left: -200%;}
-
-	</style>
-<?php } ?>
+<!-- bg start-->
 <!-- bg end-->
 </head>
 
@@ -258,12 +240,6 @@ if(is_page( 'put-name-here' )) { ?>
 <!--[if lte IE 8 ]>
 <noscript>Please note: You do not currently have JavaScript enabled. JavaScript is required for this website to be displayed correctly.</noscript>
 <![endif]-->
-<div id="add_left">
-<a href="http://www.moosehead.ca/" target="_blank"><img src="http://media.fashionmagazine.com/ads/add_trans.gif" width="196" height="3000;" border="0" /></a>
-</div>
-<div id="add_right">
-<a href="http://www.moosehead.ca/" target="_blank"><img src="http://media.fashionmagazine.com/ads/add_trans.gif" width="196" height="3000;" border="0" /></a>
-</div>
 <div class="mobile-ad">
 <?php
 echo juicemobilev2_ad();
@@ -287,14 +263,14 @@ echo juicemobilev2_ad();
                 
 <?php
         if (is_front_page()) {
-		echo "<div class=\"logo\"><h1 style=\"width:540px; height:100px; text-indent:-9999em; background:url('/wp-content/themes/torontoist_theme20112/images/torontoist-logos/primary/rotate.php') 0 0 no-repeat;\"><a href=\"/\">Torontoist</a></h1></div>";
+		echo "<div class=\"logo\"><h3 style=\"width:540px; height:100px; text-indent:-9999em; background:url('/wp-content/themes/torontoist_theme20112/images/torontoist-logos/primary/rotate.php') 0 0 no-repeat;\"><a href=\"/\">Torontoist</a></h3></div>";
 	}
 	else {
-		echo "<div class=\"logo\"><h1 style=\"width:540px; height:100px; text-indent:-9999em; background:url('/wp-content/themes/torontoist_theme20112/images/torontoist-logos/secondary/rotate.php') 0 0 no-repeat;\"><a href=\"/\">Torontoist</a></h1></div>";
+		echo "<div class=\"logo\"><h3 style=\"width:540px; height:100px; text-indent:-9999em; background:url('/wp-content/themes/torontoist_theme20112/images/torontoist-logos/secondary/rotate.php') 0 0 no-repeat;\"><a href=\"/\">Torontoist</a></h3></div>";
 	}
 ?>
 
-<h1 class="print"><a href="/"><img src="/wp-content/themes/torontoist_theme20112/images/torontoist-logos/small/rotate.php"></a></h1>
+<h3 class="print"><a href="/"><img src="/wp-content/themes/torontoist_theme20112/images/torontoist-logos/small/rotate.php"></a></h3>
 
                             
                 <div class="tools">
