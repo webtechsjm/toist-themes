@@ -296,7 +296,11 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article #related-posts {background:#f2f8fc; margin:24px auto; padding:10px; width:560px; overflow:hidden;}
 #content article #related-posts h4 {border-bottom:1px solid #b2b2b2; text-transform:uppercase; font-weight:600;}
 #content article #related-posts ul {margin:0;}
-#content article #related-posts ul li {list-style:none; float:left; width:115px; padding:10px; border-right:1px dotted #b2b2b2; font-size:12px; height:100px;}	        
+#content article #related-posts ul li {list-style:none; float:left; width:115px; padding:10px; border-right:1px dotted #b2b2b2; font-size:12px; height:100px;}	 
+/*#content article .display-posts-listing {font-size:12px;} 
+#content article .display-posts-listing .listing-item {width:150px;display:inline;float:left;}
+#content article .display-posts-listing .listing-item .title {width:150px;}*/
+#content article footer section#tag-related.related div {background: url("http://www.torontoist.com/wp-content/uploads/2013/02/read-more-148.png") no-repeat scroll left top transparent; color: white; float: left; font-size: 20px; height: 155px; padding-top: 100px; text-align: right; width: 148px; line-height: 1.4;text-transform:uppercase;font-weight: bold;font-family: 'Open Sans',Helvetica,Arial,sans-serif;}
 			        
 #content article footer .tag-list {border-top:1px solid #B2B2B2; text-transform:uppercase; color:#777; font-size:12px; font-weight:600; clear:both;}
 #content article footer .tools {padding:15px 0; text-transform:uppercase; font-size:12px; border-top:1px solid #B2B2B2; border-bottom:1px solid #B2B2B2; }
@@ -306,7 +310,7 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article section.related {margin-top:15px;}
 #content article section.related h4 {font-weight:600; text-transform:uppercase;}
 #content article section.related ul {margin:0;}
-#content article section.related ul li {list-style:outside none; float:left; width:100px; padding:11px; border-right:1px solid #EEEEEE; line-height:1.2; height:215px;}
+#content article section.related ul li {list-style:outside none; float:left; width:100px; padding:11px; border-right:1px solid #EEEEEE; line-height:1.2; height:215px; margin-top: 0; padding: 0 8px;}
 #content article section.related ul li:hover {background:#EEE;}
 #content article section.related ul li:last-child {border:none;}
 #content article section.related ul li a {color:#252525; display:block; font-size:14px; font-weight:600;}

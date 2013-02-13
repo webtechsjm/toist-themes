@@ -77,10 +77,10 @@
                 <footer>
                     <?php if ($post_related_tag = get_post_meta($post->ID, 'featured_tag', true)) { 
 			                $showtag = $post_related_tag;
-			                $showtag = str_replace("-"," ",$showtag);
-                            echo ('<section class="related" id="tag-related"><h4>More from '.$showtag.':</h4><ul>');
+			                $showtag = str_replace("-","&nbsp;&nbsp;",$showtag);
+                            echo ('<section class="related" id="tag-related"><div>more&nbsp;&nbsp;<br>from&nbsp;&nbsp;<br>'.$showtag.':&nbsp;&nbsp;</div><ul>');
                             global $post;
-                            $myposts = get_posts('numberposts=5&offset=1&tag='.$post_related_tag); 
+                            $myposts = get_posts('numberposts=4&offset=1&tag='.$post_related_tag); 
                             foreach($myposts as $post) : 
                             ?>
                     
