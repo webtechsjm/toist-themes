@@ -5,15 +5,73 @@
             <input type="image" value="go" name="search" class="go" src="/wp-content/themes/torontoist_theme20112/images/graphics/search-btn-grey.png">
         </form>
     </section>
+ 		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
 
-        <div class="big-box">
-			<!-- TST_BB_Upper -->
-			<div id='div-gpt-ad-1347634485931-0'>
-			<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1347634485931-0'); });
-			</script>
+		<?php endif; ?>
+
+			<div class="big-box">
+				<!-- TST_BB_Upper -->
+				<div id='div-gpt-ad-1347634485931-0'>
+					<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1347634485931-0'); });
+					</script>
+				</div>
 			</div>
-        </div>
+        
+        <section id="picks">
+            <h5>Editor's Picks</h5>
+            <table>
+                <?php
+		global $post;
+		$count = 1;
+		$rowcount = 1;
+                $myposts = get_posts(array('numberposts'=>6, 'tag'=>'editors-pick'));
+                foreach($myposts as $post) :
+		if ( $count&1 ) { echo "<tr>"; }
+                ?>
+                <td>
+                    <?php edit_post_link('[Edit]','',' '); ?>   
+                    <a href="<?php the_permalink(); ?>" class="title">
+                        <?php if ($post_alt_title = get_post_meta($post->ID, 'alt_title', true)) {
+                              echo $post_alt_title;
+                              } 
+                              else {
+                              the_title();
+                              } 
+                        ?>
+                    </a>
+		   <?php if (($count+$rowcount)&1) : ?>
+                    <a href="<?php the_permalink() ?>" class="image">
+                        <?php if ($post_alt_image = get_post_meta($post->ID, 'alt_image', true)) {
+                              echo $post_alt_image;
+                              } 
+                              else {
+                              the_post_thumbnail('large_thumb');
+                              } 
+                        ?>
+                    </a>
+		  <? else: ?>
+                    <a href="<?php the_permalink(); ?>" class="dek">
+                        <?php if ($post_alt_dek = get_post_meta($post->ID, 'alt_dek', true)) {
+                              echo $post_alt_dek;
+
+                              } 
+                              elseif ($post_dek = get_post_meta($post->ID, 'dek', true)) {
+
+                              echo $post_dek;
+                              } 
+                        ?>
+                    </a>
+		<? endif; ?>
+
+                </td>
+                <?php $count ++; 
+		  if ( $count&1 ) { echo "</tr>"; $rowcount ++;}
+		endforeach; ?>
+            </table>
+
+        </section>
+<?php /*
         <section id="picks" style="display:none;">
             <a href="/nxne"><h5>NXNE GUIDES</h5></a>
             <table>
@@ -54,6 +112,7 @@
 <center><a href="/nxne"><img src="http://torontoist.com/wp-content/uploads/2012/06/NXNEist_mb.jpg"></a></center>
         </section>
 
+
         <section id="ttc" style="display:none;">
             <h5><a href="http://twitter.com/#!/TTCnotices" target="_new">TTC Service Alerts</a></h5>
 		<?php 
@@ -74,63 +133,11 @@
 			} while ($validresponse == "FALSE");
 		?>
         </section>
+*/ ?>
 
 
-        <section id="picks">
-            <h5>Editor's Picks</h5>
-            <table>
-                <?php
-		global $post;
-		$count = 1;
-		$rowcount = 1;
-                $myposts = get_posts(array('numberposts'=>6, 'tag'=>'editors-pick'));
-                foreach($myposts as $post) :
-		if ( $count&1 ) { echo "<tr>"; }
-                ?>
-                <td>
-                    <?php edit_post_link('[Edit]','',' '); ?>   
-                    <a href="<?php the_permalink(); ?>" class="title">
-                        <?php if ($post_alt_title = get_post_meta($post->ID, 'alt_title', true)) {
-                              echo $post_alt_title;
-                              } 
-                              else {
-                              the_title();
-                              } 
-                        ?>
-                    </a>
-		   <?php if (($count+$rowcount)&1) : ?>
-                    <a href="<?php the_permalink() ?>" class="image">
-                        <?php if ($post_alt_image = get_post_meta($post->ID, 'alt_image', true)) {
-                              echo $post_alt_image;
-                              } 
-                              else {
-                              the_post_thumbnail('large_thumb');
-                              } 
-                        ?>
-                    </a>
-		  <? else: ?>
-                    <a href="<?php the_permalink(); ?>" class="dek">
-                        <?php if ($post_alt_dek = get_post_meta($post->ID, 'alt_dek', true)) {
-                              echo $post_alt_dek;
-                              } 
-                              elseif ($post_dek = get_post_meta($post->ID, 'dek', true)) {
-                              echo $post_dek;
-                              } 
-                        ?>
-                    </a>
-		<? endif; ?>
 
-                </td>
-                <?php $count ++; 
-		  if ( $count&1 ) { echo "</tr>"; $rowcount ++;}
-		endforeach; ?>
-            </table>
 
-        </section>
-
-			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
-
-	 		<?php endif; ?>
 	 	
       <div class="big-box">
 		<!-- TST_BB_Lower -->
