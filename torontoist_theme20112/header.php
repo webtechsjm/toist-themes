@@ -291,9 +291,8 @@ echo juicemobilev2_ad();
                     <li><a href="http://torontoist.com/cityscape-page/">Cityscape</a></li>
                     <li><a href="http://torontoist.com/politics-page/">Politics</a></li>
                     <li><a href="http://torontoist.com/culture-page/">Culture</a></li>
-                    <li style="display:none;"><a href="http://torontoist.com/photos-page/">Photos</a></li>
-                    <li style="display:none;"><a href="http://torontoist.com/events-page/">Events</a></li>
-                    <li class="info bul">&bull;<a href="http://torontoist.com/rob-fords-conflict-of-interest-case/">Rob Ford's Conflict of Interest</a></li>
+                    <li><a href="http://torontoist.com/photos-page/">Photos</a></li>
+                    <li><a href="http://torontoist.com/events-page/">Events</a></li>
                     <li class="info bul">&bull;<a href="http://torontoist.com/about/">About</a></li>
                     <li class="info"><a href="http://torontoist.com/staff/">Staff</a></li>
                     <li class="info"><a href="http://torontoist.com/contact-us/">Contact</a></li>

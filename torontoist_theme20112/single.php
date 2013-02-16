@@ -75,24 +75,45 @@
 				?>			
 								
                 <footer>
-                    <?php if ($post_related_tag = get_post_meta($post->ID, 'featured_tag', true)) { 
-			                $showtag = $post_related_tag;
-			                $showtag = str_replace("-","&nbsp;&nbsp;<br>",$showtag);
-                            echo ('<section class="related" id="tag-related"><div>more&nbsp;&nbsp;<br>from&nbsp;&nbsp;<br>'.$showtag.':&nbsp;&nbsp;</div><ul>');
-                            global $post;
-                            $myposts = get_posts('numberposts=4&offset=1&tag='.$post_related_tag); 
-                            foreach($myposts as $post) : 
-                            ?>
+                    <?php if ($featured_tag = get_post_meta($post->ID, 'featured_tag', true)): 
                     
-                            <li><a href="<?php the_permalink(); ?>" class="image"><?php the_post_thumbnail(); ?></a>
-                            <a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a></li>
+                    $tag = get_term_by('slug',$featured_tag,'post_tag');
+                    $patterns = array("-","\"");
+                    $replacements = array("-<wbr>","");
+                    $tag_name = str_replace($patterns,$replacements,$tag->name);
+                    ?>
+                    <section class="related">
+                    	<h4>More<br />from<br /><?php echo $tag_name; ?>:</h4>
+                    	<ul>
+                    	<?php 
+                    	$related = new WP_Query(array(
+                    		'tag'							=>	$featured_tag,
+                    		'posts_per_page'	=>	4,
+                    		'post__not_in'		=>	array($post->ID)
+                    	));
+                    	
+                    	if($related->have_posts()) while($related->have_posts()):
+                    		$related->the_post(); ?>
+                    		
+                    		<li>
+                    			<a href="<?php the_permalink(); ?>">
+                    				<?php the_post_thumbnail(); ?>
+                    				<p><?php the_title(); ?></p>
+                    			</a>
+                    		</li>
+                    		
+                    		<?php
+                    	endwhile;
+                    	
+                    		wp_reset_query();
+                    	?>
+                    	</ul>
+                    </section>
                     
-                            <?php endforeach; wp_reset_query(); ?>
-                    <?php echo ('</ul></section>'); } ?>
-                    
-                    <?php // the_ID(); ?>
-                
-                    <section class="tag-list">
+                    <?php	
+                    endif; ?>
+ 
+                   <section class="tag-list">
                         <?php 
 			  $tags = get_the_tag_list('<p>Filed under: ', ', ', '</p>');
 			  $tags = str_replace("\"","",$tags);
