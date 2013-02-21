@@ -18,7 +18,11 @@
 		<?php
 		global $post;
 		$posts = new WP_Query();
+<<<<<<< HEAD
 		$posts->query(array('showposts' => 8, 'post_status' => 'publish', 'tag' => 'favourites'));
+=======
+		$posts->query(array('showposts' => 12, 'post_status' => 'publish', 'tag' => 'favourites'));
+>>>>>>> FETCH_HEAD
 		?>
 		<?php
 		while ($posts->have_posts()) {

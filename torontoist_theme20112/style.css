@@ -614,7 +614,11 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
   h3.print {display:block !important; float:none !important;}
   header.global h3 {margin: 0px auto !important;} 
   .global nav {margin: 0px 0 !important;}
+<<<<<<< HEAD
   h2 {font-size:16px !important;}
+=======
+  h1 {font-size:16px !important; margin: 0 0 5px 0;}
+>>>>>>> FETCH_HEAD
   #content article .dek {font-size:14px !important;}
   #content article p {font-size:12px}
   .hub-sidebar {display:none;}
