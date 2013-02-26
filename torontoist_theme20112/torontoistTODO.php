@@ -33,25 +33,7 @@ $(function() {
     <area shape="rect" coords="460,46,598,65" href="http://www.torontolife.com/TOdo_sales/" alt="Add Your Event" />
   </map>
 </div>
-<!--ROM-->
-<div class="todo_container">
-  <img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_Leaderboard.JPG" width="600px" height="100px" />
-  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
-  <div class="collapse">
-    <img class="product" src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_TOdo_Program.JPG" width="260px" height="260px" />
-    <div class="info">
-    <p><b>Rock the Cradle of Civilization &ndash; Ancient Prom</b><br/>
-    100 Queen's Park, 416.586.5772<br/>
-Saturday April 6 &ndash; Royal Ontario Museum<br/><br/>
-
-    Join hundreds of Young Patrons Circle (YPC) members and guests for a contemporary party at the ROM inspired by past civilizations. Ancient PROM will be an unforgettable night of live entertainment and dancing, luxurious lounge areas and gourmet fare. Get ready to experience an epic party worthy of an ancient empire on Saturday, April 6, 2013!<br/><br/>
-
-  <strong><a style="color:#000;" href="http://www.torontolife.com/romprom_todo_torontoist" target="_blank">Click here for more info &raquo;</a></strong></p>
-    </div>
-    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
-  </div>
-</div>
-<!--end ROM-->
+<!--ROM--> <div class="todo_container">  <img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_ExpendingImage.jpg" width="600px" height="100px" />  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>  <div class="collapse">    <img class="product" src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_Main_Image.jpg" width="260px" height="260px" />    <div class="info">    <p><b>Rock the Cradle of Civilization &ndash; Ancient Prom</b><br/>    100 Queen's Park, 416.586.5772<br/> Saturday April 6 &ndash; Royal Ontario Museum<br/><br/>     Join hundreds of Young Patrons Circle (YPC) members and guests for a contemporary party at the ROM inspired by past civilizations. Ancient PROM will be an unforgettable night of live entertainment and dancing, luxurious lounge areas and gourmet fare. Get ready to experience an epic party worthy of an ancient empire on Saturday, April 6, 2013!<br/><br/>   <strong><a style="color:#000;" href="http://www.torontolife.com/romprom_todo_torontoist" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>    </div>    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />  </div> </div> <!--end ROM-->
 <!--Nyood-->
 <div class="todo_container">
   <img src="http://media.torontolife.com/img/TOdo/Banner-Ad_BLACK-600x100.gif" width="600px" height="100px" />
@@ -61,11 +43,11 @@ Saturday April 6 &ndash; Royal Ontario Museum<br/><br/>
     <div class="info">
     <p><b>Nyood Restaurant and Bar</b><br/>
     1096 Queen Street West, 416-466-1888<br/>
-<strong><a style="color:#000;" href="http://www.nyood.ca" target="_blank">www.nyood.ca</a></strong><br/><br/>
+<strong><a style="color:#000;" href="http://www.nyood.ca" target="_blank" rel="nofollow">www.nyood.ca</a></strong><br/><br/>
 
 Nyood's brunch is now offered on Saturday and Sunday, 11:00am&ndash;3:00pm. Purchase one brunch item, receive a second item of lesser or equal value, free! For reservations call 416-466-1888 or email info@nyood.ca. Print/bring in the 2 Of A Kind flyer. Expires Sun. Mar. 10, 2013. Excludes beverages, taxes and gratuity.<br/><br/>
 
-  <strong><a style="color:#000;" href="http://www.torontolife.com/nyoodrestaurant_todo_torontoist" target="_blank">Click here for more info &raquo;</a></strong></p>
+  <strong><a style="color:#000;" href="http://www.torontolife.com/nyoodrestaurant_todo_torontoist" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
     </div>
     <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
   </div>
@@ -87,7 +69,7 @@ Sunday, March 3 – Metro Toronto Convention Centre, North Building<br/><br/>
 
 Admission and seminars are FREE.<br/><br/>
 
-  <strong><a style="color:#000;" href="http://www.torontolife.com/revolveepsholdings_todo" target="_blank">Click here for more info &raquo;</a></strong></p>
+  <strong><a style="color:#000;" href="http://www.torontolife.com/revolveepsholdings_todo" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
     </div>
     <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
   </div>
@@ -102,13 +84,13 @@ Admission and seminars are FREE.<br/><br/>
     <div class="info"><p><b>SWAN LAKE</b><br/>
     <b>March 27, 28, &amp; 30, 2013</b><br/>
     <b>Betty Oliphant Theatre</b><br/>
-    <b>Tickets: 416.978.8849 or <strong><a style="color:#000;" href="http://www.uofttix.ca" target="_blank">www.uofttix.ca</strong></a>
+    <b>Tickets: 416.978.8849 or <strong><a style="color:#000;" href="http://www.uofttix.ca" target="_blank" rel="nofollow">www.uofttix.ca</strong></a>
 </b><br/>
 <br/>
    Ballet J&ouml;rgen Canada presents a spectacular new production of Swan Lake. Choreographed by Bengt Jörgen, this newly-imagined version of the iconic ballet is set at the Fortress of Louisbourg, Nova Scotia.<br /> 
 Tickets $29 - $75.
 <br/><br/>
-  <strong><a style="color:#000;" href="http://www.torontolife.com/balletjorgencanada_swanlake_todo" target="_blank">Click here for more info &raquo;</a></strong></p>
+  <strong><a style="color:#000;" href="http://www.torontolife.com/balletjorgencanada_swanlake_todo" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
     </div>
     <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
   </div>
