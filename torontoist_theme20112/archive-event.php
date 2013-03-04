@@ -148,7 +148,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no results were found for the requested archive', 'eventorganiser' ); ?></p>
+						<p><?php _e( 'Looks like we don\'t have any events that match your search yet. We\'re always adding more though, so try again soon!' ); ?></p>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 

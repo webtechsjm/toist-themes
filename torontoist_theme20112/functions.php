@@ -37,7 +37,7 @@ add_filter('pre_get_posts','myFilter');
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script('jquery');
-				wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"), false);
+				wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"), false);
 				wp_enqueue_script('jquery');
 			}
 		}
@@ -225,8 +225,9 @@ function TOist_comment($comment, $args, $depth) {
 add_action('wp_enqueue_scripts','toist_add_styles');
 
 function toist_add_styles(){
-		wp_register_style('webfont-sanchez','http://fonts.googleapis.com/css?family=Sanchez:400,400italic');
-		wp_enqueue_style('webfont-sanchez');
+		wp_register_style('webfonts','http://fonts.googleapis.com/css?family=Sanchez:400,400italic|Kameron:400,700');
+		wp_enqueue_style('webfonts');
+		wp_enqueue_script('toist-functions',get_bloginfo('template_directory').'/_/js/functions.js','jquery');
 }
 
 add_filter('coauthors_search_authors_get_terms_args',function($args){

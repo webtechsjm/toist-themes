@@ -30,15 +30,6 @@ get_header(); ?>
 					<header class="entry-header">
 					<?php edit_post_link( __( 'Edit'), '<span class="edit-link">', '</span>' ); ?>
 						<?php
-							//Events have their own 'event-category' taxonomy. Get list of categories this event is in.
-/*
-							$categories_list = get_the_term_list( get_the_ID(), 'event-category', '', ', ',''); 
-							if("" != $categories_list){
-								printf("<h3>%s</h3>",
-									$categories_list
-									);
-							}
-*/
 							$categories = get_the_terms(get_the_ID(),'event-category');
 							$the_category = array_shift($categories);
 							
@@ -50,7 +41,23 @@ get_header(); ?>
 							
 						?>
 						<h2 class="entry-title"><?php the_title(); ?></h2>
-						<?php if(has_post_thumbnail()) the_post_thumbnail('large'); ?>
+		        <p class="dek">
+		            <?php get_custom_field('dek', TRUE); ?>
+		        </p>
+		        
+		        <p class="byline">By 
+		            <?php if(function_exists('coauthors_posts_links'))
+		                coauthors_posts_links(', ', ', and ', '', '');
+		                else
+		                the_author_posts_link();
+		            ?>
+		            <?php if ($post_image_credit = get_post_meta($post->ID, 'image_credit', true)) {
+		            echo ' &bull; ' . $post_image_credit; } ?>                    
+		        </p>
+						
+						<?php 
+							the_featured_media('large');
+							?>
 							<ul class="entry-details">							
 								<?php
 									//get the name and address. If we have both, only link from the address.
@@ -163,10 +170,20 @@ get_header(); ?>
 											$occurrences = eo_get_the_occurrences_of();
 								
 											foreach($occurrences as $occurrence):
-												$occ_start = $occurrence['start']->format('l, F j, Y; g:ia');
-												printf('<li>%s</li>',
-												$occ_start
-											);
+												if($occurrence['start']->format('U') 
+													== $occurrence['end']->format('U')
+													){
+													//no separate end time
+													$occ_start = $occurrence['start']->format('l, F j, Y; g:i a');
+													printf('<li>%s</li>',
+														$occ_start
+														);
+														
+													}else{
+													$occ_start = $occurrence['start']->format('l, F j, Y; g:i a');
+													$occ_end = $occurrence['end']->format('l, F j, Y; g:i a');
+													printf('<li>%s - %s</li>',$occ_start,$occ_end);
+													}
 											endforeach;
 											echo "</ul></li>";
 										//a regular recurrence
@@ -336,7 +353,7 @@ get_header(); ?>
 								
 						?>
 						<section class="side-nav clearfix <?php echo $workaround; ?>">
-							<h4>What's happening:</h4>
+							<h4>What else is happening:</h4>
 							<a class="today" href="<?php echo get_site_url().'/events/event/?ondate='.date('Y-m-d'); ?>">Today</a>
 							<?php if(isset($the_category) && "" != $the_category){
 								printf('<a class="category" href="%s">In %s</a>',
@@ -382,7 +399,7 @@ echo do_shortcode('[pinit]');
 
 
                         <!-- Start ShareThis -->                        
-                        <script charset="utf-8" type="text/javascript">var switchTo5x=false;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.0aa23093-2b8c-4fd5-9602-c686dee727c9', doNotHash:false, doNotCopy:true,hashAddressBar:false});var st_type='wordpress3.2';</script>
+                        <script charset="utf-8" type="text/javascript">var switchTo5x=false;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.0aa23093-2b8c-4fd5-9602-c686dee727c9'});var st_type='wordpress3.2';</script>
                         <span class='st_facebook_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='like'></span>
                         <span class='st_twitter_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='share'></span>
                         <span class='st_email_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='email'></span>
