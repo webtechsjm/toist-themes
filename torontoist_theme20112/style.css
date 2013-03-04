@@ -289,7 +289,7 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article .alignleft {float:left; margin:0 10px 20px 0; clear:left;}
 #content article .alignright {float:right; margin:0 0 20px 10px; clear:right;}
 #content article .aligncenter {clear:both; margin:20px auto;}
-#content article .wp-caption-text {font-size:12px; color:#777; margin:0; line-height:1.2;}
+#content article .wp-caption-text {font-size:12px; color:#777; margin:0 0 1em; line-height:1.2;}
 #content article span.mt-enclosure i {font-style:normal; font-size:12px; color:#777; margin:0; line-height:1.2;} /*imported posts*/
 #content article span.grey_footer {color: #777777;}
 
