@@ -364,6 +364,7 @@ get_header(); ?>
 								}	?>
 							<?php 
 								if(isset($venue_url) && isset($venue_name) 
+								&& strtoupper($venue_name) != "MULTIPLE VENUES"
 								&& is_string($venue_url) && is_string($venue_name)): ?>
 								<a class="venue" href="<?php echo $venue_url; ?>"><?php echo "at ".$venue_name; ?></a>
 							<?php endif; ?>
