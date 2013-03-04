@@ -262,7 +262,19 @@ class EventOrganiser_Shortcodes {
 				endswitch;
 		
 				if( eo_is_all_day(get_the_ID()) ){
-					$replacement = eo_format_date($post->$col[$matches[1]]['date'].' '.$post->$col[$matches[1]]['time'], $dateFormat);
+					if($post->EndDate
+						&& ($matches[1] == 'start' || $matches[1] == 'schedule_start')
+						){
+						if(eo_format_date($post->StartDate,'F j') == eo_format_date($post->EndDate,'F j')){
+							$replacement = 'all day';
+						}elseif(eo_format_date($post->StartDate,'F') == eo_format_date($post->EndDate,'F')){
+							$replacement = eo_format_date($post->StartDate,'F j')."-".eo_format_date($post->EndDate,'j');
+						}else{
+							$replacement = eo_format_date($post->StartDate,'F j')."-".eo_format_date($post->EndDate,'F j');
+						}
+					}else{
+							$replacement = "all day";
+						}
 				}else{	
 					$replacement = eo_format_date($post->$col[$matches[1]]['date'].' '.$post->$col[$matches[1]]['time'], $dateFormat.$dateTime);					
 				}
