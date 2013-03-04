@@ -337,22 +337,26 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content time.short {float:right; padding-left:5px;}
 
 /* =START EVENT POST STYLES */
-#content ul.eo-events{margin:0;}
+#content ul.eo-events{margin:0 0 .5em; padding: 0 0 .5em; border-bottom: 1px dotted #ccc;}
 #content ul.eo-events>li{list-style:none; margin: 15px 0;}
 #content ul.eo-events .event-cat{text-transform:uppercase;}
 
-#content article.type-event ul.entry-details{border-top:1px dotted #ccc; border-bottom: 1px dotted #ccc; padding: 20px 0 20px 150px; margin:0;}
+
+article.type-event .printfriendly{display:none;}
+#content article.type-event ul.entry-details{border-top:1px dotted #ccc; border-bottom: 1px dotted #ccc; padding: 20px 0 20px 50px; margin:0;}
 #content article.type-event ul.entry-details li{list-style:none; margin:0;}
 .type-event .entry-details .venue{font-weight:bold; color:#777777;}
 .type-event .entry-details .dates{font-weight:bold;}
 #content article.type-event ul.entry-details li.price{margin: 1.625em 0 0; }
-#content .side-nav{border-top:1px dotted #ccc; border-bottom: 1px dotted #ccc; margin: .8125em 0;}
-#content .side-nav h4{color: #777; text-transform: uppercase; font-weight: 600;}
+#content .side-nav{border-top:1px solid #ccc; border-bottom: 1px solid #ccc; margin: .8125em 0; padding: 0 0 10px}
+#content .side-nav h4{color: #777; text-transform: uppercase; font-weight: 600; padding: 0 0 10px;}
 #content .side-nav a{margin: 0 3% 0 0; font-weight:bold; text-transform:uppercase; width: 30%; display:block; float:left; font-size: 1.5em; text-align:center; line-height: 1.1;}
 #content .side-nav.street-site a{width: 47%; font-size: 1.625em;}
 #content .side-nav.street-site a.venue{display:none;}
 #content article.category-events-category .side-nav a{width: 29%; margin: 0 2%; text-align:center; font-size: 1.625em;}
 #content article.type-event ul.recur{font-weight:bold; margin:0;}
+ul.recur.hide-long{max-height:4.875em; overflow:hidden;}
+#content article.type-event a#show-all-button{text-decoration:none; color:#9e0b0f; cursor:pointer;}
 body.post-type-archive-event #content h2.page-title,
 body.tax-event-venue #content h2.page-title,
 body.tax-event-category #content h2.page-title,
@@ -370,7 +374,7 @@ body.tax-event-tag #content h2.page-title
 body.tax-event-category.term-sponsored-event #content h2.page-title{
 	background: #fcf090;
 }
-h2.page-title span.tax-name{display:block; font-family: 'Sanchez'; font-weight:normal; text-transform:none;}
+h2.page-title span.tax-name{display:block; font-family: 'Kameron'; font-weight:normal; text-transform:none;}
 body.post-type-archive-event #content article.type-event ul.entry-details,
 body.tax-event-venue #content article.type-event ul.entry-details,
 body.tax-event-category #content article.type-event ul.entry-details,
@@ -507,7 +511,7 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 #sidebar section#facebook-widgets {width:300px; margin:0px auto;}
 
 #sidebar #wp-calendar{width: 100%; margin: 0 0 0.5em;}
-#sidebar #wp-calendar caption{font-weight:bold; font-family:"Sanchez"; font-size: 2em; line-height: 1; margin: 0 0 10px;}
+#sidebar #wp-calendar caption{font-weight:bold; font-family:"Kameron"; font-size: 2em; line-height: 1; margin: 0 0 10px;}
 #sidebar #wp-calendar thead,
 #sidebar #wp-calendar tbody a,
 #sidebar #wp-calendar tfoot{color: #939393;}
@@ -519,6 +523,17 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 #sidebar #wp-calendar tbody td a:hover{color:#9E0B0F; background: #faedec; text-decoration:none;}
 #sidebar #wp-calendar tfoot td a{font-weight:bold; text-transform:uppercase; padding: 3px 0;}
 #sidebar #wp-calendar #eo-widget-prev-month{text-align:right}
+
+#recentcomments .comment{position:relative;}
+#recentcomments .comment blockquote:before,
+#recentcomments .comment blockquote:after{
+	position:absolute;
+	font-size: 4em;
+	font-family: "Kameron"
+}
+#recentcomments .comment blockquote:before{content:"\201C";top:0;left:0}
+#recentcomments .comment blockquote:after{content:"\201D";bottom:0;right:0;}
+#recentcomments blockquote{font-size: .8em; border: none; padding: 0 40px; margin: 0;}
 
 /* =POST NAVIGATION (index, category, etc.) */
 #content .post-nav {font-weight:bold; height:26px; padding:16px 0;}
@@ -614,8 +629,7 @@ li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
   h3.print {display:block !important; float:none !important;}
   header.global h3 {margin: 0px auto !important;} 
   .global nav {margin: 0px 0 !important;}
-  h1 {font-size:16px !important;}
-  #content article h1{margin: 0 0 5px 0;}
+  h2 {font-size:16px !important;}
   #content article .dek {font-size:14px !important;}
   #content article p {font-size:12px}
   .hub-sidebar {display:none;}
