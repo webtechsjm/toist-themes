@@ -53,7 +53,7 @@ Nyood's brunch is now offered on Saturday and Sunday, 11:00am&ndash;3:00pm. Purc
   </div>
 </div>
 <!--end Nyood-->
-<!--eps-->
+<!--eps
 <div class="todo_container">
   <img src="http://media.torontolife.com/img/TOdo/study_go_abroad_todo2013_600x100.jpg" width="600px" height="100px" />
   <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
@@ -74,7 +74,7 @@ Admission and seminars are FREE.<br/><br/>
     <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
   </div>
 </div>
-<!--end eps-->
+end eps-->
 <!--ballet jorgen-->
 <div class="todo_container">
   <img src="http://media.torontolife.com/img/TOdo/swan-lake_600x100.jpg" width="600px" height="100px" />
