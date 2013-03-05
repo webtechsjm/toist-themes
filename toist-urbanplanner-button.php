@@ -17,25 +17,13 @@ function toist_quicktags( $args, $post_id )
 	function planner_maker(e,c,ed){
 	var events_url = 'http://torontoist.com/events/event/?ondate=';
 	
-	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-M-d")+'"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
+	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] \n\n<h3 class="section-title">And ongoing&hellip;</h3> \n[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="NOT LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, email all of its details—as well as images, if you\'ve got any—to <a href="mailto:events@torontoist.com">events@torontoist.com</a>.</em>'
-			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.today().addDays(2).toString("yyyy-M-d")+'">Tomorrow</a> <a href="'+events_url+events_url+Date.today().addDays(3).toString("yyyy-M-d")+'">'+Date.today().addDays(3).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(4).toString("yyyy-M-d")+'">'+Date.today().addDays(4).toString("dddd")+'</a></div></section>';
+			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.today().addDays(2).toString("yyyy-MM-dd")+'">Tomorrow</a> <a href="'+events_url+events_url+Date.today().addDays(3).toString("yyyy-MM-dd")+'">'+Date.today().addDays(3).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(4).toString("yyyy-MM-dd")+'">'+Date.today().addDays(4).toString("dddd")+'</a></div></section>';
 		
 		QTags.TagButton.prototype.callback.call(this,e,c,ed);
 	}
 
-	QTags.addButton('toist_weekendplanner','Weekend Planner',weekend_planner_maker,'','w');
-	function weekend_planner_maker(e,c,ed){
-		var events_url = 'http://torontoist.com/events/event/?ondate=';
-		
-		this.tagStart = '[eo_events event_start_after="'+Date.today().addDays(1).toString("yyyy-M-d")+'" event_start_before="'+Date.today().addDays(2).toString("yyyy-M-d")+'"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
-			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, email all of its details—as well as images, if you\'ve got any—to <a href="mailto:events@torontoist.com">events@torontoist.com</a>.</em>'
-			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.today().addDays(3).toString("yyyy-M-d")+'">'+Date.today().addDays(3).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(4).toString("yyyy-M-d")+'">'+Date.today().addDays(4).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(5).toString("yyyy-M-d")+'">'+Date.today().addDays(5).toString("dddd")+'</a></div></section>';
-		
-		QTags.TagButton.prototype.callback.call(this,e,c,ed);
-	}	
-	
-	
 	/**
  * Version: 1.0 Alpha-1 
  * Build Date: 13-Nov-2007
