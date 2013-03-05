@@ -5,6 +5,16 @@
             <input type="image" value="go" name="search" class="go" src="/wp-content/themes/torontoist_theme20112/images/graphics/search-btn-grey.png">
         </form>
     </section>
+    
+	  <div class="big-box">
+			<!-- TST_BB_Upper -->
+			<div id='div-gpt-ad-1347634485931-0'>
+				<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1347634485931-0'); });
+				</script>
+			</div>
+		</div>
+    
  		<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : ?>
 
 		<?php endif; ?>
