@@ -441,6 +441,12 @@ function the_date_range($start_dt,$end_dt, $one_day = false){
 		: 
 		array(
 			"date" => sprintf(
+				"%s %s&ndash;%s",
+				$start[1],
+				$start[2],
+				$end[2]					
+				),
+			"datetime" => sprintf(
 				"%s, %s %s&ndash;%s, %s %s",
 				time_compact_ap_format($start[4],$start[5],$start[6]),
 				$start[1],
@@ -472,6 +478,15 @@ function the_date_range($start_dt,$end_dt, $one_day = false){
 			:
 			array(
 				"date"	=>	sprintf(
+					"%s, %s %s&ndash;%s, %s %s",
+					$start[0],
+					$start[1],
+					$start[2],
+					$end[0],
+					$end[1],
+					$end[2]
+				),
+				"datetime"	=>	sprintf(
 					"%s, %s, %s %s&ndash;%s, %s, %s %s",
 					time_compact_ap_format($start[4],$start[5],$start[6]),
 					$start[0],
