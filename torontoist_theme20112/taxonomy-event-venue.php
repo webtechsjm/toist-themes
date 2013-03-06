@@ -82,27 +82,38 @@ get_header(); ?>
 						?>
 							
 							<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
+							<?php the_featured_media('large'); ?>
 							<ul class="entry-details">
 								<!-- If the event has a venue saved, display this-->
-								<?php 
-								
-								if($next = eo_get_next_occurrence('l, F j, Y; g:ia')):
-									if(eo_is_all_day()):?>
-									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_next_occurrence('l, F j, Y');?></li>
-									<?php else: ?>
-									<li class="dates"><?php echo $next; ?></li>
-									<?php endif;
-								elseif(eo_is_all_day()):
-									//All day event in the past
+								<li class="dates">
+									
+									<?php 
+										
+										$occurrences = eo_get_the_occurrences_of(get_the_ID());
+										$first = array_shift($occurrences);
+										$last = array_pop($occurrences);
+										
+										if($last == NULL) $last = $first;
+																				
+										$range = the_date_range($first['start'],$last['start']);
+										if(is_array($range)){
+											echo $range['date'];
+											if(isset($range['time'])){
+												printf('</li><li class="dates">%s',
+													$range['time']
+												);
+											}
+										}else{
+											echo $range;
+											}
+										
+										if(eo_is_all_day()){
+											echo ", ";
+											_e('All day','eventorganiser');
+										}
 									?>
-									<li class="dates"><?php _e('All day','eventorganiser');?>, <?php echo eo_get_schedule_last('l, F j, Y');?></li>
-								<?php else: //Brief past event?>
-									<li class="dates"><?php eo_the_start('l, F j, Y; g:ia'); ?></li>
-								<?php endif;
-								
-								
-								?>
+									
+									</li>
 							</ul><!-- .entry-details -->
 
 						</header><!-- .entry-header -->
