@@ -29,12 +29,12 @@ get_header(); ?>
 				<?php 
 					$repeating_events = array();
 					while ( have_posts()) : the_post();
+					global $post;
 					
 					$event_start = eo_get_schedule_start();
 					$today = eo_format_date($ondate,'d-m-Y');
 					
 					if($event_start != $today):
-						global $post;
 						$repeating_events[] = $post;
 						continue;
 					endif;
@@ -46,7 +46,7 @@ get_header(); ?>
 				
 				
 				<?php if(count($repeating_events) > 0): ?>
-				<h3 class="section-title">And ongoing&hellip;</h3>
+				<h3 class="section-title">Ongoing&hellip;</h3>
 				<?php endif; ?>
 				<?php 
 					$old_post = $post;

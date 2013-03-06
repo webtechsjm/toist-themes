@@ -15,7 +15,7 @@
 						?>
 							
 							<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
+							<?php the_featured_media('large'); ?>
 							<ul class="entry-details">
 								<!-- If the event has a venue saved, display this-->
 								<?php
@@ -46,13 +46,18 @@
 									<li class="dates"><?php _e('All day','eventorganiser'); ?></li>
 								<?php else: 
 									//we want the list of all occurrences today
-									//var_dump(eo_get_the_occurrences_of(get_the_ID()));
-									//$today = 
-								
-								
+									$occs = eo_get_the_occurrences_of(get_the_ID());
+									
+									$todays = array();
+									foreach($occs as $occ){
+										if($ondate == $occ['start']->format('Y-m-d')){
+											$time = explode(' ',$occ['start']->format('g i a'));
+											$todays[] = time_compact_ap_format($time[0],$time[1],$time[2]);
+										}
+									}
 								?>
 									<!-- Event is not an all day event - display time -->
-									<li class="dates"><?php eo_the_start('g:ia'); ?></li>
+									<li class="dates"><?php echo join(', ',$todays); ?></li>
 								<?php endif; ?>
 							</ul><!-- .entry-details -->
 

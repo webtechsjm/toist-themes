@@ -243,4 +243,176 @@ add_action('pre_get_posts',function($query){
 	}
 });
 
+/*
+*		Turns mechanical hours, minutes and ante-/post-meridien in to a beautiful string
+*/
+
+function time_compact_ap_format($hours,$minutes,$meridien){
+	$patterns = array("am","pm","AM","PM");
+	$replacements = array("a.m.","p.m.","A.M.","P.M.");
+	
+	$meridien = str_replace($patterns,$replacements,$meridien);
+	
+	if($minutes == "00") return sprintf("%s %s",$hours,$meridien);
+	else return sprintf("%s:%s %s",$hours,$minutes,$meridien);
+}
+
+/*
+*		Give it start and end DateTimes and it will give you strings and diffs!
+*/
+
+function the_date_range($start_dt,$end_dt, $one_day = false){
+	
+	$duration = $start_dt->diff($end_dt);
+	$start = explode(" ",$start_dt->format('l F j Y g i a'));
+	$end = explode(" ",$end_dt->format('l F j Y g i a'));
+	
+	//happening at the same time
+	if($start == $end){
+		return array(
+			"date"	=>	sprintf(
+				"%s, %s %s",
+				$start[0], //day of week
+				$start[1], //month
+				$start[2] //day of month
+				),
+			"duration"	=>	$duration,
+			"time"	=>	eo_is_all_day() ? 'all day' : time_compact_ap_format($start[4],$start[5],$start[6])
+		);
+	}	
+	//happening on the same day
+	elseif($start[2] == $end[2] || ($duration->days < 1 && $duration->h < 24)){
+		//Monday, March 4; 9:00 p.m.
+		return array(
+			"date"	=>	sprintf(
+				"%s, %s %s",
+				$start[0], //day of week
+				$start[1], //month
+				$start[2] //day of month
+				),
+			"duration"	=>	$duration,
+			"time"	=>	eo_is_all_day() ? 'all day' : sprintf(
+				"%s&ndash;%s",
+				time_compact_ap_format($start[4],$start[5],$start[6]),
+				time_compact_ap_format($end[4],$end[5],$end[6])	 //formatted date
+				)
+			);
+	}
+	//happening in the same month
+	//check if happening all day; if not, return eo_all_day ? : 
+	elseif($start[1] == $end[1]){
+		return (eo_is_all_day() || $one_day) ? 
+		sprintf(
+			"%s %s&ndash;%s",
+			$start[1], //month
+			$start[2], //day of month
+			$end[2]
+		)
+		: 
+		array(
+			"date" => sprintf(
+				"%s %s&ndash;%s",
+				$start[1],
+				$start[2],
+				$end[2]					
+				),
+			"datetime" => sprintf(
+				"%s, %s %s&ndash;%s, %s %s",
+				time_compact_ap_format($start[4],$start[5],$start[6]),
+				$start[1],
+				$start[2],
+				time_compact_ap_format($end[4],$end[5],$end[6]),
+				$end[1],
+				$end[2]					
+				),
+			"duration"	=>	$duration,
+			"time"	=>	sprintf(
+				"%s&ndash;%s",
+				time_compact_ap_format($start[4],$start[5],$start[6]),
+				time_compact_ap_format($end[4],$end[5],$end[6])
+			)
+		);
+	}
+	//happening in the same year
+	elseif($start[3] == $end[3]){
+		return (eo_is_all_day() || $one_day) ?
+			sprintf(
+				"%s, %s %s&ndash;%s, %s %s",
+				$start[0], //day of week
+				$start[1], //month
+				$start[2], //day of month
+				$end[0],
+				$end[1],
+				$end[2]
+			)
+			:
+			array(
+				"date"	=>	sprintf(
+					"%s %s&ndash;%s %s",
+					$start[1],
+					$start[2],
+					$end[1],
+					$end[2]
+				),
+				"datetime"	=>	sprintf(
+					"%s, %s, %s %s&ndash;%s, %s, %s %s",
+					time_compact_ap_format($start[4],$start[5],$start[6]),
+					$start[0],
+					$start[1],
+					$start[2],
+					time_compact_ap_format($end[4],$end[5],$end[6]),
+					$end[0],
+					$end[1],
+					$end[2]
+				),
+				"duration"	=>	$duration,
+				"time"	=>	sprintf("%s&ndash;%s",
+					time_compact_ap_format($start[4],$start[5],$start[6]),
+					time_compact_ap_format($end[4],$end[5],$end[6])
+				)
+			);
+	}
+	//just plain happening
+
+	else{
+		return (eo_is_all_day() || $one_day) ? 
+			sprintf(
+				"%s, %s %s&ndash;%s, %s %s",
+				$start[0], //day of week
+				$start[1], //month
+				$start[2], //day of month
+				$end[0],
+				$end[1],
+				$end[2]
+			)
+			:
+			array(
+				"date"	=>	sprintf(
+					"%s, %s %s&ndash;%s, %s %s",
+					$start[0],
+					$start[1],
+					$start[2],
+					$end[0],
+					$end[1],
+					$end[2]
+				),
+				"datetime"	=>	sprintf(
+					"%s, %s, %s %s&ndash;%s, %s, %s %s",
+					time_compact_ap_format($start[4],$start[5],$start[6]),
+					$start[0],
+					$start[1],
+					$start[2],
+					time_compact_ap_format($end[4],$end[5],$end[6]),
+					$end[0],
+					$end[1],
+					$end[2]
+				),
+				"duration"	=>	$duration,
+				"time"	=>	sprintf("%s&ndash;%s",
+					time_compact_ap_format($start[4],$start[5],$start[6]),
+					time_compact_ap_format($end[4],$end[5],$end[6])
+				)
+			);
+	}
+}
 ?>
