@@ -235,10 +235,12 @@ add_filter('coauthors_search_authors_get_terms_args',function($args){
 	return $args;
 	});
 
+
 add_action('pre_get_posts',function($query){
 	if($query->query['post_type'] == 'event'){
-		$query->set('posts_per_page',0);
+		$query->set('posts_per_page',-1);
 		return;
 	}
 });
+
 ?>
