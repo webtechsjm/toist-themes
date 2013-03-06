@@ -1,3 +1,4 @@
+					<?php $eo_classes = eo_get_event_classes(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class($eo_classes); ?>>
 
 						<header class="entry-header">
@@ -43,7 +44,13 @@
 								<?php if(eo_is_all_day()):?>
 									<!-- Event is an all day event -->
 									<li class="dates"><?php _e('All day','eventorganiser'); ?></li>
-								<?php else: ?>
+								<?php else: 
+									//we want the list of all occurrences today
+									//var_dump(eo_get_the_occurrences_of(get_the_ID()));
+									//$today = 
+								
+								
+								?>
 									<!-- Event is not an all day event - display time -->
 									<li class="dates"><?php eo_the_start('g:ia'); ?></li>
 								<?php endif; ?>
@@ -51,7 +58,13 @@
 
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<?php the_content(); ?>
+							<?php
+								global $post;
+								$content = get_post($post);
+								$content = apply_filters('the_content', $content->post_content);
+								$content = str_replace(']]>', ']]&gt;', $content);
+								echo $content;
+							?>
 						</div><!-- .entry-content -->
 
 					</article><!-- #post-<?php the_ID(); ?> -->
