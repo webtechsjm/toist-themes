@@ -9,6 +9,174 @@ Author URI: http://puppydogtales.ca
 */
 
 add_action( 'admin_print_footer_scripts', 'toist_quicktags',100);
+add_shortcode('weekend_planner_new','make_weekend_planner_new');
+add_shortcode('weekend_planner_ongoing','make_weekend_planner_ongoing');
+
+function make_weekend_planner_new(){
+	return make_weekend_planner();
+}
+function make_weekend_planner_ongoing(){
+	return make_weekend_planner(false);
+}
+
+function make_weekend_planner($new = true){
+	$published = get_the_date('Y-m-d');
+		
+	$today = new DateTime($published);
+	$prefix = $new ? "new" : "ongoing";
+	//if this post's WP has already been cached, return it
+	$html = get_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"));
+	if($html) return $html;
+		
+	$saturday = clone $today;
+	$sunday = clone $today;
+	$monday = clone $today;
+	$tuesday = clone $today;
+	$wednesday = clone $today;
+	
+	$html = '';
+	
+	$saturday->modify('this Saturday');
+	$sunday->modify('this Sunday');
+
+	if($new){
+		$query = eo_get_events(array(
+		'event_start_after'	=>	$saturday->format('Y-m-d'),
+		'event_start_before'	=>	$sunday->format('Y-m-d'),
+		'meta_query'	=>	array(
+			'relation'		=>	'OR',
+			array(
+				'key'				=>	'_eventorganiser_schedule_start_start',
+				'value'			=>	$saturday->format('Y-m-d'),
+				'compare'		=>	'LIKE'
+				),
+			array(
+				'key'				=>	'_eventorganiser_schedule_start_start',
+				'value'			=>	$sunday->format('Y-m-d'),
+				'compare'		=>	'LIKE'
+				)
+			)
+		));
+	}else{
+		$query = eo_get_events(array(
+			'event_start_after'	=>	$saturday->format('Y-m-d'),
+			'event_start_before'	=>	$sunday->format('Y-m-d'),
+			'meta_query'	=>	array(
+				'relation'		=>	'AND',
+				array(
+					'key'				=>	'_eventorganiser_schedule_start_start',
+					'value'			=>	$saturday->format('Y-m-d'),
+					'compare'		=>	'NOT LIKE'
+					),
+				array(
+					'key'				=>	'_eventorganiser_schedule_start_start',
+					'value'			=>	$sunday->format('Y-m-d'),
+					'compare'		=>	'NOT LIKE'
+					)
+				)
+			));
+	}	
+	
+	
+	
+	$html = "";
+	$html .= package_events($query);
+	
+	set_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"),$html,HOUR_IN_SECONDS);
+	return $html;
+}
+
+function package_events($events_array){
+	
+	$events = array();
+	$event_ids = array();
+	foreach($events_array as $event){
+		$key = array_search($event->ID,$event_ids);
+		if($key !== false){
+			$events[$key]['event_times'][] = array(
+				"start"					=>	new DateTime($event->StartDate." ".$event->StartTime),
+				"end"						=>	new DateTime($event->EndDate." ".$event->EndTime)
+			);
+		}else{
+			$event_ids[]	=	$event->ID;
+			
+			$events[] = array(
+				'post_id'				=>	$event->ID,
+				'post_data'			=>	$event,
+				'event_times'		=>	array(array(
+					"start"				=>	new DateTime($event->StartDate." ".$event->StartTime),
+					"end"					=>	new DateTime($event->EndDate." ".$event->EndTime)
+					))
+			);
+		}
+	}
+	$formatted_list = sprintf('<ul class="eo-events eo-events-shortcode">%s</ul>',
+		format_events_list($events));
+	return $formatted_list;
+}
+
+function format_events_list($packaged_array){
+	$html = '';
+	
+	foreach($packaged_array as $event){
+		$post = $event['post_data'];
+		$class = array("eo-event-future");
+		
+		//construct the category list
+		$terms = get_the_terms($post->ID,'event-category');
+			if(!empty($terms)){
+				$out = array();
+				$slugs = array();
+				foreach($terms as $term){
+					$out[] = $term->name;
+					$class[] = "eo-event-cat-".$term->slug;
+				}
+				$terms = join(' ', $out);
+			}else{$terms = "";}
+		
+		//construct the start time list
+		$start_times = array();
+		foreach($event['event_times'] as $times ){
+			$start = $times['start']->format("g i a");
+			$pieces = explode(' ',$start);
+			$start_times[$times['start']->format('l')][] = time_compact_ap_format($pieces[0],$pieces[1],$pieces[2]);
+		}
+		$start_string = array();
+		if(isset($start_times['Saturday'])){
+			$start_string[] = 'Saturday at '.join(', ',$start_times['Saturday']);
+		}
+		if(isset($start_times['Sunday'])){
+			$start_string[] = 'Sunday at '.join(', ',$start_times['Sunday']);
+		}
+		
+		//construct the venue string
+		$venue_id = eo_get_venue($event['post_id']);
+		$venue_addr = eo_get_venue_address($venue_id);
+		if($venue_id){
+			$venue = sprintf('%s (<a href="%s">%s</a>)',
+				eo_get_venue_name($venue_id),
+				eo_get_venue_link($venue_id),
+				$venue_addr["address"]
+				);
+		}else{
+			$venue = "";
+		}
+		
+		$price = get_post_meta($post->ID,'price',true)?: "";
+		
+		$html .=	sprintf(
+			'<li class="%s"><strong class="event-cat">%s:</strong> %s %s, %s, %s.</li>',
+			join(" ",$class),
+			$terms,
+			$post->post_content,
+			$venue,
+			join(' and ',$start_string),
+			$price
+		);
+	}
+	return $html;
+}
+
 function toist_quicktags( $args, $post_id ) 
 { 
 ?>
@@ -17,8 +185,19 @@ function toist_quicktags( $args, $post_id )
 	function planner_maker(e,c,ed){
 	var events_url = 'http://torontoist.com/events/event/?ondate=';
 	
-	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] \n\n<h3 class="section-title">And ongoing&hellip;</h3> \n[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="NOT LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
+	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] \n\n<h3 class="section-title">Ongoing&hellip;</h3> \n[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="NOT LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
 			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.today().addDays(2).toString("yyyy-MM-dd")+'">Tomorrow</a> <a href="'+events_url+Date.today().addDays(3).toString("yyyy-MM-dd")+'">'+Date.today().addDays(3).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(4).toString("yyyy-MM-dd")+'">'+Date.today().addDays(4).toString("dddd")+'</a></div></section>'
+			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, <a href="mailto:events@torontoist.com">email us</a> with all the details (including images, if you\'ve got any), ideally at least a week in advance.</em>';
+		
+		QTags.TagButton.prototype.callback.call(this,e,c,ed);
+	}
+	
+	QTags.addButton('toist_weekendplanner','Weekend Planner',weekendplanner_maker,'','w');
+	function weekendplanner_maker(e,c,ed){
+	var events_url = 'http://torontoist.com/events/event/?ondate=';
+	
+	this.tagStart = '[weekend_planner_new]\n\n<h3 class="section-title">Ongoing&hellip;</h3> \n[weekend_planner_ongoing]'
+			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.parse('next Monday').toString("yyyy-MM-dd")+'">Monday</a> <a href="'+events_url+Date.parse('next Tuesday').toString("yyyy-MM-dd")+'">Tuesday</a> <a href="'+events_url+Date.parse('next Wednesday').toString("yyyy-MM-dd")+'">Wednesday</a></div></section>'
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, <a href="mailto:events@torontoist.com">email us</a> with all the details (including images, if you\'ve got any), ideally at least a week in advance.</em>';
 		
 		QTags.TagButton.prototype.callback.call(this,e,c,ed);
