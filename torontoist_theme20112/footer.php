@@ -18,9 +18,8 @@
 		<?php
 		global $post;
 		$posts = new WP_Query();
-		$posts->query(array('showposts' => 8, 'post_status' => 'publish', 'tag' => 'favourites'));
-		?>
-		<?php
+		$posts->query(array('showposts' => 12, 'post_status' => 'publish', 'tag' => 'favourites'));
+		
 		while ($posts->have_posts()) {
 			$posts->the_post();
 			$imageback = "http://torontoist.com/wp-content/uploads/2013/02/skyline-for-footer-200x150.jpg";
