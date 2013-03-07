@@ -26,7 +26,7 @@ function make_weekend_planner($new = true){
 	$prefix = $new ? "new" : "ongoing";
 	//if this post's WP has already been cached, return it
 	$html = get_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"));
-	if($html) return $html;
+	//if($html) return $html;
 		
 	$saturday = clone $today;
 	$sunday = clone $today;
@@ -142,6 +142,7 @@ function format_events_list($packaged_array){
 			$start_times[$times['start']->format('l')][] = time_compact_ap_format($pieces[0],$pieces[1],$pieces[2]);
 		}
 		$start_string = array();
+				
 		if(isset($start_times['Saturday'])){
 			$start_string[] = 'Saturday at '.join(', ',$start_times['Saturday']);
 		}
@@ -153,11 +154,20 @@ function format_events_list($packaged_array){
 		$venue_id = eo_get_venue($event['post_id']);
 		$venue_addr = eo_get_venue_address($venue_id);
 		if($venue_id){
-			$venue = sprintf('%s (<a href="%s">%s</a>)',
-				eo_get_venue_name($venue_id),
-				eo_get_venue_link($venue_id),
-				$venue_addr["address"]
-				);
+			if(!empty($venue_addr['address'])){
+				$venue = sprintf('%s (<a href="%s">%s</a>)',
+					eo_get_venue_name($venue_id),
+					get_permalink($event['post_id']),
+					$venue_addr["address"]
+					);
+			}else{
+				$venue = sprintf('<a href="%s">%s</a>',
+					get_permalink($event['post_id']),
+					eo_get_venue_name($venue_id)
+					);
+				
+			}
+			
 		}else{
 			$venue = "";
 		}
