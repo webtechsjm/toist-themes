@@ -231,7 +231,7 @@ function toist_add_styles(){
 }
 
 add_filter('coauthors_search_authors_get_terms_args',function($args){
-	$args['number'] = 1000;
+	$args['number'] = 100;
 	return $args;
 	});
 
@@ -240,6 +240,19 @@ add_action('pre_get_posts',function($query){
 	if($query->query['post_type'] == 'event'){
 		$query->set('posts_per_page',-1);
 		return;
+	}
+});
+
+/*
+*		Add events to the home loop
+*/
+add_action('pre_get_posts',function($query){
+	//var_dump($query);
+	if(
+		($query->is_main_query() && $query->is_front_page()) 
+		|| ($query->is_archive() && !$query->is_post_type_archive()) 
+		){
+		$query->set("post_type",array("post","event"));
 	}
 });
 
