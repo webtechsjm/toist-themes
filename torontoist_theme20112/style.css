@@ -35,7 +35,6 @@ nav-link.active .sd-node-nav-link-label-date {
 article, aside, figure, footer, header, hgroup, nav, section {display: block;}
 
 html {overflow-y: scroll;}
-
 ul {list-style: none;}
 
 blockquote, q {quotes: none;}
@@ -333,12 +332,16 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article.mobileonly a.comments-link {margin:0 5; padding:0; border:none; font-size:10px;}
 #content article.mobileonly img {display:block;}
 #content article.mobileonly .dek {font-size:14px; font-weight:normal; line-height:1.4;}
+#content .eo-events-shortcode a.details{font-weight:bold; color: #939393}
+html.touch #content .eo-events-shortcode a.details{color: #930b0f;}
+#content .eo-events-shortcode li:hover{background: #f9f9f9;}
+#content .eo-events-shortcode li:hover a.details{color: #9E0B0F;}
 
 #content time.short {float:right; padding-left:5px;}
 
 /* =START EVENT POST STYLES */
 #content ul.eo-events{margin: 0;}
-#content ul.eo-events>li{list-style:none; margin: 15px 0;}
+#content ul.eo-events>li{list-style:none; padding: 7px 0;}
 #content ul.eo-events .event-cat{text-transform:uppercase;}
 #content .event-footer{border-top: 1px dotted #ccc; padding: 0.5em 0 0; margin: 0.5em 0 0;}
 .recurrence{float:right; width: 162px; margin: 0 0 0 20px;}
@@ -498,7 +501,7 @@ body.slideshow {max-width:1120px !important; background: none repeat scroll 0 0 
 #content article.eo-event-cat-sponsored-event h3 a {color:#252525;}
 #content article.category-sponsored-post,
 article.eo-event-cat-sponsored-event,
-li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
+#content .eo-events-shortcode li.eo-event-cat-sponsored-event {background:#FEFDE6; padding:10px 0;}
 #content article.category-sponsored-post .byline, #content article.category-sponsored-post time, #content article.category-sponsored-post .comments-link, #content article.category-sponsored-post .tag-list, #content article.category-sponsored-post .related {display:none;}
 .single #content article.category-sponsored-post {padding:10px 0 0 0;}
 
