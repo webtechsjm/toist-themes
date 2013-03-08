@@ -11,6 +11,7 @@ Author URI: http://puppydogtales.ca
 add_action( 'admin_print_footer_scripts', 'toist_quicktags',100);
 add_shortcode('weekend_planner_new','make_weekend_planner_new');
 add_shortcode('weekend_planner_ongoing','make_weekend_planner_ongoing');
+//add_filter('format_to_post','event_more_tag');
 
 function make_weekend_planner_new(){
 	return make_weekend_planner();
@@ -26,7 +27,7 @@ function make_weekend_planner($new = true){
 	$prefix = $new ? "new" : "ongoing";
 	//if this post's WP has already been cached, return it
 	$html = get_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"));
-	//if($html) return $html;
+	if($html) return $html;
 		
 	$saturday = clone $today;
 	$sunday = clone $today;
@@ -155,14 +156,12 @@ function format_events_list($packaged_array){
 		$venue_addr = eo_get_venue_address($venue_id);
 		if($venue_id){
 			if(!empty($venue_addr['address'])){
-				$venue = sprintf('%s (<a href="%s">%s</a>)',
+				$venue = sprintf('%s (%s)',
 					eo_get_venue_name($venue_id),
-					get_permalink($event['post_id']),
 					$venue_addr["address"]
 					);
 			}else{
-				$venue = sprintf('<a href="%s">%s</a>',
-					get_permalink($event['post_id']),
+				$venue = sprintf('%s',
 					eo_get_venue_name($venue_id)
 					);
 				
@@ -175,17 +174,34 @@ function format_events_list($packaged_array){
 		$price = get_post_meta($post->ID,'price',true)?: "";
 		
 		$html .=	sprintf(
-			'<li class="%s"><strong class="event-cat">%s:</strong> %s %s, %s, %s.</li>',
+			'<li class="%s"><strong class="event-cat">%s:</strong> %s %s, %s, %s. <a class="details" href="%s">Details</a></li>',
 			join(" ",$class),
 			$terms,
-			$post->post_content,
+			apply_filters('format_to_post',$post->post_content),
 			$venue,
 			join(' and ',$start_string),
-			$price
+			$price,
+			get_permalink($event['post_id'])
 		);
 	}
 	return $html;
 }
+
+/*
+function event_more_tag($content){
+	if(preg_match('|<!--event_more(.*?)?-->|',$content,$matches)){
+		var_dump(get_post_type());
+		$content = explode($matches[0],$content,2);
+		if(is_single() && 'event' == get_post_type()){
+			return join('',$content);
+		}else{
+			return $content[0];
+		}
+	}else{
+		return $content;
+	}
+}
+*/
 
 function toist_quicktags( $args, $post_id ) 
 { 
@@ -195,7 +211,7 @@ function toist_quicktags( $args, $post_id )
 	function planner_maker(e,c,ed){
 	var events_url = 'http://torontoist.com/events/event/?ondate=';
 	
-	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] \n\n<h3 class="section-title">Ongoing&hellip;</h3> \n[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="NOT LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%.[/eo_events] '
+	this.tagStart = '[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%. <a class="details" href="%event_url%">Details</a>[/eo_events] \n\n<h3 class="section-title">Ongoing&hellip;</h3> \n[eo_events ondate="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_key="_eventorganiser_schedule_start_start" meta_value="'+Date.today().addDays(1).toString("yyyy-MM-dd")+'" meta_compare="NOT LIKE"]<strong class="event-cat">%event_cats_terms%:</strong> %event_content% %event_location%, %start{g:i a}{}%, %event_price%. <a class="details" href="%event_url%">Details</a>[/eo_events] '
 			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.today().addDays(2).toString("yyyy-MM-dd")+'">Tomorrow</a> <a href="'+events_url+Date.today().addDays(3).toString("yyyy-MM-dd")+'">'+Date.today().addDays(3).toString("dddd")+'</a> <a href="'+events_url+Date.today().addDays(4).toString("yyyy-MM-dd")+'">'+Date.today().addDays(4).toString("dddd")+'</a></div></section>'
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, <a href="mailto:events@torontoist.com">email us</a> with all the details (including images, if you\'ve got any), ideally at least a week in advance.</em>';
 		
