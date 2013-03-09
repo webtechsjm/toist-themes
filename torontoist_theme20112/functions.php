@@ -244,19 +244,6 @@ add_action('pre_get_posts',function($query){
 });
 
 /*
-*		Add events to the home loop
-*/
-add_action('pre_get_posts',function($query){
-	//var_dump($query);
-	if(
-		($query->is_main_query() && $query->is_front_page()) 
-		|| ($query->is_archive() && !$query->is_post_type_archive()) 
-		){
-		$query->set("post_type",array("post","event"));
-	}
-});
-
-/*
 *		Turns mechanical hours, minutes and ante-/post-meridien in to a beautiful string
 */
 
