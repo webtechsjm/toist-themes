@@ -58,6 +58,7 @@
 								?>
 									<!-- Event is not an all day event - display time -->
 									<li class="dates"><?php echo join(', ',$todays); ?></li>
+									<?php the_event_star_rating(); ?>
 								<?php endif; ?>
 							</ul><!-- .entry-details -->
 
@@ -71,5 +72,9 @@
 								echo $content;
 							?>
 						</div><!-- .entry-content -->
+						<a href="<?php the_permalink() ?>" class="more-link">
+							<span class="morelink">Details: </span>
+							<?php the_title(); ?>
+						</a>
 
 					</article><!-- #post-<?php the_ID(); ?> -->

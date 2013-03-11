@@ -243,6 +243,33 @@ add_action('pre_get_posts',function($query){
 	}
 });
 
+function the_event_star_rating(){
+if($stars = get_post_meta(get_the_ID(),'stars',true)):
+	switch($stars){
+		case "0": $stars_filename = "0stars"; break;
+		case "0.5":case ".5": $stars_filename = "0.5stars"; break;
+		case "1": $stars_filename = "1stars"; break;
+		case "1.5": $stars_filename = "1.5stars"; break;
+		case "2": $stars_filename = "2stars"; break;
+		case "2.5": $stars_filename = "2.5stars"; break;
+		case "3": $stars_filename = "3stars"; break;
+		case "3.5": $stars_filename = "3.5stars"; break;
+		case "4": $stars_filename = "4stars"; break;
+		case "4.5": $stars_filename = "4.5stars"; break;
+		case "5": $stars_filename = "5stars"; break;
+		default: $stars_filename = false; break;
+	}
+	if($stars_filename){
+		printf(
+			'<li><img src="%s/images/graphics/%s.jpg" title="%s" /></li>',
+			get_stylesheet_directory_uri(),
+			$stars_filename,
+			$stars_filename
+			);
+	}
+endif;
+}
+
 /*
 *		Turns mechanical hours, minutes and ante-/post-meridien in to a beautiful string
 */

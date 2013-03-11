@@ -278,6 +278,8 @@ get_header(); ?>
 											printf('<li class="dates">%s<li>',$formatted);
 										}
 									endif; //end reoccurrence check
+								
+								the_event_star_rating();
 								?>
 								
 							</ul><!-- .entry-details -->
@@ -286,6 +288,10 @@ get_header(); ?>
 						<div class="entry-content">
 							<?php the_content(); ?>
 						</div><!-- .entry-content -->
+						<a href="<?php the_permalink() ?>" class="more-link">
+							<span class="morelink">Details: </span>
+							<?php the_title(); ?>
+						</a>
 
 					</article><!-- #post-<?php the_ID(); ?> -->
 
@@ -309,7 +315,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'Apologies, but no events were found for the requested category. ', 'eventorganiser' ); ?></p>
+						<p><?php _e( 'Looks like we don\'t have any events that match your search yet. We\'re always adding more though, so try again soon!', 'eventorganiser' ); ?></p>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
 

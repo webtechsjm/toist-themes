@@ -13,10 +13,23 @@
             <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('F j, Y'); ?> at <?php the_time('g:i a'); ?></time>
                                
             <h3><?php
-                    $categories = get_the_category();
-                    foreach($categories as $category){
-                    $cat_link = get_category_link($category->cat_ID);
-                    echo '<a href="/'.$category->name.'-page/">'.$category->name.'</a>'; 
+            				switch(get_post_type()){
+            					case "post":
+            						$categories = get_the_category();
+		                    foreach($categories as $category){
+			                    $cat_link = get_category_link($category->cat_ID);
+    				              echo '<a href="'.$cat_link.'">'.$category->name.'</a>'; 
+			                    }
+            						break;
+            					case "event":
+            						$categories = get_the_terms(get_the_ID(),'event-category');
+												$the_category = array_shift($categories);
+							
+												printf('<a href="%s">%s</a>',
+													site_url()."/events/category/".$the_category->slug,
+													$the_category->name
+													);
+            						break;
                 }?>
             </h3>
             
