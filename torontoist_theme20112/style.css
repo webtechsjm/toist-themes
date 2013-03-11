@@ -383,6 +383,32 @@ body.tax-event-tag #content h2.page-title
 	font-weight: 600;
 	border-bottom: 1px dotted #b2b2b2;
 }
+body.archive article.event a.more-link,
+body.tax-event-venue a.more-link,
+body.tax-event-category a.more-link,
+body.tax-event-tag a.more-link{
+	font-weight:bold; color: #939393
+}
+html.touch body.archive article.event a.more-link,
+html.touch body.tax-event-venue a.more-link,
+html.touch body.tax-event-category a.more-link,
+html.touch body.tax-event-tag a.more-link{
+	font-weight:bold; color: #939393
+}
+body.archive article.event:hover,
+body.tax-event-venue article.event:hover,
+body.tax-event-category article.event:hover,
+body.tax-event-tag article.event:hover{
+	background: #f9f9f9;
+}
+
+body.archive article.event:hover a.more-link,
+body.tax-event-venue article.event:hover a.more-link,
+body.tax-event-category article.event:hover a.more-link,
+body.tax-event-tag article.event:hover a.more-link{
+	color: #9E0B0F;
+}
+
 body.post-type-archive-event h3.section-title,
 #content article h3.section-title
 {
