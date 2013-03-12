@@ -65,6 +65,26 @@ add_filter('pre_get_posts','myFilter');
     		'before_title'  => '<h5>',
     		'after_title'   => '</h5>'
     	));
+    	
+    	register_sidebar(array(
+    		'name' => 'Homepage Sidebar',
+    		'id'   => 'home-widgets',
+    		'description'   => 'These are widgets for the homepage sidebar.',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
+    	
+    	register_sidebar(array(
+    		'name' => 'Post Sidebar',
+    		'id'   => 'post-sidebar',
+    		'description'   => 'These are widgets for the post sidebar.',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
     }
     
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
@@ -234,7 +254,11 @@ add_filter('coauthors_search_authors_get_terms_args',function($args){
 	$args['number'] = 100;
 	return $args;
 	});
-
+add_filter('coauthors_search_get_users_args',function($args){
+	$args['search_fields'] = array("ID","display_name","user_login");
+	$args['number'] = 10;
+	return $args;
+});
 
 add_action('pre_get_posts',function($query){
 	if($query->query['post_type'] == 'event'){
