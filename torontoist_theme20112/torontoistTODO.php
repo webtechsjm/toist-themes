@@ -33,48 +33,28 @@ $(function() {
     <area shape="rect" coords="460,46,598,65" href="http://www.torontolife.com/TOdo_sales/" alt="Add Your Event" />
   </map>
 </div>
+<!--OCAD-->
+<div class="todo_container">
+  <img src="http://media.torontolife.com/img/TOdo/ocad/130228_OCADU_P31_todo_600x100.jpg" width="600px" height="100px" />
+  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
+  <div class="collapse">
+    <img class="product" src="http://media.torontolife.com/img/TOdo/ocad/130227_OCADU_P31_todo_260x260.jpg" width="260px" height="260px" />
+    <div class="info">
+    <p><b>Project 31 Live Art Auction &ndash; Wednesday, March 27, 2013</b><br/>
+    OCAD University, Great Hall (2nd Floor), 100 McCaul Street<br/>
+	6 p.m. Preview and Reception, 7 p.m. Live Auction<br/>
+    Tickets: $95<br/>
+    <strong><a style="color:#000;" href="http://www.ocadu.ca/project31" target="_blank">www.ocadu.ca/project31</a></strong></p>
+<br/>
+	Attend one of the city's most accessible art collecting events, Project 31, a live art auction that offers stunning paintings, photography, limited edition prints, sculpture, textile,  illustration, jewellery and digital media created by OCAD University's award-winning faculty members. All funds raised support OCAD U student initiatives and learning experiences. Tickets can be purchased on-line.<br/><br/>
+
+  <strong><a style="color:#000;" href="http://www.torontolife.com/ocaduniversity_todo_torontoist" target="_blank">Click here for more info &raquo;</a></strong></p>
+    </div>
+    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
+  </div>
+</div>
+<!--end OCAD-->
 <!--ROM--> <div class="todo_container">  <img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_ExpendingImage.jpg" width="600px" height="100px" />  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>  <div class="collapse">    <img class="product" src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_Main_Image.jpg" width="260px" height="260px" />    <div class="info">    <p><b>Rock the Cradle of Civilization &ndash; Ancient Prom</b><br/>    100 Queen's Park, 416.586.5772<br/> Saturday April 6 &ndash; Royal Ontario Museum<br/><br/>     Join hundreds of Young Patrons Circle (YPC) members and guests for a contemporary party at the ROM inspired by past civilizations. Ancient PROM will be an unforgettable night of live entertainment and dancing, luxurious lounge areas and gourmet fare. Get ready to experience an epic party worthy of an ancient empire on Saturday, April 6, 2013!<br/><br/>   <strong><a style="color:#000;" href="http://www.torontolife.com/romprom_todo_torontoist" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>    </div>    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />  </div> </div> <!--end ROM-->
-<!--Nyood-->
-<div class="todo_container">
-  <img src="http://media.torontolife.com/img/TOdo/Banner-Ad_BLACK-600x100.gif" width="600px" height="100px" />
-  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
-  <div class="collapse">
-    <img class="product" src="http://media.torontolife.com/img/TOdo/Expanded-Banner-Ad-Static_BLACK---260x260.gif" width="260px" height="260px" />
-    <div class="info">
-    <p><b>Nyood Restaurant and Bar</b><br/>
-    1096 Queen Street West, 416-466-1888<br/>
-<strong><a style="color:#000;" href="http://www.nyood.ca" target="_blank" rel="nofollow">www.nyood.ca</a></strong><br/><br/>
-
-Nyood's brunch is now offered on Saturday and Sunday, 11:00am&ndash;3:00pm. Purchase one brunch item, receive a second item of lesser or equal value, free! For reservations call 416-466-1888 or email info@nyood.ca. Print/bring in the 2 Of A Kind flyer. Expires Sun. Mar. 10, 2013. Excludes beverages, taxes and gratuity.<br/><br/>
-
-  <strong><a style="color:#000;" href="http://www.torontolife.com/nyoodrestaurant_todo_torontoist" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
-    </div>
-    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
-  </div>
-</div>
-<!--end Nyood-->
-<!--eps
-<div class="todo_container">
-  <img src="http://media.torontolife.com/img/TOdo/study_go_abroad_todo2013_600x100.jpg" width="600px" height="100px" />
-  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
-  <div class="collapse">
-    <img class="product" src="http://media.torontolife.com/img/TOdo/study_go_abroad_todo2013_260x260.jpg" width="260px" height="260px" />
-    <div class="info">
-    <p><b>Don't miss the most important event of the year for studies or travel abroad</b><br/>
-    Study and Go Abroad student expo<br/>
-Sunday, March 3 – Metro Toronto Convention Centre, North Building<br/><br/>
-
-    Don't miss the Study and Go Abroad Fair, Canada's largest international university and student travel expo.   The expo, which is open from 1pm to 5pm on Sunday, March 3rd, offers visitors an exciting opportunity to meet with top-ranked universities and colleges from around the world to learn about undergraduate, post-graduate,  vocational and language programs abroad.  Our student travel pavilion will showcase a range of gap year options, work abroad programs, volunteering and adventure travel.  <br/><br/> Come an hour before the fair opens to catch our guest speaker seminar (check our website for more information).<br/><br/>
-    Pre-register online or on the day and you will be entered into the Grand Prize Draw.<br/>
-
-Admission and seminars are FREE.<br/><br/>
-
-  <strong><a style="color:#000;" href="http://www.torontolife.com/revolveepsholdings_todo" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
-    </div>
-    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
-  </div>
-</div>
-end eps-->
 <!--ballet jorgen-->
 <div class="todo_container">
   <img src="http://media.torontolife.com/img/TOdo/swan-lake_600x100.jpg" width="600px" height="100px" />
