@@ -878,46 +878,6 @@ class coauthors_plus {
 		$found_users = get_users( $args );
 		remove_filter( 'pre_user_query', array( $this, 'filter_pre_user_query' ) );
 
-		/*
-		foreach( $found_users as $found_user ) {
-			$term = $this->get_author_term( $found_user );
-			if ( empty( $term ) || empty( $term->description ) ) {
-				$this->update_author_term( $found_user );
-			}
-		}
-				
-		/*
-		$args = array(
-				'search' => $search,
-				'get' => 'all',
-				'number' => 10,
-			);
-		$args = apply_filters( 'coauthors_search_authors_get_terms_args', $args );
-		add_filter( 'terms_clauses', array( $this, 'filter_terms_clauses' ) );
-		$found_terms = get_terms( $this->coauthor_taxonomy, $args );
-		remove_filter( 'terms_clauses', array( $this, 'filter_terms_clauses' ) );
-		if ( empty( $found_terms ) )
-			return array();
-
-		// Get the co-author objects
-		$found_users = array();
-		foreach( $found_terms as $found_term ) {
-			$found_user = $this->get_coauthor_by( 'user_nicename', $found_term->slug );
-			if ( !empty( $found_user ) )
-				$found_users[$found_user->user_login] = $found_user;
-		}
-		
-		/*
-		// Allow users to always filter out certain users if needed (e.g. administrators)
-		$ignored_authors = apply_filters( 'coauthors_edit_ignored_authors', $ignored_authors );
-		foreach( $found_users as $key => $found_user ) {
-			// Make sure the user is contributor and above (or a custom cap)
-			if ( in_array( $found_user->user_login, $ignored_authors ) )
-				unset( $found_users[$key] );
-			else if ( $found_user->type == 'wpuser' && false === $found_user->has_cap( apply_filters( 'coauthors_edit_author_cap', 'edit_posts' ) ) )
-				unset( $found_users[$key] );
-		}
-		*/
 		return (array) $found_users;
 	}
 
