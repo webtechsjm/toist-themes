@@ -11,7 +11,10 @@ Author URI: http://puppydogtales.ca
 add_action( 'admin_print_footer_scripts', 'toist_quicktags',100);
 add_shortcode('weekend_planner_new','make_weekend_planner_new');
 add_shortcode('weekend_planner_ongoing','make_weekend_planner_ongoing');
-//add_filter('format_to_post','event_more_tag');
+add_filter('format_to_post','event_more_tag');
+add_filter('the_content','event_more_tag');
+add_action('post_submitbox_misc_actions', 'exclude_from_newsfeed');
+add_action('save_post','exclude_from_newsfeed_save');
 
 function make_weekend_planner_new(){
 	return make_weekend_planner();
@@ -42,6 +45,7 @@ function make_weekend_planner($new = true){
 
 	if($new){
 		$query = eo_get_events(array(
+		'showpastevents'	=>	true,
 		'event_start_after'	=>	$saturday->format('Y-m-d'),
 		'event_start_before'	=>	$sunday->format('Y-m-d'),
 		'meta_query'	=>	array(
@@ -60,6 +64,7 @@ function make_weekend_planner($new = true){
 		));
 	}else{
 		$query = eo_get_events(array(
+			'showpastevents'	=>	true,
 			'event_start_after'	=>	$saturday->format('Y-m-d'),
 			'event_start_before'	=>	$sunday->format('Y-m-d'),
 			'meta_query'	=>	array(
@@ -77,9 +82,7 @@ function make_weekend_planner($new = true){
 				)
 			));
 	}	
-	
-	
-	
+		
 	$html = "";
 	$html .= package_events($query);
 	
@@ -187,12 +190,14 @@ function format_events_list($packaged_array){
 	return $html;
 }
 
-/*
 function event_more_tag($content){
+	global $post;
+
+	$template = pathinfo(get_single_template());
+
 	if(preg_match('|<!--event_more(.*?)?-->|',$content,$matches)){
-		var_dump(get_post_type());
 		$content = explode($matches[0],$content,2);
-		if(is_single() && 'event' == get_post_type()){
+		if(is_single() && $template['filename'] == 'single-event'){
 			return join('',$content);
 		}else{
 			return $content[0];
@@ -201,7 +206,74 @@ function event_more_tag($content){
 		return $content;
 	}
 }
+
+function exclude_from_newsfeed(){
+	global $post;
+	if(get_post_type($post) == 'event'){
+	
+	//Should posts be included by default?
+	$default_inclusion = get_option('default_inclusion');
+	
+	if(current_user_can('publish_posts')){
+	?>
+		<div class="misc-pub-section" style="border-top: 1px solid #eee;">
+			<?php
+					wp_nonce_field(plugin_basename(__FILE__),'exclude_from_nonce'); 
+					
+					//if the post is saved as added to the magazine feed, make sure it's shown as checked
+					//$attr = get_post_meta($post->ID,'tomag_include',true) ? "checked='checked'" : "";
+					global $pagenow;
+					$current = get_post_meta($post->ID,'_exclude_from_feed',true);
+					if(
+						$current == "exclude" || $pagenow == 'post-new.php'
+					){$attr = '';
+					}else{$attr='checked="checked"';}
+					?>
+					<input type="checkbox" <?php echo $attr ?> name="newsfeed_exclude" id="newsfeed_exclude" value="exclude"/>
+					<label for="newsfeed_exclude">Include in the main loop</label>
+			</div>
+	<?
+		}
+	}
+}
+
+/*
+*		Add specific events to the home loop
 */
+add_action('pre_get_posts',function($query){	
+	if(
+		($query->is_main_query() && $query->is_front_page()) 
+		|| ($query->is_archive() && (!$query->is_post_type_archive() && !is_tax()))
+		){
+		$query->set("post_type",array("post","event"));
+		
+		$query->set("meta_query",array(
+			array(
+				'key' => '_exclude_from_feed',
+				'compare' => 'NOT EXISTS'
+			)
+		));
+	}
+});
+
+function exclude_from_newsfeed_save($post_id){
+	//security
+	if(
+		!isset($_POST['post_type'])
+		|| !wp_verify_nonce($_POST['exclude_from_nonce'], plugin_basename(__FILE__))
+		|| (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+		|| !current_user_can('edit_events',$post_id)
+		) return $post_id;
+	
+	$current = get_post_meta($post_id,'_exclude_from_feed',true);
+		
+	if(!isset($_POST['newsfeed_exclude']) && $current == ""){
+		update_post_meta($post_id,'_exclude_from_feed','exclude');
+	}elseif(isset($_POST['newsfeed_exclude']) && $current == "exclude"){
+		delete_post_meta($post_id,'_exclude_from_feed');
+	}
+	
+}
 
 function toist_quicktags( $args, $post_id ) 
 { 

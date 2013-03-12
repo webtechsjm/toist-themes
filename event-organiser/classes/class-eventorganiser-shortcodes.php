@@ -370,7 +370,7 @@ class EventOrganiser_Shortcodes {
 				$replacement = eventorganiser_trim_excerpt( $output, $length);
 				break;
 			case 'event_content':
-				$replacement = get_the_content();
+				$replacement = apply_filters('format_to_post',$post->post_content);
 				break;
 			case 'cat_color':
 				$replacement =  eo_get_event_color();
@@ -387,11 +387,11 @@ class EventOrganiser_Shortcodes {
 				$addr = eo_get_venue_address();
 				
 				if($venue && $addr['address']):
-					$text = '%1$s (<a href="%3$s">%2$s</a>)';
+					$text = '%1$s (%2$s)';
 				elseif($venue):
-					$text = '<a href="%3$s">%1$s</a>';
+					$text = '%1$s';
 				elseif ($addr['address']):
-					$text = '<a href="%3$s">%2$s</a>';
+					$text = '%2$s';
 				else:
 					$text = '';
 				endif;
