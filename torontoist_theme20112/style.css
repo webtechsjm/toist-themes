@@ -515,6 +515,7 @@ body.slideshow {max-width:1120px !important; background: none repeat scroll 0 0 
 /* =START AD & SPONSORSHIP STYLES */
 #leaderboard {width:728px; height:90px; margin:10px auto 15px auto;}
 .big-box {width:300px; background:#FFFFFF; margin:0px auto 10px; clear:both; display:block; padding: 10px 0;}
+.big-box h6{background: #f5f5f5; font-size: 10px; padding: 2px 0; text-align: center; text-transform: uppercase; margin-top: -5px;}
 .big-box.lower {margin-top:40px;}
 .med-box {width:300px; background:#ffffff; margin:0px auto 10px; clear:both; display:block; padding: 10px 0;}
 .mobile-ad {width:320px; background:#FFFFFF; margin:0px auto; clear:both; display:none;}
@@ -534,7 +535,7 @@ article.eo-event-cat-sponsored-event,
 
 /* =START SIDEBAR */
 #sidebar {float:right; max-width:350px; width:34.65%; font-size:14px;}
-#sidebar h5 {text-align:center; text-transform:uppercase; color:#9E0B0F; padding:5px; letter-spacing:2px; border-top:1px solid #B2B2B2; border-bottom:1px solid #B2B2B2; margin-bottom:15px; font-size:18px; font-weight:600;}
+#sidebar h5 {text-align:center; font-family: "Kameron",sans-serif; line-height:1.4; border-top:1px solid #B2B2B2; border-bottom:1px solid #B2B2B2; margin-bottom:15px; font-size:2em; font-weight:700;}
 #sidebar section h5 a {color:#9E0B0F;}
 #sidebar p {font-size:14px; margin:20px 0;}
 
@@ -568,13 +569,13 @@ article.eo-event-cat-sponsored-event,
 
 #sidebar section#facebook-widgets {width:300px; margin:0px auto;}
 
-#sidebar #wp-calendar{width: 100%; margin: 0 0 0.5em;}
-#sidebar #wp-calendar caption{font-weight:bold; font-family:"Kameron"; font-size: 2em; line-height: 1; margin: 0 0 10px;}
+#sidebar #wp-calendar{width: 100%; margin: 0 0 1.5em;}
+#sidebar #wp-calendar caption{font-weight:700; font-size: 18px; line-height: 1; margin: -5px 0 10px;text-transform:uppercase; letter-spacing: 2px; color: #9E0B0F}
 #sidebar #wp-calendar thead,
 #sidebar #wp-calendar tbody a,
 #sidebar #wp-calendar tfoot{color: #939393;}
 #sidebar #wp-calendar tbody{color: #d0d0d0;}
-#sidebar #wp-calendar tbody td{text-align:center; background: #f5f5f5; font-size: 1.5em; border: 2px solid #fff; padding: 7px 0;}
+#sidebar #wp-calendar tbody td{text-align:center; background: #f5f5f5; font-size: 1.5em; border: 2px solid #fff; padding: 7px 0; font-weight: 600;}
 #sidebar #wp-calendar tbody td.event{padding: 0}
 #sidebar #wp-calendar td a{display:block; height: 100%; width: 100%;}
 #sidebar #wp-calendar tbody td a{display:block; height: 100%; width: 100%; padding: 7px 0;}
@@ -582,16 +583,104 @@ article.eo-event-cat-sponsored-event,
 #sidebar #wp-calendar tfoot td a{font-weight:bold; text-transform:uppercase; padding: 3px 0;}
 #sidebar #wp-calendar #eo-widget-prev-month{text-align:right}
 
-#recentcomments .comment{position:relative;}
+#sidebar .widget_toist_most_read_widget h5{margin: 0 0 -.3em;}
+.widget_toist_most_read_widget article{
+	clear:both;
+	border-bottom: 1px solid #eaeaea;
+	padding: 1.5em 0;
+}
+.widget_toist_most_read_widget article:last-child{
+	border-bottom: none;
+}
+.widget_toist_most_read_widget article:after{
+	clear:both;
+	content: "";
+	display:block;
+}
+.widget_toist_most_read_widget h1{margin: 0 0 0.5em;}
+.widget_toist_most_read_widget aside{
+	border-right: 5px solid #fb584f;
+	float:left;
+	font-family: 'Kameron';
+	font-size: 2em;
+	font-weight: bold;
+	margin: 0 15px 0 0;
+	padding: 0 10px 0 3px;
+	color: #fec9c5;
+	height: 60px;
+	line-height: 1;
+}
+.widget_toist_most_read_widget{
+	margin: 0 0 2em;
+}
+
+#sidebar .widget_toist_most_read_widget p{
+	font-size: .75em;
+	margin: 0;
+	line-height: 1.75;
+}
+#sidebar .widget_toist_most_commented h5{margin-bottom: 30px;}
+#sidebar .widget_toist_most_commented article{clear:both; margin: 0 0 2.5em;}
+#sidebar .widget_toist_most_commented p,
+#sidebar .widget_toist_most_commented h1{
+	display:table-cell;
+	vertical-align: middle;
+}
+#sidebar .widget_toist_most_commented .comments{
+	display:block;
+	background: url('images/graphics/sidebar-sprites.png') -60px 0 no-repeat;	
+	font-size: 1.5em;
+	font-weight: bold;
+	height: 22px;
+	width: 39px;
+	padding: 5px 4px 5px 8px;
+	line-height: 1;
+	color: #000;
+	text-align:center;
+	margin-right: 15px;
+}
+#sidebar .widget_toist_most_commented a:after{
+	clear:both;
+	content: "";
+	display:block;
+}
+#recentcomments{margin-top:2em;}
+#recentcomments .comment{position:relative; margin:0 0 3em;}
 #recentcomments .comment blockquote:before,
 #recentcomments .comment blockquote:after{
 	position:absolute;
 	font-size: 4em;
 	font-family: "Kameron"
+	margin-bottom: 2em;
 }
-#recentcomments .comment blockquote:before{content:"\201C";top:0;left:0}
-#recentcomments .comment blockquote:after{content:"\201D";bottom:0;right:0;}
-#recentcomments blockquote{font-size: .8em; border: none; padding: 0 40px; margin: 0;}
+#recentcomments .comment blockquote:before{
+	background: url("images/graphics/sidebar-sprites.png") no-repeat 0px -2px;
+	font-size: .8em;
+	top: .9em;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	content: "";
+	}
+#recentcomments .comment blockquote:after{
+	background: url("images/graphics/sidebar-sprites.png") no-repeat -30px -2px;
+	right: 0;
+	bottom: 0;
+	height: 30px;
+	width: 30px;
+	content: "";
+	}
+#recentcomments blockquote{
+	font-size: .8em;
+	border: none;
+	padding: 1em 40px 0.25em;
+	margin: 0 15px 0 0;
+	min-height: 25px;
+	position:relative;
+	}
+#recentcomments a.more-link{
+	display:block;
+}
 
 /* =POST NAVIGATION (index, category, etc.) */
 #content .post-nav {font-weight:bold; height:26px; padding:16px 0;}
@@ -599,6 +688,10 @@ article.eo-event-cat-sponsored-event,
 #content .post-nav .older-posts {float:left;}
 #content .post-nav .newer-posts {float:right;}
 
+.assistive-text{
+position: absolute !important;
+clip: rect(1px, 1px, 1px, 1px);
+}
 
 /* =SEARCH RESULTS PAGE */
 .search-results #content article {border-bottom:1px dotted #777; font-size:14px; padding-bottom:24px;}
