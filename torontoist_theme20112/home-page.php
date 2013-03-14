@@ -1,6 +1,15 @@
-<?php get_header(); ?>
+<?php 
+/*
+*		Template Name: Home Page
+*/
+
+get_header(); 
+
+?>
 
     <!--HOME-PAGE.PHP-->
+    
+    
     
     <section id="breaking-news" style="display:none;">
     <?php slidedeck( 63405, array( 'width' => '1000px', 'height' => '150px' ) ); ?>
@@ -16,8 +25,18 @@
 
         <!--START loop 1--> 
             <?php
+            $count = 0;
+            if(have_posts()) while(have_posts()): the_post();
+            	get_template_part('includes/article-longview.php');
+            endwhile;
+            
             $args = array( 'numberposts' => 3, 'category' => -25420 );
             $lastposts = get_posts( $args );
+            
+            //can get post->postdate
+            
+            var_dump(is_home());
+            
             foreach($lastposts as $post) : setup_postdata($post); ?>
                 
                 <!--include/article-longview.php-->                 
@@ -42,6 +61,7 @@
             <?php
             $args = array( 'numberposts' => 17, 'offset'=> 3, 'category' => -25420  );
             $lastposts = get_posts( $args );
+            
             foreach($lastposts as $post) : setup_postdata($post); ?>
                 
                 <!--include/article-shortview.php-->                 
@@ -49,6 +69,7 @@
             
             <?php endforeach; ?>     
         <!--END loop 2-->
+        */?>
         
         <nav class="post-nav">
             <div class="older-posts"><a href="/articles/page/2/">&laquo; Older Entries</a></div>
@@ -56,7 +77,7 @@
         
     </div>    
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('home'); ?>
 
 <?php get_footer(); ?>
 
