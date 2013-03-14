@@ -25,6 +25,6 @@
         <?php endwhile; endif; ?>
     </div>    
 
-<?php get_sidebar('post'); ?>
+<?php get_sidebar('test'); ?>
 
 <?php get_footer(); ?>
