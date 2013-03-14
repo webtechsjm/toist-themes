@@ -34,9 +34,7 @@ get_header();
             $lastposts = get_posts( $args );
             
             //can get post->postdate
-            
-            var_dump(is_home());
-            
+                        
             foreach($lastposts as $post) : setup_postdata($post); ?>
                 
                 <!--include/article-longview.php-->                 
@@ -69,7 +67,6 @@ get_header();
             
             <?php endforeach; ?>     
         <!--END loop 2-->
-        */?>
         
         <nav class="post-nav">
             <div class="older-posts"><a href="/articles/page/2/">&laquo; Older Entries</a></div>
