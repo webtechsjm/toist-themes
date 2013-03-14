@@ -18,6 +18,6 @@
         <?php endwhile; endif; ?>
     </div>    
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('post'); ?>
 
 <?php get_footer(); ?>

@@ -78,14 +78,26 @@
                     <?php if ($featured_tag = get_post_meta($post->ID, 'featured_tag', true)): 
                     
                     $tag = get_term_by('slug',$featured_tag,'post_tag');
-                    $patterns = array("-","\"");
-                    $replacements = array("-<wbr>","");
-                    $tag_name = str_replace($patterns,$replacements,$tag->name);
+                    $tag_name = str_replace('-','-<wbr>',$tag->name);
                     ?>
                     <section class="related">
-                    	<h4>More<br />from<br /><?php echo $tag_name; ?>:</h4>
+                    	<h4>More from <?php echo $tag_name; ?></h4>
                     	<ul>
                     	<?php 
+                    	//Query for related posts
+                    	//$related = get_posts('numberposts=4&offset=1&tag='.$featured_tag);
+                    	
+                    	/*
+                    	                    	foreach($related as $post): ?>
+                    		<li>
+                    			<a href="<?php the_permalink(); ?>">
+                    				<?php the_post_thumbnail(); ?>
+                    				<p><?php the_title(); ?></p>
+                    			</a>
+                    		</li>
+                    	<?php 
+                    		endforeach;
+                    	*/
                     	$related = new WP_Query(array(
                     		'tag'							=>	$featured_tag,
                     		'posts_per_page'	=>	4,
@@ -111,6 +123,21 @@
                     </section>
                     
                     <?php	
+                    /*
+			                $showtag = $post_related_tag;
+			                $showtag = str_replace("-","&nbsp;&nbsp;<br>",$showtag);
+                            echo ('<section class="related" id="tag-related"><div>more&nbsp;&nbsp;<br>from&nbsp;&nbsp;<br>'.$showtag.':&nbsp;&nbsp;</div><ul>');
+                            global $post;
+                            $myposts = get_posts('numberposts=4&offset=1&tag='.$post_related_tag); 
+                            foreach($myposts as $post) : 
+                            ?>
+                    
+                            <li><a href="<?php the_permalink(); ?>" class="image"><?php the_post_thumbnail(); ?></a>
+                            <a href="<?php the_permalink(); ?>" class="title"><?php the_title(); ?></a></li>
+                    
+                            <?php endforeach; wp_reset_query(); ?>
+                    <?php echo ('</ul></section>'); 
+                    */
                     endif; ?>
  
                    <section class="tag-list">
@@ -145,7 +172,7 @@ echo do_shortcode('[pinit]');
 
 
                         <!-- Start ShareThis -->                        
-                        <script charset="utf-8" type="text/javascript">var switchTo5x=false;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.0aa23093-2b8c-4fd5-9602-c686dee727c9',doNotHash:false, doNotCopy:true,hashAddressBar:false});var st_type='wordpress3.2';</script>
+                        <script charset="utf-8" type="text/javascript">var switchTo5x=false;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.0aa23093-2b8c-4fd5-9602-c686dee727c9'});var st_type='wordpress3.2';</script>
                         <span class='st_facebook_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='like'></span>
                         <span class='st_twitter_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='share'></span>
                         <span class='st_email_hcount' st_title='<?php the_title(); ?>' st_url='<?php the_permalink(); ?>' displayText='email'></span>
@@ -184,7 +211,7 @@ echo do_shortcode('[pinit]');
 <?php 
   $sidebaroff = get_post_meta($post->ID, 'sidebar_off', true);
   if ($sidebaroff != "true") {
-    get_sidebar();
+    get_sidebar('post');
   }
 ?>
 	

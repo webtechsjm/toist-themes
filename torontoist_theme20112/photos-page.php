@@ -45,6 +45,6 @@ Template Name: Photos Page
         
     </div>    
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('home'); ?>
 
 <?php get_footer(); ?>
