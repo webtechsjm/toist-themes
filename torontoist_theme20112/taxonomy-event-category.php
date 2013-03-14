@@ -286,7 +286,7 @@ get_header(); ?>
 
 						</header><!-- .entry-header -->
 						<div class="entry-content">
-							<?php the_content(); ?>
+							<?php the_content(''); ?>
 						</div><!-- .entry-content -->
 						<a href="<?php the_permalink() ?>" class="more-link">
 							<span class="morelink">Details: </span>
@@ -325,5 +325,5 @@ get_header(); ?>
 		</section><!-- #primary -->
 
 <!-- Call template sidebar and footer -->
-<?php get_sidebar(); ?>
+<?php get_sidebar('home'); ?>
 <?php get_footer(); ?>

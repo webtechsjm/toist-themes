@@ -90,5 +90,5 @@ get_header(); ?>
 		</section><!-- #primary -->
 
 <!-- Call template sidebar and footer -->
-<?php get_sidebar(); ?>
+<?php get_sidebar('home'); ?>
 <?php get_footer(); ?>
