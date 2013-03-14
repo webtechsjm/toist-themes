@@ -52,7 +52,7 @@ Template Name: Politics Page
         
     </div>    
 
-<?php get_sidebar(); ?>
+<?php get_sidebar('home'); ?>
 </div>
 
 <?php get_footer(); ?>
