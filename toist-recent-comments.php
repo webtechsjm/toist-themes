@@ -173,55 +173,62 @@ class Toist_Most_Commented extends WP_Widget{
 			$new_instance['post_num'] = 0;
 		if($new_instance['num_days'] != intval($new_instance['num_days']))
 			$new_instance['num_days'] = 1;
-		
 	
 		return $new_instance;
 	}
 	public function widget($args,$instance){
 		global $wpdb;
-		$transient_name = 'toist-most-commented-'.$instance['post_num'];
+		$discussed_transient = 'toist-most-commented-'.$instance['post_num'];
+		$commentnum_transient = 'toist-commented-posts-'.$instance['post_num'];		
+		
 		extract($args, EXTR_SKIP);
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Most Commented' ) : $instance['title'], $instance, $this->id_base );
 		
 		echo $before_widget;
 		echo $before_title.$title.$after_title;
 		
-		$num_days = !empty($instance['num_days'])?: 1;
+		$num_days = !empty($instance['num_days'])? $instance['num_days'] : 1;
 		
-		$discussed = get_transient($transient_name);
-		if($discussed === false){
+		$discussed = get_transient($discussed_transient);
+		$post_comments = get_transient($commentnum_transient);
+				
+		//if($discussed === false){
 			$limit = $wpdb->prepare('LIMIT 0,%d',$instance['posts_num']);
-			$days = $wpdb->prepare('DATE_SUB(NOW(),INTERVAL %d DAY',$num_days);
+			$days = $wpdb->prepare('DATE_SUB(NOW(),INTERVAL %d DAY)',$num_days);
 		
 			$res = $wpdb->get_results(
-				"SELECT comment_post_ID,COUNT(*) as comments FROM $wpdb->comments WHERE comment_date >= $days) GROUP BY comment_post_ID ORDER BY comments DESC $limit",
+				"SELECT comment_post_ID,COUNT(*) as comments FROM $wpdb->comments WHERE comment_date >= $days GROUP BY comment_post_ID ORDER BY comments DESC $limit",
 				ARRAY_A
 			);
-		
-			$posts = array();
+				
+			$post_comments = array();
 			foreach($res as $post){
-				$posts[$post['comment_post_ID']] = $post['comments'];
+				$post_comments[$post['comment_post_ID']] = $post['comments'];
 			}
+			
+			set_transient($commentnum_transient,$post_comments,15*MINUTE_IN_SECONDS);
 		
 			$args = array(
-				'post__in'		=>	array_keys($posts),
+				'post__in'		=>	array_keys($post_comments),
 				'orderby'			=>	'post__in'
 			);
 			if($instance['posts_num']) $args['posts_per_page'] = $instance['posts_num'];
 		
 			$discussed = new WP_Query($args);
-			set_transient($transient_name,$discussed,15 * MINUTE_IN_SECONDS);
-		}
+			set_transient($discussed_transient,$discussed,15 * MINUTE_IN_SECONDS);
+		//}
 		
 		if($discussed->have_posts()):?>
 		<div id="most-commented">
-		<?php		
+		<?php
 		while($discussed->have_posts()): $discussed->the_post(); ?>
 			<article>
 				<a href="<?php the_permalink(); ?>">
 					<p>
-						<span class="comments"><?php echo $posts[get_the_ID()]; ?></span>
+						<?php if(isset($post_comments) && is_array($post_comments)){ ?>
+						<span class="comments"><?php echo $post_comments[get_the_ID()]; ?></span>
 						<span class="assistive-text">comments on</span>
+						<?php } ?>
 					</p>
 					<h1><?php the_title(); ?></h1>
 				</a>
