@@ -85,6 +85,16 @@ add_filter('pre_get_posts','myFilter');
     		'before_title'  => '<h5>',
     		'after_title'   => '</h5>'
     	));
+    	
+    	  register_sidebar(array(
+    		'name' => 'Test Sidebar',
+    		'id'   => 'test-sidebar',
+    		'description'   => 'A last-stage testground for new widgets.',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
     }
     
     add_theme_support( 'post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'audio', 'chat', 'video')); // Add 3.1 post format theme support.
@@ -259,6 +269,7 @@ add_filter('coauthors_search_get_users_args',function($args){
 	$args['number'] = 10;
 	return $args;
 });
+
 
 add_action('pre_get_posts',function($query){
 	if($query->query['post_type'] == 'event'){
