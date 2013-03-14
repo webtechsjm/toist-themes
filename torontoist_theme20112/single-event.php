@@ -278,6 +278,7 @@ get_header(); ?>
 									printf('<li class="price">%s</li>',
 										$meta['price'][0]
 									);
+								the_event_star_rating();
 								?>
 							</ul><!-- .entry-meta -->
 
@@ -384,7 +385,7 @@ function toist_ordinalizer($number){
 	return $ordinal;
 }
 ?>
-<?php get_sidebar(); ?>
+<?php get_sidebar('post'); ?>
 <?php get_footer(); ?>
 
 <?php
