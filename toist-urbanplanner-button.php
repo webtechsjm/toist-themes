@@ -13,6 +13,7 @@ add_shortcode('weekend_planner_new','make_weekend_planner_new');
 add_shortcode('weekend_planner_ongoing','make_weekend_planner_ongoing');
 add_filter('format_to_post','event_more_tag');
 add_filter('the_content','event_more_tag');
+add_filter('format_to_post','remove_galleries');
 add_action('post_submitbox_misc_actions', 'exclude_from_newsfeed');
 add_action('save_post','exclude_from_newsfeed_save');
 
@@ -30,7 +31,7 @@ function make_weekend_planner($new = true){
 	$prefix = $new ? "new" : "ongoing";
 	//if this post's WP has already been cached, return it
 	$html = get_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"));
-	if($html) return $html;
+	//if($html) return $html;
 		
 	$saturday = clone $today;
 	$sunday = clone $today;
@@ -194,7 +195,7 @@ function event_more_tag($content){
 	global $post;
 
 	$template = pathinfo(get_single_template());
-
+		
 	if(preg_match('|<!--event_more(.*?)?-->|',$content,$matches)){
 		$content = explode($matches[0],$content,2);
 		if(is_single() && $template['filename'] == 'single-event'){
@@ -205,6 +206,11 @@ function event_more_tag($content){
 	}else{
 		return $content;
 	}
+}
+
+function remove_galleries($content){
+	return preg_replace("|\[gallery(.*)\]|","",$content);
+	
 }
 
 function exclude_from_newsfeed(){
@@ -298,6 +304,11 @@ function toist_quicktags( $args, $post_id )
 			+'\n\n<section class="side-nav"><h4>Happening soon:</h4><div class="clearfix"><a href="'+events_url+Date.parse('next Monday').toString("yyyy-MM-dd")+'">Monday</a> <a href="'+events_url+Date.parse('next Tuesday').toString("yyyy-MM-dd")+'">Tuesday</a> <a href="'+events_url+Date.parse('next Wednesday').toString("yyyy-MM-dd")+'">Wednesday</a></div></section>'
 			+'\n\n<em>Urban Planner is</em> Torontoist<em>\'s guide to what\'s on in Toronto, published every weekday morning, and in a weekend edition Friday afternoons. If you have an event you\'d like considered, <a href="mailto:events@torontoist.com">email us</a> with all the details (including images, if you\'ve got any), ideally at least a week in advance.</em>';
 		
+		QTags.TagButton.prototype.callback.call(this,e,c,ed);
+	}
+	QTags.addButton('toist_eventmore','Event details',event_more,'','e');
+	function event_more(e,c,ed){
+		this.tagStart = '<!--more--><!--event_more-->';
 		QTags.TagButton.prototype.callback.call(this,e,c,ed);
 	}
 
