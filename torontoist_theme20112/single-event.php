@@ -57,6 +57,19 @@ get_header(); ?>
 						
 						<?php 
 							the_featured_media('large');
+							
+							if(preg_match('|\[gallery(.*)\]|',get_the_content(),$matches)){
+								global $post;
+								
+								echo do_shortcode($matches[0]);
+								
+								$post_content = join("",explode($matches[0],get_the_content()));
+								
+								add_filter('the_content',function($content){
+									global $post_content;
+									return $post_content;
+								},0);
+							}
 							?>
 							<ul class="entry-details">							
 								<?php
