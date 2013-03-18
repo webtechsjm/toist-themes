@@ -192,12 +192,12 @@ class Toist_Most_Commented extends WP_Widget{
 		$discussed = get_transient($discussed_transient);
 		$post_comments = get_transient($commentnum_transient);
 				
-		//if($discussed === false){
+		if($discussed === false){
 			$limit = $wpdb->prepare('LIMIT 0,%d',$instance['posts_num']);
 			$days = $wpdb->prepare('DATE_SUB(NOW(),INTERVAL %d DAY)',$num_days);
 		
 			$res = $wpdb->get_results(
-				"SELECT comment_post_ID,COUNT(*) as comments FROM $wpdb->comments WHERE comment_date >= $days GROUP BY comment_post_ID ORDER BY comments DESC $limit",
+				"SELECT comment_post_ID,COUNT(*) as comments FROM $wpdb->comments WHERE comment_date >= $days AND comment_approved = 1 AND comment_type= '' GROUP BY comment_post_ID ORDER BY comments DESC $limit",
 				ARRAY_A
 			);
 				
@@ -216,7 +216,7 @@ class Toist_Most_Commented extends WP_Widget{
 		
 			$discussed = new WP_Query($args);
 			set_transient($discussed_transient,$discussed,15 * MINUTE_IN_SECONDS);
-		//}
+		}
 		
 		if($discussed->have_posts()):?>
 		<div id="most-commented">
