@@ -1,15 +1,5 @@
 <?php
 	
-
-function myFilter($query) {
-	if ($query->is_feed) {
-		$query->set('cat','-25420');
-	}
-
-return $query;
-}
-
-
 function insert_image_src_rel_in_head() {
 	global $post;
 	if ( !is_singular()) //if it is not a post or a page
@@ -24,10 +14,6 @@ function insert_image_src_rel_in_head() {
 	echo "\n";
 }
 add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
-
-
-
-add_filter('pre_get_posts','myFilter');
 
 	// Add RSS links to <head> section
 	automatic_feed_links();
