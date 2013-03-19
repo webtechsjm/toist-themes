@@ -31,7 +31,7 @@ function make_weekend_planner($new = true){
 	$prefix = $new ? "new" : "ongoing";
 	//if this post's WP has already been cached, return it
 	$html = get_transient('weekend-planner-'.$prefix.'-'.$today->format("Y-m-d"));
-	//if($html) return $html;
+	if($html) return $html;
 		
 	$saturday = clone $today;
 	$sunday = clone $today;
@@ -252,7 +252,7 @@ add_action('pre_get_posts',function($query){
 		|| ($query->is_archive() && (!$query->is_post_type_archive() && !is_tax()))
 		){
 		$query->set("post_type",array("post","event"));
-		
+		$query->set('cat','-25420');
 		$query->set("meta_query",array(
 			array(
 				'key' => '_exclude_from_feed',
