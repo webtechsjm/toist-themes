@@ -11,6 +11,7 @@ Author URI: http://puppydogtales.ca
 //We're replacing the gallery shortcode so we can customize it. Let's turn this off as soon as possible
 remove_shortcode('gallery');
 add_shortcode('gallery','toist_gallery_shortcode');
+add_action('wp_ajax_toist_get_image','toist_get_image');
 
 function toist_gallery_shortcode($attr) {
 	$post = get_post();
@@ -71,7 +72,7 @@ function toist_gallery_shortcode($attr) {
 		
 			//add our includes to the attachment link
 			$include_query = "?include=".$include;
-			add_filter('attachment_link',function($link,$id) use (&$include_query){
+			add_filter('attachment_link',function($link,$id = false) use (&$include_query){
 				return $link.$include_query;
 			});
 		
