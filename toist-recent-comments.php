@@ -178,6 +178,7 @@ class Toist_Most_Commented extends WP_Widget{
 	}
 	public function widget($args,$instance){
 		global $wpdb;
+		if(!isset($instance['post_num'])) $instance['post_num'] = 1;
 		$discussed_transient = 'toist-most-commented-'.$instance['post_num'];
 		$commentnum_transient = 'toist-commented-posts-'.$instance['post_num'];		
 		
