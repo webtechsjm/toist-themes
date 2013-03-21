@@ -13,8 +13,25 @@
 		}
 		
 	?>
+	
+	<?php comments_popup_link('', '1 Comment', '% Comments', 'comments-link', ''); ?>
+            
+  <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php the_time('F j, Y'); ?> at <?php the_time('g:i a'); ?></time>
 		
-		<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		      
+    <p class="dek"><a href="<?php the_permalink(); ?>"><?php get_custom_field('dek', TRUE); ?></a></p>
+        
+    <p class="byline">By 
+        <?php if(function_exists('coauthors_posts_links'))
+            coauthors_posts_links(', ', ' and ', '', '');
+            else
+            the_author_posts_link();
+        ?>
+        <?php if ($post_image_credit = get_post_meta($post->ID, 'image_credit', true)) {
+        echo ' &bull; ' . $post_image_credit; } ?>
+    </p>
+            
 		<?php the_featured_media('large'); ?>
 		<ul class="entry-details">
 			<!-- If the event has a venue saved, display this-->
