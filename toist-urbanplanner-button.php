@@ -224,19 +224,19 @@ function exclude_from_newsfeed(){
 	?>
 		<div class="misc-pub-section" style="border-top: 1px solid #eee;">
 			<?php
-					wp_nonce_field(plugin_basename(__FILE__),'exclude_from_nonce'); 
+					wp_nonce_field(plugin_basename(__FILE__),'include_in_nonce'); 
 					
 					//if the post is saved as added to the magazine feed, make sure it's shown as checked
 					//$attr = get_post_meta($post->ID,'tomag_include',true) ? "checked='checked'" : "";
 					global $pagenow;
-					$current = get_post_meta($post->ID,'_exclude_from_feed',true);
+					$current = get_post_meta($post->ID,'_include_in_feed',true);
 					if(
-						$current == "exclude" || $pagenow == 'post-new.php'
-					){$attr = '';
-					}else{$attr='checked="checked"';}
+						$current == "true"
+					){$attr = 'checked="checked"';
+					}else{$attr='';}
 					?>
-					<input type="checkbox" <?php echo $attr ?> name="newsfeed_exclude" id="newsfeed_exclude" value="exclude"/>
-					<label for="newsfeed_exclude">Include in the main loop</label>
+					<input type="checkbox" <?php echo $attr ?> name="newsfeed_include" id="newsfeed_include" value="true"/>
+					<label for="newsfeed_include">Include in the main loop</label>
 			</div>
 	<?
 		}
@@ -253,10 +253,18 @@ add_action('pre_get_posts',function($query){
 		|| ($query->is_archive() && (!$query->is_post_type_archive() && !is_tax()))
 		){
 		$query->set("post_type",array("post","event"));
+		
+		//search for deks?
+		
 		$query->set("meta_query",array(
+			'relation'	=>	'OR',
 			array(
-				'key' => '_exclude_from_feed',
-				'compare' => 'NOT EXISTS'
+				'key' => 'dek',
+				'compare' => 'EXISTS'
+			),
+			array(
+				'key'	=>	'alt_dek',
+				'compare'	=>	'EXISTS'
 			)
 		));
 	}
@@ -268,17 +276,18 @@ function exclude_from_newsfeed_save($post_id){
 	//security
 	if(
 		!isset($_POST['post_type'])
-		|| !wp_verify_nonce($_POST['exclude_from_nonce'], plugin_basename(__FILE__))
+		|| !wp_verify_nonce($_POST['include_in_nonce'], plugin_basename(__FILE__))
 		|| (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
 		|| !current_user_can('edit_events',$post_id)
 		) return $post_id;
 	
 	$current = get_post_meta($post_id,'_exclude_from_feed',true);
 		
-	if(!isset($_POST['newsfeed_exclude']) && $current == ""){
-		update_post_meta($post_id,'_exclude_from_feed','exclude');
-	}elseif(isset($_POST['newsfeed_exclude']) && $current == "exclude"){
-		delete_post_meta($post_id,'_exclude_from_feed');
+	if(!isset($_POST['newsfeed_include'])){
+		update_post_meta($post_id,'_include_in_feed','false');
+	}elseif(isset($_POST['newsfeed_include'])){
+		update_post_meta($post_id,'_include_in_feed','true');
+		
 	}
 	
 }
