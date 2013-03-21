@@ -16,10 +16,13 @@ function insert_image_src_rel_in_head() {
 add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
 
 	// Add RSS links to <head> section
-	automatic_feed_links();
+	//automatic_feed_links();
+	add_theme_support('automatic-feed-links');
+
+add_action('init',function(){
 	
 	// Load jQuery
-	if ( !function_exists(core_mods) ) {
+	if ( !function_exists('core_mods') ) {
 		function core_mods() {
 			if ( !is_admin() ) {
 				wp_deregister_script('jquery');
@@ -29,6 +32,8 @@ add_action( 'wp_head', 'insert_image_src_rel_in_head', 5 );
 		}
 		core_mods();
 	}
+
+});
 
 	// Clean up the <head>
 	function removeHeadLinks() {
@@ -207,6 +212,7 @@ function mf_text_based_image_links() {
 			}
 			
 			$class_val .= ( !isset( $attachments[ $k ] ) ) ? ' inactive' : '';
+			$class_val .= $prev? ' button previous' : 'button next';
 			$class = ( !empty( $class_val ) ) ? ' class="' . $class_val . '"' : '';
 			$id = ( !empty( $id ) ) ? $id : '';
 			$title = ( !empty( $title ) ) ? $title : '';
@@ -214,9 +220,9 @@ function mf_text_based_image_links() {
 			
 			/* Return XHTML */
 			if ( isset( $attachments[ $k ] ) )
-					return '<a href="' . get_attachment_link( $attachments[$k]->ID ) . '"' . $id . $class . $title . '>' . $link_text . '</a>';
+					return '<a href="' . get_attachment_link( $attachments[$k]->ID ) . '"' . $id . $class . $title . ' data-photoid="'.$attachments[$k]->ID.'">' . $link_text . '</a>';
 				else
-					return false;
+					return $prev ? '<a class="previous button hide"></a>' : '<a class="next button hide"></a>';
 		}
 	}
 }
@@ -258,7 +264,7 @@ add_filter('coauthors_search_get_users_args',function($args){
 
 
 add_action('pre_get_posts',function($query){
-	if($query->query['post_type'] == 'event'){
+	if(isset($query->query['post_type']) && $query->query['post_type'] == 'event'){
 		$query->set('posts_per_page',-1);
 		return;
 	}

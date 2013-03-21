@@ -4,7 +4,7 @@
 } ?>
   
 
-<article <?php post_class(longview) ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('longview') ?> id="post-<?php the_ID(); ?>">
 
         <header>
             
