@@ -1,4 +1,4 @@
-<article <?php post_class(shortview) ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('shortview') ?> id="post-<?php the_ID(); ?>">
 
     <header>
 
@@ -40,9 +40,6 @@
             echo ' &bull; ' . $post_image_credit; } ?>
 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="short"><?php the_time('M. jS'); ?>, <?php the_time('g:i a'); ?></time>
         </p>
-<!--
-   <p><span class="morelink"><a href="<?php the_permalink(); ?>">Read More...</a></span></p>
--->   
 
     <a class="img" href="<?php the_permalink() ?>" title=""><?php the_post_thumbnail('medium'); ?></a>
     

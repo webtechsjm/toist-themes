@@ -1,4 +1,4 @@
-<article <?php post_class(shortview) ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('shortview') ?> id="post-<?php the_ID(); ?>">
 
     <header>
         

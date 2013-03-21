@@ -1,6 +1,6 @@
 <div id="sidebar">
     <section id="mainsearch"> 
-        <form action="<?php bloginfo('siteurl'); ?>" method="get">
+        <form action="<?php echo site_url(); ?>" method="get">
             <input type="search" id="s" name="s" value="SEARCH TORONTOIST" onfocus="if(this.value=='SEARCH TORONTOIST')this.value=''" onblur="if(this.value=='')this.value='SEARCH TORONTOIST'" placeholder="SEARCH TORONTOIST" />   
             <input type="image" value="go" name="search" class="go" src="/wp-content/themes/torontoist_theme20112/images/graphics/search-btn-grey.png">
         </form>
