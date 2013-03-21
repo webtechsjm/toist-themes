@@ -246,6 +246,7 @@ function exclude_from_newsfeed(){
 /*
 *		Add specific events to the home loop
 */
+/*
 add_action('pre_get_posts',function($query){	
 	if(
 		($query->is_main_query() && $query->is_front_page()) 
@@ -259,7 +260,9 @@ add_action('pre_get_posts',function($query){
 			)
 		));
 	}
+	return;
 });
+*/
 
 function exclude_from_newsfeed_save($post_id){
 	//security
