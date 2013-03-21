@@ -33,47 +33,119 @@ $(function() {
     <area shape="rect" coords="460,46,598,65" href="http://www.torontolife.com/TOdo_sales/" alt="Add Your Event" />
   </map>
 </div>
-<!--OCAD-->
-<div class="todo_container">
-  <img src="http://media.torontolife.com/img/TOdo/ocad/130228_OCADU_P31_todo_600x100.jpg" width="600px" height="100px" />
-  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
-  <div class="collapse">
-    <img class="product" src="http://media.torontolife.com/img/TOdo/ocad/130227_OCADU_P31_todo_260x260.jpg" width="260px" height="260px" />
-    <div class="info">
-    <p><b>Project 31 Live Art Auction &ndash; Wednesday, March 27, 2013</b><br/>
-    OCAD University, Great Hall (2nd Floor), 100 McCaul Street<br/>
-	6 p.m. Preview and Reception, 7 p.m. Live Auction<br/>
-    Tickets: $95<br/>
-    <strong><a style="color:#000;" href="http://www.ocadu.ca/project31" target="_blank">www.ocadu.ca/project31</a></strong></p>
-<br/>
-	Attend one of the city's most accessible art collecting events, Project 31, a live art auction that offers stunning paintings, photography, limited edition prints, sculpture, textile,  illustration, jewellery and digital media created by OCAD University's award-winning faculty members. All funds raised support OCAD U student initiatives and learning experiences. Tickets can be purchased on-line.<br/><br/>
+<!--Images Festival-->
+<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/IF2013_600x100.jpg" alt="Images Festival" width="600px" height="100px" />
+<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
 
-  <strong><a style="color:#000;" href="http://www.torontolife.com/ocaduniversity_todo_torontoist" target="_blank">Click here for more info &raquo;</a></strong></p>
-    </div>
-    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
-  </div>
+<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/IF2013_260x260.jpg" alt="Images Festival" width="260px" height="260px" />
+<div class="info">
+
+<strong>The Images Festival is Toronto's original inter-disciplinary arts festival.</strong>
+"Expanding cinema" since 1988, the Images Festival celebrates the moving image in all its forms – going beyond theatrical screenings to embrace live performances, gallery installations and site-specific interventions. The 2013 Images Festival takes place April 11-20 at 20 venues across the GTA!
+
+<strong><a style="color: #000;" href="http://www.torontolife.com/imagesfestival_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
+
+</div>
+<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
+
+</div>
+</div>
+<!--end Images Festival-->
+<!--Cottage Life-->
+<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/cottage-life-600x100.jpg" alt="Cottage Life" width="600px" height="100px" />
+<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
+
+<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/cottage-life-260x260.jpg" alt="Cottage Life" width="260px" height="260px" />
+<div class="info">
+
+<strong>Summer starts now!</strong>
+
+Kick off cottage season with a visit to the 20th annual Spring Cottage Life Show. Visit our 500+ exhibitors to find boats, docks, cottage builders, innovative building products, green solutions, decor, food, entertaining ideas, water toys and fun for all seasons!
+Join us April 5-7 at the International Centre, Mississauga, 6900 Airport Road.
+
+<strong><a style="color: #000;" href="http://www.torontolife.com/cottagelife_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
+
+</div>
+<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
+
+</div>
+</div>
+<!--end Cottage Life-->
+<!--OCAD-->
+<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/ocad/130228_OCADU_P31_todo_600x100.jpg" alt="OCAD" width="600px" height="100px" />
+<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
+
+<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/ocad/130227_OCADU_P31_todo_260x260.jpg" alt="OCAD" width="260px" height="260px" />
+<div class="info">
+
+<strong>Project 31 Live Art Auction – Wednesday, March 27, 2013</strong>
+
+OCAD University, Great Hall (2nd Floor), 100 McCaul Street
+
+6 p.m. Preview and Reception, 7 p.m. Live Auction
+
+Tickets: $95
+
+<strong><a style="color: #000;" href="http://www.ocadu.ca/project31" rel="nofollow" target="_blank">www.ocadu.ca/project31</a></strong>
+Attend one of the city's most accessible art collecting events, Project 31, a live art auction that offers stunning paintings, photography, limited edition prints, sculpture, textile, illustration, jewellery and digital media created by OCAD University's award-winning faculty members. All funds raised support OCAD U student initiatives and learning experiences. Tickets can be purchased on-line.
+
+<strong><a style="color: #000;" href="http://www.torontolife.com//ocaduniversity_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
+
+</div>
+<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
+
+</div>
 </div>
 <!--end OCAD-->
-<!--ROM--> <div class="todo_container">  <img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_ExpendingImage.jpg" width="600px" height="100px" />  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>  <div class="collapse">    <img class="product" src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_Main_Image.jpg" width="260px" height="260px" />    <div class="info">    <p><b>Rock the Cradle of Civilization &ndash; Ancient Prom</b><br/>    100 Queen's Park, 416.586.5772<br/> Saturday April 6 &ndash; Royal Ontario Museum<br/><br/>     Join hundreds of Young Patrons Circle (YPC) members and guests for a contemporary party at the ROM inspired by past civilizations. Ancient PROM will be an unforgettable night of live entertainment and dancing, luxurious lounge areas and gourmet fare. Get ready to experience an epic party worthy of an ancient empire on Saturday, April 6, 2013!<br/><br/>   <strong><a style="color:#000;" href="http://www.torontolife.com/romprom_todo_torontoist" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>    </div>    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />  </div> </div> <!--end ROM-->
+<!--ROM-->
+<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_ExpendingImage.jpg" alt="" width="600px" height="100px" />
+<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
+
+<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_Main_Image.jpg" alt="" width="260px" height="260px" />
+<div class="info">
+
+<strong>Rock the Cradle of Civilization – Ancient Prom</strong>
+
+100 Queen's Park, 416.586.5772
+
+Saturday April 6 – Royal Ontario Museum
+
+Join hundreds of Young Patrons Circle (YPC) members and guests for a contemporary party at the ROM inspired by past civilizations. Ancient PROM will be an unforgettable night of live entertainment and dancing, luxurious lounge areas and gourmet fare. Get ready to experience an epic party worthy of an ancient empire on Saturday, April 6, 2013!
+
+<strong><a style="color: #000;" href="http://www.torontolife.com/romprom_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
+
+</div>
+<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
+
+</div>
+</div>
+<!--end ROM-->
 <!--ballet jorgen-->
-<div class="todo_container">
-  <img src="http://media.torontolife.com/img/TOdo/swan-lake_600x100.jpg" width="600px" height="100px" />
-  <p style="margin-top: 5px; margin-bottom: 10px;" class="expand">Details</p>
-  <div class="collapse">
-    <img class="product" src="http://media.torontolife.com/img/TOdo/swan-lake_260x260.jpg" width="260px" height="260px" />
-    <div class="info"><p><b>SWAN LAKE</b><br/>
-    <b>March 27, 28, &amp; 30, 2013</b><br/>
-    <b>Betty Oliphant Theatre</b><br/>
-    <b>Tickets: 416.978.8849 or <strong><a style="color:#000;" href="http://www.uofttix.ca" target="_blank" rel="nofollow">www.uofttix.ca</strong></a>
-</b><br/>
-<br/>
-   Ballet J&ouml;rgen Canada presents a spectacular new production of Swan Lake. Choreographed by Bengt Jörgen, this newly-imagined version of the iconic ballet is set at the Fortress of Louisbourg, Nova Scotia.<br /> 
+<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/swan-lake_600x100.jpg" alt="" width="600px" height="100px" />
+<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
+
+<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/swan-lake_260x260.jpg" alt="" width="260px" height="260px" />
+<div class="info">
+
+<strong>SWAN LAKE</strong>
+
+<strong>March 27, 28, &amp; 30, 2013</strong>
+
+<strong>Betty Oliphant Theatre</strong>
+
+<strong>Tickets: 416.978.8849 or </strong><strong><a style="color: #000;" href="http://www.uofttix.ca" rel="nofollow" target="_blank">www.uofttix.ca</a></strong>
+
+
+Ballet Jörgen Canada presents a spectacular new production of Swan Lake. Choreographed by Bengt Jörgen, this newly-imagined version of the iconic ballet is set at the Fortress of Louisbourg, Nova Scotia.
+
 Tickets $29 - $75.
-<br/><br/>
-  <strong><a style="color:#000;" href="http://www.torontolife.com/balletjorgencanada_swanlake_todo" target="_blank" rel="nofollow">Click here for more info &raquo;</a></strong></p>
-    </div>
-    <img src="http://media.torontolife.com/hotdeals/images/underline.gif" width="600px" height="20px" />
-  </div>
+
+<strong><a style="color: #000;" href="http://www.torontolife.com/balletjorgencanada_swanlake_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
+
+</div>
+<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
+
+</div>
 </div>
 <!--end ballet jorgen-->
 </div>
