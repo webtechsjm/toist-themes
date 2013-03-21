@@ -252,7 +252,6 @@ add_action('pre_get_posts',function($query){
 		|| ($query->is_archive() && (!$query->is_post_type_archive() && !is_tax()))
 		){
 		$query->set("post_type",array("post","event"));
-		$query->set('cat','-25420');
 		$query->set("meta_query",array(
 			array(
 				'key' => '_exclude_from_feed',
