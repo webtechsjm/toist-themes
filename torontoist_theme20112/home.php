@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php 
+get_header();
+?>
     <section id="breaking-news" style="display:none;">
     <?php slidedeck( 63405, array( 'width' => '1000px', 'height' => '150px' ) ); ?>
     </section>
@@ -15,15 +17,52 @@
             <?php
             global $wp_query;
             
+            $events = new WP_Query(array(
+            	'post_type'	=>	'event',
+            	'posts_per_page' => 2,
+            	'meta_query'	=>	array(
+            		array(
+		          		'key'			=>	'_include_in_feed',
+		          		'value'		=>	'true'
+            		)
+            	)
+            ));
+            
+            $queued_event = false;
+                        
             $count = 0;
             if(have_posts()) while(have_posts()): the_post();
+	            global $post;
+	            
+	            //var_dump($post);
+	            
+            	if(!$queued_event){
+		            $queued_event = array_shift($events->posts);
+		            }
+		          if(!empty($queued_event)){
+				        $post_date = new DateTime($post->post_date_gmt);
+				        $event_date = new DateTime($queued_event->post_date_gmt);
+				        
+				        if($post_date->format('U') < $event_date->format('U')){
+				          $old_post = $post;
+				          $post = $queued_event;
+				          if($count < 3){
+				          	get_template_part('includes/article','event');
+				          }else{
+				          	get_template_part('includes/article','shortview');
+				          }
+				          $count++;
+				          
+				          $post = $old_post;
+				          $queued_event = false;
+            		}
+            	}
+            	
+            	
             	if(!is_paged()){
 		          	if($count < 3){
-		          		if(get_post_type() == "event"){
-			          		get_template_part('includes/article','event');
-		          		}else{
-				        		get_template_part('includes/article','longview');
-		          		}
+		          		
+			        		get_template_part('includes/article','longview');
 				       		get_template_part('includes/article','shortview-mobile');
 		          	}else{
 		          		get_template_part('includes/article','shortview');
@@ -35,7 +74,6 @@
             ?>
         
  				<?php 
-				global $wp_query;
 				if ( $wp_query->max_num_pages > 1 ) : ?>
 					<nav class="post-nav">
 						<div class="older-posts"><?php next_posts_link( __( '<span class="meta-nav">&laquo;</span> Older Entries' , 'torontoist' ) ); ?></div>
