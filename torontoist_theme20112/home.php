@@ -19,7 +19,7 @@ get_header();
             
             $events = new WP_Query(array(
             	'post_type'	=>	'event',
-            	'posts_per_page' => 2,
+            	'posts_per_page' => 10,
             	'meta_query'	=>	array(
             		array(
 		          		'key'			=>	'_include_in_feed',
@@ -46,7 +46,7 @@ get_header();
 				        if($post_date->format('U') < $event_date->format('U')){
 				          $old_post = $post;
 				          $post = $queued_event;
-				          if($count < 3){
+				          if($count < 3 && !is_paged()){
 				          	get_template_part('includes/article','event');
 				          }else{
 				          	get_template_part('includes/article','shortview');
