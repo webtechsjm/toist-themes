@@ -20,6 +20,7 @@ get_header();
             $events = new WP_Query(array(
             	'post_type'	=>	'event',
             	'posts_per_page' => 10,
+            	'orderby'			=>	'date',
             	'meta_query'	=>	array(
             		array(
 		          		'key'			=>	'_include_in_feed',
