@@ -71,32 +71,6 @@ Join us April 5-7 at the International Centre, Mississauga, 6900 Airport Road.
 </div>
 </div>
 <!--end Cottage Life-->
-<!--OCAD-->
-<div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/ocad/130228_OCADU_P31_todo_600x100.jpg" alt="OCAD" width="600px" height="100px" />
-<p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
-
-<div class="collapse"><img class="product" src="http://media.torontolife.com/img/TOdo/ocad/130227_OCADU_P31_todo_260x260.jpg" alt="OCAD" width="260px" height="260px" />
-<div class="info">
-
-<strong>Project 31 Live Art Auction – Wednesday, March 27, 2013</strong>
-
-OCAD University, Great Hall (2nd Floor), 100 McCaul Street
-
-6 p.m. Preview and Reception, 7 p.m. Live Auction
-
-Tickets: $95
-
-<strong><a style="color: #000;" href="http://www.ocadu.ca/project31" rel="nofollow" target="_blank">www.ocadu.ca/project31</a></strong>
-Attend one of the city's most accessible art collecting events, Project 31, a live art auction that offers stunning paintings, photography, limited edition prints, sculpture, textile, illustration, jewellery and digital media created by OCAD University's award-winning faculty members. All funds raised support OCAD U student initiatives and learning experiences. Tickets can be purchased on-line.
-
-<strong><a style="color: #000;" href="http://www.torontolife.com//ocaduniversity_todo_torontoist" rel="nofollow" target="_blank">Click here for more info »</a></strong>
-
-</div>
-<img src="http://media.torontolife.com/hotdeals/images/underline.gif" alt="" width="600px" height="20px" />
-
-</div>
-</div>
-<!--end OCAD-->
 <!--ROM-->
 <div class="todo_container"><img src="http://media.torontolife.com/img/TOdo/AncientPROM_TL_ExpendingImage.jpg" alt="" width="600px" height="100px" />
 <p class="expand" style="margin-top: 5px; margin-bottom: 10px;">Details</p>
