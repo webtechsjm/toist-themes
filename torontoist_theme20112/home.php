@@ -15,24 +15,11 @@ get_header();
 
         <!--START loop 1--> 
             <?php
-            
-            function events_before($where){
-            	global $wp_query;
-            	$first_post = $wp_query->posts[0];
-            	$first_post_time = new DateTime($first_post->post_date_gmt);
-							$first_post_time = $first_post_time->format('Y-m-d H:i:s');
-            	$where .= sprintf(' AND post_date <= "%s"',
-								$first_post_time
-								);
-							return $where;
-            }
-            
             global $wp_query;
             
-            add_filter('posts_where','events_before');
             $events = new WP_Query(array(
             	'post_type'	=>	'event',
-            	'posts_per_page' => 2,
+            	'posts_per_page' => 10,
             	'orderby'			=>	'date',
             	'meta_query'	=>	array(
             		array(
@@ -42,30 +29,25 @@ get_header();
             	)
             ));
             
-            remove_filter('posts_where','events_before');
-            
             $queued_event = false;
-            $newswatch_shown = false;
                         
             $count = 0;
             if(have_posts()) while(have_posts()): the_post();
 	            global $post;
 	            
-	            if($count == 3 && !$newswatch_shown){
-		            newswatch_list();
-		            $newswatch_shown = true;
-	            } 
+	            //var_dump($post);
 	            
             	if(!$queued_event){
 		            $queued_event = array_shift($events->posts);
 		            }
 		          if(!empty($queued_event)){
-				        $post_date = new DateTime($post->post_date);
-				        $event_date = new DateTime($queued_event->post_date);
+				        $post_date = new DateTime($post->post_date_gmt);
+				        $event_date = new DateTime($queued_event->post_date_gmt);
+				        
 				        if($post_date->format('U') < $event_date->format('U')){
 				          $old_post = $post;
 				          $post = $queued_event;
-				          if($count < 3){
+				          if($count < 3 && !is_paged()){
 				          	get_template_part('includes/article','event');
 				          }else{
 				          	get_template_part('includes/article','shortview');
@@ -113,3 +95,4 @@ get_header();
 }
 //]]>
 </script>
+
