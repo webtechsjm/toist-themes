@@ -29,7 +29,7 @@ get_header();
             
             global $wp_query;
             
-            add_filter('posts_where','events_before');
+            if(is_paged()) add_filter('posts_where','events_before');
             $events = new WP_Query(array(
             	'post_type'	=>	'event',
             	'posts_per_page' => 2,
@@ -56,10 +56,10 @@ get_header();
 	            if($count == 3 && !$newswatch_shown){
 		            newswatch_list();
 		            $newswatch_shown = true;
-	            } 
+	            }
 	            */
 	            
-            	if(!$queued_event){
+            	if(empty($queued_event)){
 		            $queued_event = array_shift($events->posts);
 		            }
 		          if(!empty($queued_event)){
@@ -84,13 +84,12 @@ get_header();
             	
             	
             	if(!is_paged()){
-            	
-			          /*
+            		/*
 			          if($count == 3 && !$newswatch_shown){
 				          newswatch_list();
 				          $newswatch_shown = true;
-			          } 
-			          */
+			          }
+			          */ 
             	
 		          	if($count < 3){
 		          		
