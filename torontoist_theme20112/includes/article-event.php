@@ -32,7 +32,16 @@
         echo ' &bull; ' . $post_image_credit; } ?>
     </p>
             
-		<?php the_featured_media('large'); ?>
+		<?php the_featured_media('large');
+		global $post;
+		
+		if(preg_match('|\[gallery(.*)\]|',$post->post_content,$matches)){
+			echo do_shortcode($matches[0]);
+			$post->post_content = join("",explode($matches[0],$post->post_content));
+		}
+		
+		
+		?>
 		<ul class="entry-details">
 			<!-- If the event has a venue saved, display this-->
 			<?php
