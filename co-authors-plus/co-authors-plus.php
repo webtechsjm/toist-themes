@@ -862,12 +862,6 @@ class coauthors_plus {
 		// instead of the user details. If the term is missing, we probably need to
 		// backfill with user details. Let's do this first... easier than running
 		// an upgrade script that could break on a lot of users
-		
-		/*
-			Senning: Removed a big portion of this on March 12 to remove e-mail search
-				We'll probably lose this when the plugin is updated 
-				Carry the change over
-		*/
 		$args = array(
 				'count_total' => false,
 				'search' => sprintf( '*%s*', $search ),
