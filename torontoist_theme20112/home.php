@@ -68,7 +68,7 @@ get_header();
 				        if($post_date->format('U') < $event_date->format('U')){
 				          $old_post = $post;
 				          $post = $queued_event;
-				          if($count < 3){
+				          if($count < 3 && !is_paged()){
 				          	get_template_part('includes/article','event');
 				          }else{
 				          	get_template_part('includes/article','shortview');
