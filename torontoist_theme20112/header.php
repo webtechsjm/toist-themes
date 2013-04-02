@@ -47,7 +47,10 @@
 <?php
 $section = 'section';
 $section = get_the_category();
-$section = $section[0]->cat_name;
+if(is_array($section) && !empty($section)){
+	$section = $section[0]->cat_name;
+}else{$section = '';}
+
 $tag = 'tag';
 $posttags = get_the_tags();
 $count=0;
@@ -70,7 +73,20 @@ $issingle='no';
 	if ( is_single() ) { $issingle = 'yes';}
 	if ( is_page() ) { $issingle = 'yes'; $section = 'section';}
 ?>
-
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt_mobile.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/7740464/St.JoeMedia/Torontoisst', [[300, 50], [300, 250], [320, 50]], 'div-gpt-ad-1363792956570-0').addService(googletag.pubads());
+googletag.enableServices();
+});
+</script>
 <script type='text/javascript'>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
@@ -100,7 +116,6 @@ googletag.enableServices();
 });
 </script>
 <!-- DFP SETUP end -->
-
 <script src="http://mint.torontoist.com/?js" type="text/javascript"></script>
 <meta http-equiv="refresh" content="3600">
 <!-- Begin comScore Tag -->
@@ -241,6 +256,7 @@ function juicemobilev2_ad()
 <!--[if lte IE 8 ]>
 <noscript>Please note: You do not currently have JavaScript enabled. JavaScript is required for this website to be displayed correctly.</noscript>
 <![endif]-->
+
 <div class="mobile-ad">
 <?php
 echo juicemobilev2_ad();
