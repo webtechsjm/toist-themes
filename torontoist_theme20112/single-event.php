@@ -40,7 +40,13 @@ get_header(); ?>
 							printf("<h3>%s</h3>",$category_link);
 							
 						?>
-						<h2 class="entry-title"><?php the_title(); ?></h2>
+						<h2 class="entry-title"><?php 
+						if($alt_title = get_post_meta(get_the_ID(),'alt_title',true)){
+							echo $alt_title;
+						}else{
+							the_title(); 
+						}
+						?></h2>
 		        <p class="dek">
 		            <?php get_custom_field('dek', TRUE); ?>
 		        </p>
@@ -64,7 +70,7 @@ get_header(); ?>
 								echo do_shortcode($matches[0]);
 								
 								$post_content = join("",explode($matches[0],get_the_content()));
-								
+																
 								add_filter('the_content',function($content){
 									global $post_content;
 									return $post_content;
