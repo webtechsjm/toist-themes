@@ -5,13 +5,15 @@
                 <?php comments_popup_link('', '1 Comment', '% Comments', 'comments-link', ''); ?>
 
         <h1><a href="<?php the_permalink(); ?>">
-            <?php if ($post_alt_title = get_post_meta($post->ID, 'alt_title', true)) {
-                  echo $post_alt_title;
-                  } 
-                  else {
-                  the_title();
-                  } 
-            ?>
+          <?php 
+         	$post_alt_title = get_post_meta($post->ID, 'alt_title', true);
+          if ($post_alt_title && $post->post_type == 'post') {
+            echo $post_alt_title;
+            } 
+            else {
+            the_title();
+            } 
+           ?>
         </a></h1>
        
 
