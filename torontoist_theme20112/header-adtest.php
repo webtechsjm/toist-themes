@@ -257,12 +257,12 @@ function juicemobilev2_ad()
 <noscript>Please note: You do not currently have JavaScript enabled. JavaScript is required for this website to be displayed correctly.</noscript>
 <![endif]-->
 
+<?php /*
 <div class="mobile-ad">
 <?php
 echo juicemobilev2_ad();
 ?>
 </div>
-<?php /*
 	<div class="ad" id="leaderboard">
 	    <div class="ad-container">
 		<div id='div-gpt-ad-1343667556242-4' >
