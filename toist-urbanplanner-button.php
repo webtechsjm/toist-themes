@@ -220,7 +220,7 @@ function exclude_from_newsfeed(){
 	//Should posts be included by default?
 	$default_inclusion = get_option('default_inclusion');
 	
-	if(current_user_can('publish_posts') || current_user_can('contributor')){
+	if(current_user_can('publish_posts') || current_user_can('contributor') || current_user_can('author')){
 	?>
 		<div class="misc-pub-section" style="border-top: 1px solid #eee;">
 			<?php
