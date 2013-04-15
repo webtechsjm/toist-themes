@@ -303,7 +303,6 @@ echo juicemobilev2_ad();
 			</div>
 
 			<nav>
-<?php /*			
 			    <ul>
                     <li><a href="http://torontoist.com/news-page/">News</a></li>
                     <li><a href="http://torontoist.com/cityscape-page/">Cityscape</a></li>
@@ -317,8 +316,9 @@ echo juicemobilev2_ad();
                     <li class="info2 bul" style="display:none;"><a href="http://www.inktruck.com/">Advertise</a></li>
 
 
-			    </ul>
-*/ 
+			    </ul> 
+			    <?php
+/*
 	$defaults = array(
 		'container'		=>	'span'
 	);
@@ -326,6 +326,7 @@ echo juicemobilev2_ad();
 	wp_nav_menu(array_merge($defaults,array('theme_location'	=>	'General')));
 	wp_nav_menu(array_merge($defaults,array('theme_location'	=>	'Breaking')));
 	wp_nav_menu(array_merge($defaults,array('theme_location'	=>	'Administrative')));
+*/
 ?>
 			</nav>
 
