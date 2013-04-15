@@ -903,7 +903,7 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 #hub_banner h1{font-size: 2em; font-weight: bold; line-height: 1;}
 #hub_banner p{text-transform:uppercase; margin: 0;}
 .twelve.columns img{display:none;}
-.hub-container .li{list-style:disc; margin: 0 0 0 14px;}
+.hub-container li{list-style:disc; margin: 0 0 0 14px;}
 
 .sprite{background:url('images/graphics/sprites.png') no-repeat;}
 
