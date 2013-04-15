@@ -896,7 +896,7 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 .rows article{height: 150px; margin-bottom:42px; overflow:hidden;}
 .rows article.scroll{overflow:auto;}
 
-.hub-container hr{clear:both; visibility: hidden;}
+.hub-container hr{clear:both; visibility: hidden; margin: 0;}
 
 #hub_banner{background:url('images/graphics/banner-arrow.png') no-repeat 12px 50%; display:block; text-transform:uppercase; padding: 10px 10px 10px 60px; box-shadow: 4px 5px #ccc;}
 #hub_banner:hover{text-decoration:none; background-color:#9E0B0F}
