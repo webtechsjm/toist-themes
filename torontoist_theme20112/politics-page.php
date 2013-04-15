@@ -16,7 +16,8 @@ Template Name: Politics Page
     <!-- PHOTOS-PAGE.PHP, for news landing page -->
 
 <div id="container">
-	<div id="content">	
+	<div id="content">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         
         <section id="feature-story"  style="display:none;">
 	  <?php slidedeck( 78797, array( 'width' => '100%', 'height' => '370px' ) ); ?>

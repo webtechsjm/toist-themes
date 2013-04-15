@@ -10,7 +10,7 @@ Template Name: Culture Page
     <!-- CULTURE-PAGE.PHP, for news landing page -->
 
 	<div id="content">
-        
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         <section id="feature-story"  style="display:none;">
 		<?php slidedeck( 70230, array( 'width' => '640', 'height' => '426' ) ); ?>
         </section>

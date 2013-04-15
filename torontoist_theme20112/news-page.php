@@ -9,8 +9,8 @@ Template Name: News Page
 
     <!-- NEWS-PAGE.PHP, for news landing page -->
 
-	<div id="content">	
-        
+	<div id="content">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         <section id="feature-story"  style="display:none;">
             <?php
                slidedeck( 68103, array( 'width' => '640', 'height' => '430px') );
