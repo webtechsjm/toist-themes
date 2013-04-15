@@ -79,26 +79,12 @@
                     <?php if ($featured_tag = get_post_meta($post->ID, 'featured_tag', true)): 
                     
                     $tag = get_term_by('slug',$featured_tag,'post_tag');
-                    $tag_name = str_replace('-','-<wbr>',$tag->name);
+                    $tag_name = str_replace(array('-','"'),array('-<wbr>',''),$tag->name);
                     ?>
                     <section class="related">
                     	<h4>More from <?php echo $tag_name; ?></h4>
                     	<ul>
                     	<?php 
-                    	//Query for related posts
-                    	//$related = get_posts('numberposts=4&offset=1&tag='.$featured_tag);
-                    	
-                    	/*
-                    	                    	foreach($related as $post): ?>
-                    		<li>
-                    			<a href="<?php the_permalink(); ?>">
-                    				<?php the_post_thumbnail(); ?>
-                    				<p><?php the_title(); ?></p>
-                    			</a>
-                    		</li>
-                    	<?php 
-                    		endforeach;
-                    	*/
                     	$related = new WP_Query(array(
                     		'tag'							=>	$featured_tag,
                     		'posts_per_page'	=>	4,
