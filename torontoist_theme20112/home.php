@@ -2,9 +2,8 @@
 get_header();
 ?>
 
-	<div id="content">	
-        
-    <?php the_hub_banner(); ?>
+	<div id="content">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         <section id="feature-story" style="display:none;">
             <?php
                slidedeck( 63248, array( 'width' => '640', 'height' => '450px' ) );

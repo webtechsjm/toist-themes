@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-	<div id="content">	
+	<div id="content">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
 	    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
             <article class="post" id="post-<?php the_ID(); ?>">

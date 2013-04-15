@@ -22,6 +22,7 @@ get_header(); ?>
 		<!-- This template follows the TwentyEleven theme-->
 		<div id="primary">
 		<div id="content" role="main">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
 
 			<?php if ( have_posts() ) : ?>
 
