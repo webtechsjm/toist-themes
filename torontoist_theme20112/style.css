@@ -872,9 +872,9 @@ body.page-template-hub-php .uber_container > header p{
 .row .columns:first-child{padding-left: 0;}
 .row .columns:last-child{padding-right: 0;}
 .columns h1{font-weight: bold;}
-.columns.long img{float:right;}
-.columns.long h1{float:left; font-size: 20px;}
-.columns.long .excerpt{clear:left;}
+
+.long img{float:right; margin-left: 20px;}
+.columns.long h1{font-size: 20px;}
 
 .columns.tall{height: 250px;}
 .columns.tall h1,.columns.tall .excerpt{height:3.25em; overflow:hidden;}
@@ -882,18 +882,18 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 
 .rows{overflow:hidden}
 .r1{height: 150px;}
-.r2{height: 342px;}
-.r3{height: 534px;}
-.r4{height: 726px;}
-.r5{height: 918px;}
-.r6{height: 1110px;}
-.r7{height: 1302px;}
-.r8{height: 1494px;}
-.r9{height: 1686px;}
-.r10{height: 1878px;}
-.r11{height: 2070px;}
-.r12{height: 2262px;}
-.rows article{height: 150px; margin-bottom:42px; overflow:hidden;}
+.r2{height: 334px;}
+.r3{height: 515px;}
+.r4{height: 696px;}
+.r5{height: 877px;}
+.r6{height: 1058px;}
+.r7{height: 1239px;}
+.r8{height: 1420px;}
+.r9{height: 1601px;}
+.r10{height: 1782px;}
+.r11{height: 1963px;}
+.r12{height: 2144px;}
+.rows article{height: 153px; margin-bottom:28px; overflow:hidden;}
 .rows article.scroll{overflow:auto;}
 
 .hub-container hr{clear:both; visibility: hidden; margin: 0;}
@@ -1014,6 +1014,17 @@ clip: rect(1px, 1px, 1px, 1px);
   .quote {font-size:24px !important; line-height:26px !important;}
   #sjm-network-footer img.small.heading{display:block;}
   #sjm-network-footer img.heading {display:none;}
+ 	body.page-template-hub-php .uber_container > header img+h1,
+	body.page-template-hub-php .uber_container > header p+h1{
+		margin: -2em 20px 0;
+		max-width: 100%;
+	}
+	.hub-container *.columns,.hub-container *.columns div{width:100%; padding:0;height:auto;}
+	.columns.tall{border-top:1px solid #ccc;}
+	.columns.tall.has_thumb{height: 150px;}
+	.columns.tall h1,.columns.tall .excerpt{height:auto; width: auto; float:left; margin-right: 220px}
+	.columns.tall .excerpt{max-height: 6.5em;}
+	.columns.tall img{position:absolute; right:0;}
 }
 /* =END PRINT & MEDIA QUERY STYLES */
 
