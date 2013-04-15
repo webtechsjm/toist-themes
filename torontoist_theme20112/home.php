@@ -1,12 +1,10 @@
 <?php 
 get_header();
 ?>
-    <section id="breaking-news" style="display:none;">
-    <?php slidedeck( 63405, array( 'width' => '1000px', 'height' => '150px' ) ); ?>
-    </section>
 
 	<div id="content">	
         
+    <?php the_hub_banner(); ?>
         <section id="feature-story" style="display:none;">
             <?php
                slidedeck( 63248, array( 'width' => '640', 'height' => '450px' ) );
@@ -51,13 +49,11 @@ get_header();
             if(have_posts()) while(have_posts()): the_post();
 	            global $post;
 	            
-	            /*
 	            //uncomment similar section below
 	            if($count == 3 && !$newswatch_shown){
 		            newswatch_list();
 		            $newswatch_shown = true;
 	            }
-	            */
 	            
             	if(empty($queued_event)){
 		            $queued_event = array_shift($events->posts);
@@ -84,12 +80,10 @@ get_header();
             	
             	
             	if(!is_paged()){
-            		/*
 			          if($count == 3 && !$newswatch_shown){
 				          newswatch_list();
 				          $newswatch_shown = true;
 			          }
-			          */ 
             	
 		          	if($count < 3){
 		          		
