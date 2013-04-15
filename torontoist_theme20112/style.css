@@ -855,7 +855,7 @@ body.page-template-hub-php .uber_container > header p{
 [class*="column"] + [class*="column"].end { float: left; }
 .one{ width: 8.33333%; }
 .two{ width: 16.66667%; }
-.three{ width: 25%; }
+.three{ width: 26%;} .three:first-child,.three:last-child{width:24%;}
 .four{ width: 33.3333%; }
 .five{ width: 41.66666%; }
 .six{ width: 50%; }
