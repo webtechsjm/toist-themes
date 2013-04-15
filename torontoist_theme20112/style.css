@@ -898,6 +898,13 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 
 .hub-container hr{clear:both; visibility: hidden;}
 
+#hub_banner{background:url('images/graphics/banner-arrow.png') no-repeat 12px 50%; display:block; text-transform:uppercase; padding: 10px 10px 10px 60px; box-shadow: 4px 5px #ccc;}
+#hub_banner:hover{text-decoration:none; background-color:#9E0B0F}
+#hub_banner h1{font-size: 2em; font-weight: bold; line-height: 1;}
+#hub_banner p{text-transform:uppercase; margin: 0;}
+.twelve.columns img{display:none;}
+.hub-container .li{list-style:disc; margin: 0 0 0 14px;}
+
 .sprite{background:url('images/graphics/sprites.png') no-repeat;}
 
 /* =POST NAVIGATION (index, category, etc.) */
