@@ -50,7 +50,7 @@ get_header();
 	            global $post;
 	            
 	            //uncomment similar section below
-	            if($count == 3 && !$newswatch_shown){
+	            if($count == 3 && !$newswatch_shown && function_exists('newswatch_list')){
 		            newswatch_list();
 		            $newswatch_shown = true;
 	            }
@@ -80,7 +80,7 @@ get_header();
             	
             	
             	if(!is_paged()){
-			          if($count == 3 && !$newswatch_shown){
+			          if($count == 3 && !$newswatch_shown && function_exists('newswatch_list')){
 				          newswatch_list();
 				          $newswatch_shown = true;
 			          }
