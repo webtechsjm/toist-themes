@@ -77,10 +77,40 @@ add_action('init',function(){
     		'after_title'   => '</h5>'
     	));
     	
-    	  register_sidebar(array(
+    	register_sidebar(array(
+    		'name' => 'Special Topics Sidebar',
+    		'id'   => 'topics-sidebar',
+    		'description'   => 'These are widgets for sidebars on special topics pages.',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
+    	
+    	register_sidebar(array(
     		'name' => 'Test Sidebar',
     		'id'   => 'test-sidebar',
     		'description'   => 'A last-stage testground for new widgets.',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
+    	
+    	register_sidebar(array(
+    		'name' => 'Culture Tile',
+    		'id'   => 'culture-tile',
+    		'description'   => 'widget space on the second row, designed for the calendar',
+    		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    		'after_widget'  => '</div>',
+    		'before_title'  => '<h5>',
+    		'after_title'   => '</h5>'
+    	));
+    	
+    	register_sidebar(array(
+    		'name' => 'Culture Sidebar',
+    		'id'   => 'culture-sidebar',
+    		'description'   => 'These are widgets for the culture sidebar',
     		'before_widget' => '<div id="%1$s" class="widget %2$s">',
     		'after_widget'  => '</div>',
     		'before_title'  => '<h5>',
@@ -267,10 +297,23 @@ add_action('pre_get_posts',function($query){
 	return;
 });
 
-add_action('pre_get_posts',function($query){
-	if(isset($query->query['post_type']) && $query->query['post_type'] == 'event'){
-		$query->set('posts_per_page',-1);
-		return;
+//	Try to add hybrid posts to RSS
+add_filter('posts_where',function($where,$wp_query=NULL){
+	global $wpdb;
+	if(!$wp_query) global $wp_query;
+	if($wp_query->is_feed){
+		$twodays = date('Y-m-d H:i:s',strtotime('-2 days'));
+		$stmt = "SELECT p.id FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm ON p.id = pm.post_id WHERE p.post_type = 'event' AND pm.meta_key = '_include_in_feed' AND pm.meta_value = 'true' AND p.post_date > '".$twodays."'";
+		$hybrids = $wpdb->get_col($stmt);
+		
+		if(!empty($hybrids)){
+			$include = join(',',$hybrids);
+			$where .= " OR $wpdb->posts.ID IN($include)";
+		}
+		wp_reset_query();
+		return $where;
+	}else{
+		return $where;
 	}
 });
 
