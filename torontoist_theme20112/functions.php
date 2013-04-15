@@ -292,10 +292,11 @@ add_filter('coauthors_search_get_users_args',function($args){
 	return $args;
 });
 
-add_action('pre_get_posts',function($query){
+function noindex_remover($query){
 	$query->set('cat','-25420');
 	return;
-});
+}
+add_action('pre_get_posts','noindex_remover');
 
 //	Try to add hybrid posts to RSS
 add_filter('posts_where',function($where,$wp_query=NULL){
