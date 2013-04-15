@@ -2,16 +2,6 @@
 /**
  * The template for displaying a single event
  *
- ***************** NOTICE: *****************
- *  Do not make changes to this file. Any changes made to this file
- * will be overwritten if the plug-in is updated.
- *
- * To overwrite this template with your own, make a copy of it (with the same name)
- * in your theme directory. 
- *
- * WordPress will automatically prioritise the template in your theme directory.
- ***************** NOTICE: *****************
- *
  * @package Event Organiser (plug-in)
  * @since 1.0.0
  */
@@ -21,6 +11,7 @@ get_header(); ?>
 
 	<div id="primary">
 		<div id="content" role="main">
+    <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
 
 			<?php while ( have_posts() ) : the_post(); 
 				$eo_classes = eo_get_event_classes();?>

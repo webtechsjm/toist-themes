@@ -10,6 +10,7 @@
 	else { 
 	echo "<div id=\"content\">";
 	}
+	if(function_exists('the_hub_banner')) the_hub_banner();
 ?>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
