@@ -417,10 +417,14 @@ function eo_make_calendar($list){
 	
 	$week = $tracker->format("W");
 	$month = $tracker->format("n");
-		
+	
 	$start_of_week = clone $tracker;
 	$start_of_week->modify("Monday this week");
-		
+	if('-' == $start_of_week->diff($tracker)->format('%R')){
+		$start_of_week = clone $tracker;
+		$start_of_week->modify("last Monday");
+	};
+	
 	if($start_of_week->format("n") == $month){
 		$tracker = $start_of_week;
 	}else{
@@ -432,13 +436,17 @@ function eo_make_calendar($list){
 	$week = null;
 	$month = null;
 	$week_counter = 0;
-		
+	
 	while(count($occs) > 0 || $week_counter > 0){
 		if($tracker->format("F") != $month){
 			$start_of_week = clone $tracker;
 			$start_of_week->modify("Monday this week");
-			$week_padding = $start_of_week->diff($tracker);
-			$week_padding = $week_padding->d > 0 ? sprintf('<td class="padding" colspan="%d">',$week_padding->d) : '';
+			$month_starts = $start_of_week->diff($tracker);
+			//$week_padding = $week_padding->d > 0 ? sprintf('<td class="padding" colspan="%d">',$week_padding->d) : '';
+			$week_padding = '';
+			if($month_starts->d > 0) for($i = 0; $i < $month_starts->d; $i ++){
+				$week_padding .= '<td class="padding"></td>';
+			}
 
 			$month = $tracker->format("F");
 			$week = $tracker->format("W");
@@ -480,6 +488,8 @@ function eo_make_calendar($list){
 			$end_of_week->modify("Sunday this week");
 			$end_of_week = $end_of_week->diff($tracker);
 			$week_counter = ($end_of_week->days < 7) ? $end_of_week->days : $end_of_week->days % 7;
+		
+		
 		}
 		$tracker->add($one_day);
 	}
