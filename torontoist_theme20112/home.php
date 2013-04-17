@@ -12,7 +12,7 @@ get_header();
 
         <!--START loop 1--> 
             <?php
-            
+            /*
             function events_before($where){
             	global $wp_query;
             	$first_post = $wp_query->posts[0];
@@ -94,6 +94,18 @@ get_header();
 		          }else{get_template_part('includes/article','shortview');}
             	$count++;
             	
+            endwhile;
+            */
+            $count = 0;
+            if(have_posts()) while(have_posts()): the_post();
+            if($count < 3){
+	        		get_template_part('includes/article','longview');
+		       		get_template_part('includes/article','shortview-mobile');
+          	}else{
+          		get_template_part('includes/article','shortview');
+          	}
+          	$count++;
+            
             endwhile;
             ?>
         
