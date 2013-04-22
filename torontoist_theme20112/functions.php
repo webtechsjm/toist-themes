@@ -293,7 +293,7 @@ add_filter('coauthors_search_get_users_args',function($args){
 });
 
 function noindex_remover($query){
-	if(is_home())
+	if(is_home() || is_feed())
 		$query->set('cat','-25420');
 	return;
 }
