@@ -779,7 +779,7 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 .hub-container li{list-style:disc; margin: 0 0 0 14px;}
 
 .hub-container .redirect_dropdown{padding-right:30px;}
-#content .hub-container .redirect_dropdown>h1{font-size: 1.25em;width:110%;}
+#content .hub-container .redirect_dropdown>h1{font-size: 1.25em; width:110%;}
 .hub-container select{max-width: 100%;float:left;margin: 0 25px 1em 0;}
 .hub-container input[type=submit]{
 	float:left;
