@@ -277,7 +277,7 @@ function TOist_comment($comment, $args, $depth) {
 add_action('wp_enqueue_scripts','toist_add_styles');
 
 function toist_add_styles(){
-		wp_register_style('webfonts','http://fonts.googleapis.com/css?family=Kameron:400,700|Open+Sans:400,400italic,600,700,700italic,800');
+		wp_register_style('webfonts','http://fonts.googleapis.com/css?family=Sanchez:400,400italic|Kameron:400,700');
 		wp_enqueue_style('webfonts');
 		wp_enqueue_script('toist-functions',get_bloginfo('template_directory').'/_/js/functions.js','jquery');
 }
