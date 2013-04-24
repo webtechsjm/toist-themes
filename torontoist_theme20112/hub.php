@@ -7,7 +7,7 @@ Template Name: Coverage Hub
 
 <?php get_header(); ?>
 <section id="breaking-news" style="display:none">
-<?php slidedeck( 155784, array( 'width' => '100%', 'height' => '370px' ) ); ?>
+<?php slidedeck( 63405, array( 'width' => '100%', 'height' => '370px' ) ); ?>
 </section>
 <header>
 	<?php 
