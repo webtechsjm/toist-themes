@@ -694,7 +694,8 @@ body.slideshow {max-width:1120px !important; background: none repeat scroll 0 0 
 
 /* Hub pages */
 body.page-template-hub-php .uber_container > header img{max-width: 100%; height: auto;}
-body.page-template-hub-php .uber_container > header h1{
+body.page-template-hub-php .uber_container > header h1,
+#content.hub>header h1{
 	background: #fff;
 	font-size: 4em;
 	font-weight: bold;
@@ -704,11 +705,16 @@ body.page-template-hub-php .uber_container > header h1{
 	text-transform: uppercase;
 }
 body.page-template-hub-php .uber_container > header img+h1,
-body.page-template-hub-php .uber_container > header p+h1{
+body.page-template-hub-php .uber_container > header p+h1,
+#content.hub>header img+h1,#content.hub>header p+h1{
 	margin: -2em 0 0 20px;
 	max-width: 50%;
 	box-shadow: 3px 3px 3px #aaa;
 }
+#content.hub>header img+h1,#content.hub>header p+h1{
+	margin-top: -1.5em;
+}
+#content.hub>header img{max-width:100%;height:auto;}
 body.page-template-hub-php .uber_container > header p{
 	display:none;
 }
