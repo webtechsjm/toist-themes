@@ -277,7 +277,7 @@
 		?>
 	</div><!-- .entry-content -->
 	<a href="<?php the_permalink() ?>" class="more-link">
-		<span class="morelink">Details: </span>
+		<span class="morelink">Keep reading: </span>
 		<?php the_title(); ?>
 	</a>
 
