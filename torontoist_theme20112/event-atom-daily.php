@@ -14,7 +14,13 @@
 							
 						?>
 							
-							<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+							<h2 class="entry-title"><a href="<?php the_permalink(); ?>">
+								<?php 
+									$alt_title = get_post_meta(get_the_ID(),'alt_title',true);
+									if($alt_title !== ''){echo $alt_title;}
+									else the_title();
+								?>
+							</a></h2>
 							<?php the_featured_media('large'); ?>
 							<ul class="entry-details">
 								<!-- If the event has a venue saved, display this-->
