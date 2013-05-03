@@ -232,3 +232,4 @@ _qacct="p-11lnUuPOz_qQQ";quantserve();</script>
 
 		
 		</header>
+<?php if(function_exists('the_newsflash')) the_newsflash(); ?>

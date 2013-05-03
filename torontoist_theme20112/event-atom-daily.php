@@ -21,7 +21,24 @@
 									else the_title();
 								?>
 							</a></h2>
-							<?php the_featured_media('large'); ?>
+							<?php
+								global $post;
+				
+								$gallery = false;
+								if(preg_match('|\[gallery(.*)\]|',$post->post_content,$matches)){
+			
+									$gallery = do_shortcode($matches[0]);
+									preg_match('|ids=[\'\"]([^\'\"]*)[\'\"]|',$matches[1],$ids);
+									$post->post_content = join("",explode($matches[0],$post->post_content));
+								}
+				
+								if(function_exists('the_featured_media')){
+									if($gallery){the_featured_media('full',$ids[1]);
+									}else{the_featured_media('full');}
+								}else{if(has_post_thumbnail()) the_post_thumbnail('large');}
+		
+								if($gallery) echo $gallery;
+							?>
 							<ul class="entry-details">
 								<!-- If the event has a venue saved, display this-->
 								<?php
