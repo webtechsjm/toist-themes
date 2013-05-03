@@ -1,7 +1,7 @@
 <?php 
 get_header();
 ?>
-
+	<?php if(function_exists('the_newsflash')) the_newsflash(); ?>
 	<div id="content">
     <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         <section id="feature-story" style="display:none;">
@@ -48,7 +48,7 @@ get_header();
 	            global $post;
 	            
 	            //uncomment similar section below
-	            if($count == 3 && !$newswatch_shown && function_exists('newswatch_list')){
+	            if($count == 3 && !$newswatch_shown && function_exists('newswatch_list') && get_option('show_newswatch') == '1'){
 		            newswatch_list();
 		            $newswatch_shown = true;
 	            }
@@ -68,9 +68,7 @@ get_header();
 				          	get_template_part('includes/article','shortview');
 				          }
 				          $count++;
-				          
-				          
-				          
+				         
 				          $post = $old_post;
 				          $queued_event = false;
             		}
@@ -78,7 +76,7 @@ get_header();
             	
             	
             	if(!is_paged()){
-			          if($count == 3 && !$newswatch_shown && function_exists('newswatch_list')){
+			          if($count == 3 && !$newswatch_shown && function_exists('newswatch_list') && get_option('show_newswatch') == '1'){
 				          newswatch_list();
 				          $newswatch_shown = true;
 			          }
