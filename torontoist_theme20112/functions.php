@@ -299,6 +299,7 @@ function noindex_remover($query){
 }
 add_action('pre_get_posts','noindex_remover');
 
+/*
 //	Try to add hybrid posts to RSS
 add_filter('posts_where',function($where,$wp_query=NULL){
 	global $wpdb;
@@ -318,6 +319,7 @@ add_filter('posts_where',function($where,$wp_query=NULL){
 		return $where;
 	}
 });
+*/
 
 function the_event_star_rating(){
 if($stars = get_post_meta(get_the_ID(),'stars',true)):
