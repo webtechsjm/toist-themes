@@ -1,7 +1,6 @@
 <?php 
 get_header();
 ?>
-	<?php if(function_exists('the_newsflash')) the_newsflash(); ?>
 	<div id="content">
     <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>
         <section id="feature-story" style="display:none;">
