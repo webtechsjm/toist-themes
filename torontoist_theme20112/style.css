@@ -376,16 +376,16 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 
 
 /* =START ARTICLE LIST STYLES (INDEX.PHP) */
-#content article.shortview header {float:right; max-width:425px; width:66.4%;}
+#content article.shortview header {float:right;max-width:425px; width:64.4%;}
 #content article.shortview header h2, #content article.shortview header h1 {font-size:20px; margin:0 0 5px 0;}
-#content article.shortview p {float:right; max-width:425px; width:64.4%; margin:5px 0 0 0;}
+#content article.shortview p {float:right; width:64.4%; max-width:425px; margin:5px 0 0 0;}
 #content article.shortview a.comments-link {margin:0 5; padding:0; border:none; font-size:10px;}
 #content article.shortview img {display:block;}
 #content article.shortview .dek {font-size:14px; font-weight:normal; line-height:1.4;}
 
-#content article.mobileonly header {float:right; max-width:425px; width:66.4%;}
+#content article.mobileonly header {float:right;clear:right;width:64.4%;}
 #content article.mobileonly header h2 {font-size:20px; margin:0 0 5px 0;}
-#content article.mobileonly p {float:right; max-width:425px; width:64.4%; margin:5px 0 0 0;}
+#content article.mobileonly p {float:right;clear:right;width:64.4%; margin:5px 0 0 0;}
 #content article.mobileonly a.comments-link {margin:0 5; padding:0; border:none; font-size:10px;}
 #content article.mobileonly img {display:block;}
 #content article.mobileonly .dek {font-size:14px; font-weight:normal; line-height:1.4;}
