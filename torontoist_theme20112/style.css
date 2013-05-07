@@ -276,7 +276,7 @@ footer.global nav {border-bottom:1px solid #B2B2B2; border-top:3px double #B2B2B
 
 
 /* =START ARTICLE & PAGE HEADERS */
-#content article h2, #content article h1 {font-size:30px; font-weight:bold; margin:15px 0; line-height:1.1;}
+#content article h2, #content article h1 {font-size:30px; font-weight:bold; margin:0 0 15px; line-height:1.1;}
 
 #content article h3 { color:#FFF; display:inline; font-size:10px; font-weight:bold; margin-bottom:8px; padding:2px 4px; text-transform:uppercase; letter-spacing:1px;}
 
@@ -384,9 +384,10 @@ hr.solidblack {display: block; height: 1px; border: 0; border-top: 2px solid #00
 #content article.shortview .dek {font-size:14px; font-weight:normal; line-height:1.4;}
 
 #content article.mobileonly header {float:right;clear:right;width:64.4%;}
+#content article.mobileonly header h1,#content article.mobileonly header h1{clear:right;}
 #content article.mobileonly header h2 {font-size:20px; margin:0 0 5px 0;}
 #content article.mobileonly p {float:right;clear:right;width:64.4%; margin:5px 0 0 0;}
-#content article.mobileonly a.comments-link {margin:0 5; padding:0; border:none; font-size:10px;}
+#content article.mobileonly a.comments-link {padding:0; border:none; font-size:10px;}
 #content article.mobileonly img {display:block;}
 #content article.mobileonly .dek {font-size:14px; font-weight:normal; line-height:1.4;}
 #content .eo-events-shortcode a.details{font-weight:bold; color: #939393}
@@ -653,7 +654,7 @@ body.slideshow {max-width:1120px !important; background: none repeat scroll 0 0 
 .slideshow #sidebar #slide-info .title {font-weight:600;}
 .slideshow #sidebar #slide-info .description p {color:#FFF;}
 .slideshow #sidebar #slide-info .caption p {color:#FFF; font-size:12px;}
-.slideshow #sidebar #social-media span.icon {padding-top:10px; float:left; display:block;}
+.slideshow #sidebar #social-media span.icon {padding-top:0; float:left; display:block;}
 .slideshow #sidebar #back-to-post {font-size:16px;}
 
 .slideshow footer {clear:both;}
@@ -1175,10 +1176,12 @@ clip: rect(1px, 1px, 1px, 1px);
   .slidedeck_frame {display:none;}
   #feature-story {border-bottom:0px none !important;}
 }
+@media screen and (max-width:1024px) and (max-height:768px){
+	.slideshow aside h1{max-height: 2.2em; overflow:hidden;}
+	#sidebar .back{display:none;}
+}
 
-@media screen and (max-width: 960px),
-	screen and (max-device-width:1440px)
-	 {
+@media screen and (max-width: 960px){
   .weather {display:none;}
   .global nav ul li.info2 {display:none;}
 
@@ -1186,14 +1189,12 @@ clip: rect(1px, 1px, 1px, 1px);
   #sidebar {width:37% !important;}
 }
 
-@media screen and (max-width: 855px),
-	screen and (max-device-width:1282px){
+@media screen and (max-width: 855px){
   #content {width:58% !important;}
   #sidebar {width:39% !important;}
   .global nav ul li.info {display:none;}
 }
-@media screen and (max-width: 768px),
-	screen and (max-device-width:1152px){
+@media screen and (max-width: 768px){
 	.slideshow .site-title{
 		float: left;
 		margin: 15px -310px 0 0;
@@ -1252,8 +1253,7 @@ clip: rect(1px, 1px, 1px, 1px);
 	.slideshow >footer{position:relative;}
 	.touch .slideshow article nav a{display:none;}
 }
-@media screen and (max-width: 750px),
-	screen and (max-device-width:1125px) {
+@media screen and (max-width: 750px){
   .logo h3 {display:none;}
   #leaderboard {display:none;}
   #sidebar {display:none;}
@@ -1270,8 +1270,7 @@ clip: rect(1px, 1px, 1px, 1px);
 	.slideshow article section{height: auto;}
 }
 
-@media only screen and (max-width: 585px),
-	screen and(max-device-width:877px){
+@media only screen and (max-width: 585px){
 	html{overflow:auto !important;}
 	.slideshow .site-title{
 		margin:0;

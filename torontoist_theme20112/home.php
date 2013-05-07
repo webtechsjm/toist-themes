@@ -1,5 +1,6 @@
 <?php 
 get_header();
+remove_action('loop_end','dsq_loop_end');
 ?>
 	<div id="content">
     <?php if(function_exists('the_hub_banner')) the_hub_banner(); ?>

@@ -43,7 +43,20 @@
 <time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="short"><?php the_time('M jS'); ?>, <?php the_time('g:i a'); ?></time>
         </p>
 
-    <a class="img" href="<?php the_permalink() ?>" title=""><?php the_post_thumbnail('medium'); ?></a>
+    <a class="img" href="<?php the_permalink() ?>" title=""><?php
+    $featured = false;
+    if(has_post_thumbnail()){
+			the_post_thumbnail('medium');
+			$featured = true;
+    }elseif(preg_match('|\[gallery(.*)\]|',$post->post_content,$matches)){
+    	if(preg_match('|feature="(.*)"|',$matches[1],$featured)){
+    	$id = $featured[1];
+    	echo wp_get_attachment_image($id,'medium');
+    	$featured = true;
+    	}
+    }
+    
+    ?></a>
     
 
 </article> 
