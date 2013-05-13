@@ -4,7 +4,7 @@
 	
 	<meta name="google-site-verification" content="">
 	<meta name="author" content="Torontoist">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<meta name="viewport" content="width=device-width; initial-scale=1.0;">
 	<meta name="Copyright" content="Copyright Torontoist, Ink Truck Media, St. Joseph Media, 2011. All Rights Reserved.">
 <!--
     <meta name="viewport" content="width = 1040" />	
