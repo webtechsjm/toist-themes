@@ -605,60 +605,6 @@ dd.wp-caption-text {display:none;}
 
 .slideshow #wpadminbar {display:none;}
 
-body.slideshow {max-width:1120px !important; background: none repeat scroll 0 0 #111111; color:#FFF;}
-
-.slideshow header {border-top:0px solid #FFF; padding: 0px 0px;}
-.slideshow header h1 {float:left; padding:10px 0px;}
-.slideshow header h1 a {width:200px; height:28px; background:url(/wp-content/themes/torontoist_theme20112/images/graphics/Torontoist-whiteonblack-gallery.png) top left no-repeat; display:block; text-indent:-9999em;}
-.slideshow header h2 a {color:#FFFFFF; text-transform:uppercase; font-size:20px; display:none;}
-
-
-
-.slideshow #content {height:auto!important; width:71.42%; margin-top:10px; border:none; color:#FFF;}
-.slideshow #content img {height:auto !important; width=100% !important;}
-.slideshow #content article {text-align:center; border-bottom:2px solid #FFF; padding:0px; width:100%;}
-.slideshow #content article .return {color:#FFF; font-size:14px; font-weight:600}
-.slideshow #content article .return a {color:#FFF; font-size:14px;}
-.slideshow #content article p {margin:0px; padding:5px;}
-
-.slideshow #gallery-nav {margin: 0px auto; width:300px;}
-.slideshow #gallery-nav span.previous {float:left;}
-.slideshow #gallery-nav span.next{float:right;}
-
-.slideshow #gallery-nav span {margin:0 15px 10px 15px; float:left; display:block;}
-.slideshow #gallery-nav span.slide-count {margin:10px 25px; font-weight:600; float:left;}
-.slideshow #gallery-nav span a {display:block; text-indent:-9999em; width:41px; height:41px; background: url(/wp-content/themes/torontoist_theme20112/images/graphics/prev-grey.png) 0 0 no-repeat;}
-.slideshow #gallery-nav span.next a {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/next-grey.png);}
-.slideshow #gallery-nav span.previous a:hover {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/prev-black.png);}
-.slideshow #gallery-nav span.next a:hover {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/next-black.png);}
-
-.slideshow .gallery img {width:90% !important;}
-
-.slideshow #sidebar {width:26.78%;}
-.slideshow #sidebar .big-box {margin: 0px;}
-
-.slideshow #sidebar section {margin:10px 0 0 0; border-bottom:0px dotted #B2B2B2;}
-.slideshow #sidebar #logo {margin: 0px; padding: 0px 45px;}
-
-.slideshow #sidebar #gallery-nav span {margin:0 15px 10px 15px; float:left; display:block;}
-.slideshow #sidebar #gallery-nav span.slide-count {margin-top:10px; font-weight:600;}
-.slideshow #sidebar #gallery-nav span.previous {margin-left:25px;}
-.slideshow #sidebar #gallery-nav span a {display:block; text-indent:-9999em; width:41px; height:41px; background: url(/wp-content/themes/torontoist_theme20112/images/graphics/prev-grey.png) 0 0 no-repeat;}
-.slideshow #sidebar #gallery-nav span.next a {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/next-grey.png);}
-.slideshow #sidebar #gallery-nav span.previous a:hover {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/prev-black.png);}
-.slideshow #sidebar #gallery-nav span.next a:hover {background-image: url(/wp-content/themes/torontoist_theme20112/images/graphics/next-black.png);}
-
-.slideshow #sidebar a {color:#FFF;}
-.slideshow #sidebar #slide-info a {text-decoration: underline;}
-.slideshow #sidebar #slide-info span p {margin:8px 0;}
-.slideshow #sidebar #slide-info .title {font-weight:600;}
-.slideshow #sidebar #slide-info .description p {color:#FFF;}
-.slideshow #sidebar #slide-info .caption p {color:#FFF; font-size:12px;}
-.slideshow #sidebar #social-media span.icon {padding-top:0; float:left; display:block;}
-.slideshow #sidebar #back-to-post {font-size:16px;}
-
-.slideshow footer {clear:both;}
-
 .home aside.newswatch{
 	clear: both;
 	overflow:hidden;

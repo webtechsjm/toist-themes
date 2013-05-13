@@ -1,9 +1,9 @@
 <!DOCTYPE html>
+<html>
+	<head id="www-torontoist-com" data-template-set="torontoist_theme20112">
 
-<head id="www-torontoist-com" data-template-set="torontoist_theme20112">
-
-    <title><?php wp_title(' | '); ?><?php bloginfo('name'); ?></title>
-    
+	<title><?php wp_title(' | '); ?><?php bloginfo('name'); ?></title>
+   
 	<meta charset="<?php bloginfo('charset'); ?>">
 	
 	<meta name="description" content="<?php bloginfo('description'); ?>">
@@ -11,12 +11,12 @@
 	<meta name="author" content="Torontoist">
 	<meta name="Copyright" content="Copyright Torontoist, Ink Truck Media, 2011. All Rights Reserved.">
   
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--Force latest IE rendering engine & Chrome Frame-->
        
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic&v2' rel='stylesheet'>
-	<link rel="stylesheet" href="/wp-content/themes/torontoist_theme20112/style.css">
+	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory') ?>/style.css">
 	    <!--[if lt IE 9]><link rel="stylesheet" href="/wp-content/themes/torontoist_theme20112/IEstyle.css"><![endif]-->
 	
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/graphics/favicon.ico">
@@ -29,12 +29,6 @@
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->  
                 
-    <!--LIGHTBOX-->    
-    <link rel="stylesheet" href="/wp-content/themes/torontoist_theme20112/javascript/lightbox/css/lightbox.css" type="text/css" media="screen" />
-    <script src="/wp-content/themes/torontoist_theme20112/javascript/lightbox/js/prototype.js" type="text/javascript"></script>
-    <script src="/wp-content/themes/torontoist_theme20112/javascript/lightbox/js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
-    <script src="/wp-content/themes/torontoist_theme20112/javascript/lightbox/js/lightbox.js" type="text/javascript"></script>
-
     <style type="text/css">
     html {overflow-y:scroll;}
     html, body {height:100%; margin:0 auto 1px auto; padding:0;}
@@ -68,8 +62,24 @@ $ishome='no';
 $issingle='no';
 	if ( is_single() ) { $issingle = 'yes';}
 	if ( is_page() ) { $issingle = 'yes'; $section = 'section';}
-?>
 
+?>
+<script type='text/javascript'>
+(function() {
+var useSSL = 'https:' == document.location.protocol;
+var src = (useSSL ? 'https:' : 'http:') +
+'//www.googletagservices.com/tag/js/gpt_mobile.js';
+document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+})();
+</script>
+
+<?php /*
+<script type='text/javascript'>
+googletag.cmd.push(function() {
+googletag.defineSlot('/7740464/St.JoeMedia/Torontoisst', [[300, 50], [320, 50]], 'div-gpt-ad-1365791261208-0').addService(googletag.pubads());
+googletag.enableServices();
+});
+</script>
 <script type='text/javascript'>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
@@ -84,6 +94,7 @@ var node = document.getElementsByTagName('script')[0];
 node.parentNode.insertBefore(gads, node);
 })();
 </script>
+*/ ?>
 <script type='text/javascript'>
 googletag.cmd.push(function() {
 googletag.pubads().setTargeting('section-TS', '<?php echo sanitize_title_with_dashes($section); ?>');
@@ -93,7 +104,9 @@ googletag.pubads().setTargeting('ishome', '<?php echo $ishome; ?>');
 googletag.pubads().setTargeting('issingle', '<?php echo $issingle; ?>');
 googletag.defineSlot('/9527589/TST_BB_Upper', [300, 251], 'div-gpt-ad-1347634485931-0').addService(googletag.pubads());
 googletag.defineSlot('/9527589/TST_Leaderboard', [728, 90], 'div-gpt-ad-1343667556242-4').addService(googletag.pubads());
+googletag.defineSlot('/7740464/St.JoeMedia/Torontoisst', [[300, 50], [320, 50]], 'div-gpt-ad-1365791261208-0').addService(googletag.pubads());
 googletag.pubads().enableSingleRequest();
+googletag.pubads().enableAsyncRendering();
 googletag.enableServices();
 });
 </script>
@@ -139,20 +152,32 @@ _qacct="p-11lnUuPOz_qQQ";quantserve();</script>
 </head>
 
 <body class="slideshow">
-
-<div class="mobile-ad">
-<?php
-echo juicemobilev2_ad();
-?>
-</div>
-
-	<div class="ad" id="leaderboard">
-	    <div class="ad-container">
-		<div id='div-gpt-ad-1343667556242-4' >
-			<script type='text/javascript'>
-			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1343667556242-4'); });
-			</script>
+	<header>
+		<div class="container">
+			<h1 class="site-title">
+				<a href="<?php echo site_url() ?>">Torontoist</a>
+			</h1>
+			<div class="mobile-ad">
+				<h6>Advertisement</h6>
+				<div id='div-gpt-ad-1365791261208-0'>
+					<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1365791261208-0')});
+					</script>
+				</div>
+			</div>
+			<div class="ad" id="leaderboard">
+				<img src="<?php bloginfo('stylesheet_directory') ?>/images/graphics/ad-notice.gif" alt="Advertisement" />
+				<div class="ad-container">
+					<div id='div-gpt-ad-1343667556242-4' >
+						<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1343667556242-4'); });
+						</script>
+					</div>
+				</div>
+			</div>
+			<?php $menu = wp_nav_menu(array(
+				'container'		=>	'nav'
+			));
+			?>
 		</div>
-		</div>
-	</div>
-	    
+	</header>
