@@ -88,6 +88,8 @@ jQuery(document).ready(function($){
 		}
 	});
 	
+	window.addEventListener('orientationchange',function(){setSensitivity()},false);
+	
 	function closeEmbiggened(){
 		$("#overlay").remove();
 		$("#embiggened").remove();
@@ -156,7 +158,7 @@ jQuery(document).ready(function($){
 			$desc = $desc.find(".mCSB_container");
 		}
 		scrollToActive();
-	
+		setSensitivity();
 	}
 	
 	function checkExpandable(){
@@ -193,6 +195,17 @@ jQuery(document).ready(function($){
 		){
 			$thumbnails.mCustomScrollbar("scrollTo",activePosition.left);
 		}
+	}
+	
+	function setSensitivity(){
+		if(orientation === 0 || orientation === 180){
+			$.event.special.swipe.settings.threshold=0.1;
+		}else if(frameWidth > 600){
+			$.event.special.swipe.settings.threshold=0.2;
+		}else{
+			$.event.special.swipe.settings.threshold=0.3;
+		}
+		$.event.special.swipe.settings.sensitivity=8;
 	}
 	
 	
@@ -388,7 +401,7 @@ jQuery(document).ready(function($){
 		
 			var infoOffset = slideInfo.offset();
 			if(windowWidth / windowHeight > 1){
-				if(windowHeight < 768){
+				if(windowHeight <= 768){
 					sidebarNavHeight = 0;
 					slideInfo.css({"margin-top":0});
 					boxAdHeight = 0;
