@@ -276,6 +276,7 @@ jQuery(document).ready(function($){
 		$desc.html(toist_gallery[pid].description);
 		if(_gaq){
 			_gaq.push['_trackEvent','galleryImg',toist_gallery[pid].title];
+			_gaq.push['_trackPageview',toist_gallery[pid].permalink];
 			}
 		$slideIndex.html($index+1);
 		googletag.pubads().refresh();

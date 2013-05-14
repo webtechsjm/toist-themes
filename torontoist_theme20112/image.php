@@ -161,24 +161,6 @@
 				<a href="mailto:?subject=<?php echo $post_title ?>&body=See the photos at <?php echo $post_permalink; ?>" class="social email" title="Email this gallery" rel="nofollow">
 					<span>&#9993;</span>
 				</a>
-				<?php /*
-        <span class="pinterest icon"><?php echo do_shortcode('[pinit]'); ?></span>
-				<span class="google-plus icon">
-		      <g:plusone size="medium"></g:plusone>
-		      <script type="text/javascript">
-		        (function() {
-		          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		          po.src = 'https://apis.google.com/js/plusone.js';
-		          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		        })();
-		      </script>
-        </span>
-				<!-- Start ShareThis -->                        
-				<script charset="utf-8" type="text/javascript">var switchTo5x=false;</script><script charset="utf-8" type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.0aa23093-2b8c-4fd5-9602-c686dee727c9'});var st_type='wordpress3.2';</script>
-				<span class='icon st_facebook_hcount' st_title='<?php echo $post_title; ?>' st_url='<?php echo $post_permalink; ?>' displayText='like'></span>
-				<span class='icon st_twitter_hcount' st_title='<?php echo $post_title; ?>' st_url='<?php echo $post_permalink; ?>' displayText='share'></span>
-				<span class='icon st_email_hcount' st_title='<?php echo $post_title; ?>' st_url='<?php echo $post_permalink; ?>' displayText='email'></span>
-			*/ ?>
 			</section>
 
 			<section id="sidebar_ad">
@@ -240,17 +222,6 @@
 		<div class="container">
 			<small>&copy; <?php echo date("Y"); ?> Torontoist, Ink Truck Media All rights reserved.</small>
 		</div>
-		
-		<?php /*		
-		<div id="sitemeter"><!--PUT HERE, verify sitemeter code-->
-			<script src="http://sm1.sitemeter.com/js/counter.js?site=sm1torontoist"></script>
-			<noscript>
-				<a href="http://sm1.sitemeter.com/stats.asp?site=sm1torontoist" target="_top">
-				<img src="http://sm1.sitemeter.com/meter.asp?site=sm1torontoist" alt="Site Meter" border="0"/></a>
-			</noscript>
-		</div><!-- Copyright (c)2009 Site Meter -->
-		
-		*/ ?>
 	</footer>
 	
 	<?php
@@ -287,6 +258,12 @@
 	$output = array();
 	foreach($images as $image){
 		$meta = wp_get_attachment_metadata($image->ID);
+		$attachment = get_attachment_link($image->ID);
+		if(strpos($attachment,"?") === false){
+			$attachment .= "?include=".$include;
+		}else{
+			$attachment .= "&include=".$include;
+		}
 		$img_sizes = $meta['sizes'];
 		
 		
@@ -300,6 +277,7 @@
 			"description"	=>	$image->post_content,
 			"type"				=>	$image->post_mime_type,
 			"path"				=>	$path.'/',
+			"permalink"		=>	$attachment,
 			"sizes"				=>	$img_sizes,
 			"full"				=>	$image->guid
 		);
