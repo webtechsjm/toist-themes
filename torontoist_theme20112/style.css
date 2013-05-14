@@ -507,13 +507,16 @@ body.tax-event-tag #content article.type-event ul.entry-details{
 
 /* =CULTURE PILLAR */
 .featured>a{
-height:210px;
+height:231px;
 width:50%;
 -moz-box-sizing:border-box;
-border:1px solid #fff;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+border-right:1px solid #fff;
+border-bottom:1px solid #fff;
 position:relative;
 display:block;
-background: #aaa;
+background: #666;
 transition: all .6s;
 float:left;
 }
@@ -537,6 +540,7 @@ padding:10px;
 color:#fff;
 font-size:1.6em;
 font-weight:bold;
+line-height:1;
 }
 .pillar .featured p{
 	margin:0;
@@ -565,6 +569,7 @@ padding-right:10px;
 border-bottom:1px solid #ccc;
 font-size:2em;
 text-transform:uppercase;
+line-height:1;
 }
 .culture.pillar h1>strong{font-weight:800;}
 .culture.pillar .reviews{float:left;width:40%;}
@@ -575,18 +580,33 @@ list-style:disc outside none;
 margin-left:10px;
 padding-left:10px;
 }
-.culture.pillar>h1{
+.culture.pillar>h1,.culture.pillar>h2{
 border-bottom:1px solid #ccc;
-font-size:2em;
-padding-top:1em;
+font-size:40px;
+line-height:1;
+padding:4px 0 8px;
 text-transform:uppercase;
+margin: 0 0 10px;
+font-weight: 700;
 }
+.culture.pillar>h2{clear:both;font-weight:400;font-size:2em;padding:33px 0 5px;margin:0 0 3px;}
+.pillar section p.meta,.pillar .meta a{font-size:85.7%;color:#999;}
+.culture.pillar section>h1{padding:8px 0;}
+.culture.pillar .calendar>h1,.pillar .reviews>h1{margin:25px 0 0;}
+.culture.pillar hr{clear:both;margin:20px 0 25px;}
 .culture.pillar .televisualist,.culture.pillar .rep-cinema{
 -moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
 }
+.culture.pillar .televisualist p,.culture.pillar .rep-cinema p{
+font-size:87.5%;margin:0;
+}
+.culture.pillar .televisualist p.meta,.culture.pillar .rep-cinema p.meta{margin:15px 0;}
 .culture.pillar .televisualist>h1,.culture.pillar .rep-cinema>h1{
 border-bottom:none;
 }
+.culture.pillar .televisualist>h1 a,.culture.pillar .rep-cinema>h1 a{color:#9e0b0f;}
 .culture.pillar .televisualist{
 border-right:1px dotted #ccc;
 padding-right:15px;
@@ -594,8 +614,59 @@ padding-right:15px;
 .culture.pillar .rep-cinema{
 	padding-left:15px;
 }
-#content.culture.pillar article h1{font-size:1.2em;}
+#content.culture.pillar article h1{font-size:1.2em;margin:0;}
 #content.culture.pillar article img{max-width:100% !important;}
+#content.culture.pillar .sound-advice,
+#content.culture.pillar .reel-toronto{
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+}
+#content.culture.pillar .sound-advice{padding-right:5px;}
+#content.culture.pillar .reel-toronto{padding-left:5px;}
+#content.culture.pillar .sound-advice>h1,
+#content.culture.pillar .reel-toronto>h1{color:#fff;background:#000;position:relative;}
+#content.culture.pillar .sound-advice>h1 img,
+#content.culture.pillar .reel-toronto>h1 img{position:absolute;left:5px;bottom:0;}
+#content.culture.pillar .sound-advice>h1{padding-left:75px;max-width:225px;}
+#content.culture.pillar .reel-toronto>h1{padding-left:100px;max-width:200px;}
+
+.pillar .slider{
+	width:100%;
+	position:relative;
+	padding:0 40px;
+	background:#000;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	overflow:hidden;
+	height:250px;
+	max-width:300px;
+}
+.pillar .slider .container{
+	width:2000px;
+	transition: all 0.6s;
+	}
+.pillar .slider .container article{
+	float:left;
+	padding:10px;
+	width:200px;
+	}
+.pillar .slider .slidenav{
+	background: #555;
+	display:block;
+	height: 100%;
+	position:absolute;
+	top: 0;
+	width: 40px;
+}
+.pillar .slidenav.previous{left:0;}
+.pillar .slidenav.next{right:0;}
+.pillar .slidenav .sprite{height:32px; width:20px;margin:100px 10px;}
+.pillar .slidenav.previous img{background-position:-42px 0;}
+.pillar .slidenav.next img{background-position:-62px 0;}
+#content.pillar .slider article h1 a{color:#fff;}
+.pillar .slider article p{display:none;}
 /* =START SLIDESHOW STYLES */
 #content article .gallery dl.gallery-item {width:14.1%;}
 #content article .gallery dl.gallery-item dd.gallery-caption {display:none;}
@@ -862,16 +933,30 @@ body.page-template-hub-php .pin-it-btn-wrapper{display:none;}
 .sprite{background:url('images/graphics/sprites.png') no-repeat;}
 
 #hub_banner{
-background-color:#000;
 background-size:cover;
 display:block;
 padding: 40px 0;
 color:#fff;
+text-decoration:none;
 }
-#hub_banner div{background:url('images/graphics/banner-arrow.png') no-repeat 12px 50% #000; display:block; text-transform:uppercase; padding: 10px 10px 10px 60px;}
-#hub_banner:hover{text-decoration:none; background-color:#9E0B0F}
-#hub_banner h1{font-size: 2em; font-weight: bold; line-height: 1;}
-#hub_banner p{text-transform:uppercase; margin: 0;}
+#hub_banner div{
+	background:url('http://torontoist.com/wp-content/themes/torontoist_theme20112/images/graphics/banner-arrow.png') no-repeat 12px 50% #000; display:block;
+	padding: 10px 10px 10px 60px;
+	transition:all 0.6s;
+	text-transform:uppercase;
+}
+#hub_banner:hover div{
+	text-decoration:none;
+	background-color:#9E0B0F;
+}
+#hub_banner h1{
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 1;
+	margin:5px 0;
+}
+#hub_banner p{margin: 0;}
+#hub_banner p.label{font-style:italic;text-transform:none;}
 .twelve.columns img{display:none;}
 .hub-container li{list-style:disc; margin: 0 0 0 14px;}
 
@@ -1122,11 +1207,6 @@ clip: rect(1px, 1px, 1px, 1px);
   .slidedeck_frame {display:none;}
   #feature-story {border-bottom:0px none !important;}
 }
-@media screen and (max-width:1024px) and (max-height:768px){
-	.slideshow aside h1{max-height: 2.2em; overflow:hidden;}
-	#sidebar .back{display:none;}
-}
-
 @media screen and (max-width: 960px){
   .weather {display:none;}
   .global nav ul li.info2 {display:none;}
