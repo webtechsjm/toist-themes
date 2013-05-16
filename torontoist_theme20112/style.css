@@ -575,12 +575,14 @@ line-height:1;
 .culture.pillar h1>strong{font-weight:800;}
 .culture.pillar .reviews{width:40%;}
 .culture.pillar .reviews ul{
-font-size:1.5em;
+font-size:1.4em;
+line-height:1.2;
 font-weight:bold;
 list-style:disc outside none;
-margin-left:10px;
+margin:10px 0 0 20px;
 padding-left:10px;
 }
+.culture.pillar .reviews li{margin-bottom:1.1em;font-size:.77em;}
 .culture.pillar>h1,.culture.pillar>h2{
 border-bottom:1px solid #ccc;
 font-size:40px;
