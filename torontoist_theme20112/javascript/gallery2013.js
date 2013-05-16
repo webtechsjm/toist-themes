@@ -198,6 +198,7 @@ jQuery(document).ready(function($){
 	}
 	
 	function setSensitivity(){
+		if(typeof orientation === 'undefined') return false;
 		if(orientation === 0 || orientation === 180){
 			$.event.special.swipe.settings.threshold=0.1;
 		}else if(frameWidth > 600){
