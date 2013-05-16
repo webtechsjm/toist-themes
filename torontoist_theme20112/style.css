@@ -668,6 +668,12 @@ box-sizing:border-box;
 .pillar .slidenav .sprite{height:32px; width:20px;margin:100px 10px;}
 .pillar .slidenav.previous img{background-position:-42px 0;}
 .pillar .slidenav.next img{background-position:-62px 0;}
+.pillar .slidenav.previous.disabled img{background-position:0 0;}
+.pillar .slidenav.next.disabled img{background-position:-22px 0;}
+.pillar .slidenav.previous:hover img{background-position:-82px 0;}
+.pillar .slidenav.next:hover img{background-position:-102px 0;}
+.pillar .slidenav.previous.disabled:hover img{background-position:0 0;}
+.pillar .slidenav.next.disabled:hover img{background-position:-22px 0;}
 #content.pillar .slider article h1 a{color:#fff;}
 .pillar .slider article p{display:none;}
 /* =START SLIDESHOW STYLES */
