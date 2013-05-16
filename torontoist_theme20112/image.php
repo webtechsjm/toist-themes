@@ -245,7 +245,7 @@
 		'toist_gallery2013',
 		get_bloginfo('stylesheet_directory')."/javascript/gallery2013.js",
 		array('eventswipe','customScroll'),
-		'2013-03-26',
+		'2013-05-16',
 		true
 		);
 	wp_enqueue_style(
