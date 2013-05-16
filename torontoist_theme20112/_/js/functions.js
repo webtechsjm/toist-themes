@@ -75,5 +75,43 @@ jQuery(document).ready(function($){
 			}
 		}
 	}
+	
+	if($("#content.pillar").length > 0){
+		var pillar = $("#content.pillar");
+		
+		pillar.on('click','.slidenav',function(ev){
+			ev.preventDefault();
+			ev.stopPropagation();
+			
+			var $this = $(this);
+			var $slider = $this.parent();
+			var container = $slider.children(".container");
+			var articles = container.children("article");
+			var index = $slider.attr("data-index");
+			if(typeof index === 'undefined') index = 0;
+			var articleWidth = articles.outerWidth();
+			var endWidth = (articles.length -1)*articleWidth*-1;
+			//var currentOffset = $slider.scrollLeft();
+			var currentOffset = parseInt(container.css('marginLeft'));
+
+			if($this.hasClass("previous")){
+				if(index > 0){
+					index--;
+					$this.siblings(".next").removeClass("disabled");
+					if(index == 0){$this.addClass("disabled");}
+				}
+			}else if($this.hasClass("next")){
+				if(index < articles.length - 1){
+					index++;
+					$this.siblings('.previous').removeClass("disabled");
+					if(to == articles.length - 1) $this.addClass("disabled");
+				}
+			}
+			var to = index * articleWidth * -1;
+			container.css({'marginLeft':to+"px"});
+			$slider.attr("data-index",index);
+		});
+	}
 });
+
 /*! A fix for the iOS orientationchange zoom bug. Script by @scottjehl, rebound by @wilto.MIT License.*/(function(m){if(!(/iPhone|iPad|iPod/.test(navigator.platform)&&navigator.userAgent.indexOf("AppleWebKit")>-1)){return}var l=m.document;if(!l.querySelector){return}var n=l.querySelector("meta[name=viewport]"),a=n&&n.getAttribute("content"),k=a+",maximum-scale=1",d=a+",maximum-scale=10",g=true,j,i,h,c;if(!n){return}function f(){n.setAttribute("content",d);g=true}function b(){n.setAttribute("content",k);g=false}function e(o){c=o.accelerationIncludingGravity;j=Math.abs(c.x);i=Math.abs(c.y);h=Math.abs(c.z);if(!m.orientation&&(j>5||((h>4&&i<6||h<6&&i>4)&&j>3))){if(g){b()}}else{if(!g){f()}}}m.addEventListener("orientationchange",f,false);m.addEventListener("devicemotion",e,false)})(this);
