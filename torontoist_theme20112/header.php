@@ -13,7 +13,7 @@
     <meta name="bitly-verification" content="bc50193bf440"/>
     <meta name="p:domain_verify" content="6dcc9332a6f2b65cc3ec17524d441db0" > 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--Force latest IE rendering engine & Chrome Frame-->
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory') ?>/style.css?ver=20130422">
+	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory') ?>/style.css?ver=20130516">
         <link rel="stylesheet" media="print" href="/wp-content/themes/torontoist_theme20112/print.css"> 
         <!--[if lt IE 9]><link rel="stylesheet" href="/wp-content/themes/torontoist_theme20112/IEstyle.css"><![endif]-->
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/images/graphics/favicon.ico">
